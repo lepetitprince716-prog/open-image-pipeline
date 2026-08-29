@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "skips": [
+    {
+      "node": "::tests.test_nsfw_directions",
+      "message_contains": "collection skipped"
+    },
+    {
+      "node": "::tests.test_nsfw_lora_cards",
+      "message_contains": "collection skipped"
+    },
+    {
+      "node": "::tests.test_nsfw_prompt_author",
+      "message_contains": "collection skipped"
+    },
+    {
+      "node": "tests.test_anima_step2a_dataset::test_optional_parquet_fixture_when_pyarrow_is_available",
+      "message_contains": "could not import 'pyarrow'"
+    },
+    {
+      "node": "tests.test_app_m2::test_fingerprinted_next_asset_is_immutable",
+      "message_contains": "frontend export not built"
+    },
+    {
+      "node": "scripts.test_gen_router_artistic::test_pose_index_prompt_hints_are_clean_prompt_text",
+      "message_contains": "pose library index not on this machine"
+    },
+    {
+      "node": "scripts.test_retouch::test_denoise_cv2_path_changes_image",
+      "message_contains": "cv2 not installed"
+    },
+    {
+      "node": "::tests.test_nsfw_compose_policy",
+      "message_contains": "collection skipped"
+    },
+    {
+      "node": "::tests.test_nsfw_pilot_matrix",
+      "message_contains": "collection skipped"
+    },
+    {
+      "node": "::tests.test_nsfw_meta_enrich",
+      "message_contains": "collection skipped"
+    }
+  ]
+}

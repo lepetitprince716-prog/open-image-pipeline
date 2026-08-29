@@ -1,0 +1,7 @@
+# time of day
+dawn
+golden hour
+midday
+blue hour
+dusk
+night

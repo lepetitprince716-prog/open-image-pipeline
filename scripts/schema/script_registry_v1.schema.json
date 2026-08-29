@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/script_registry_v1.schema.json",
+  "title": "Z3Comfy Studio root script registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "generated_at", "entries", "risk_baseline"],
+  "properties": {
+    "schema": {"const": "loramake.script-registry/v1"},
+    "generated_at": {"type": "string", "format": "date"},
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/entry"}
+    },
+    "risk_baseline": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "host_literal": {"type": "integer", "minimum": 0},
+          "network_write": {"type": "integer", "minimum": 0},
+          "gpu_submit": {"type": "integer", "minimum": 0},
+          "delete": {"type": "integer", "minimum": 0},
+          "direct_output_root": {"type": "integer", "minimum": 0},
+          "service_change": {"type": "integer", "minimum": 0}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path", "module", "status", "zone", "effects", "targets", "default_mode",
+        "execution_gates", "timeout_s", "output_roots", "cleanup", "tests", "authority",
+        "risk_declarations"
+      ],
+      "properties": {
+        "path": {"type": "string", "pattern": "^scripts/.+\\.(py|sh|zsh|ps1)$"},
+        "module": {"type": "string", "minLength": 1},
+        "status": {"enum": ["active", "probe", "legacy", "test", "reference"]},
+        "zone": {"enum": ["sfw", "shared", "nsfw-engineering"]},
+        "effects": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"enum": [
+            "read_local", "write_metadata", "write_outputs", "network_read", "network_write",
+            "gpu_submit", "process_spawn", "delete", "service_change"
+          ]}
+        },
+        "targets": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["local-mac", "z3", "zzz", "cloud"]}
+        },
+        "default_mode": {"enum": ["plan", "read_only", "execute", "library", "test"]},
+        "execution_gates": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "timeout_s": {"type": "integer", "minimum": 0, "maximum": 86400},
+        "output_roots": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "cleanup": {"enum": ["none", "bounded", "manifest", "manual"]},
+        "tests": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "authority": {"type": "string", "minLength": 1},
+        "risk_declarations": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"enum": [
+            "host_literal", "network_write", "gpu_submit", "delete", "direct_output_root",
+            "service_change"
+          ]}
+        }
+      }
+    }
+  }
+}

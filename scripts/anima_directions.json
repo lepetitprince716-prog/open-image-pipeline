@@ -1,0 +1,493 @@
+{
+  "version": 1,
+  "line": "anima_harem_fast",
+  "base_model": "miaomiaoHarem_anima8Step10",
+  "note": "Anima direction cards, ported from art_directions.json (SDXL) for the Miao8 production line. Structural differences from the SDXL cards: (1) cfg=1 makes negative prompts inert, so there is NO neg_add slot -- every constraint the SDXL card pressed with negatives is either re-expressed as positive text (positive_guards, appended to the positive prompt) or demoted to a post-generation cull criterion (qc_cull, enforced by per-image QC, never by conditioning); (2) no style_loras -- the Anima LoRA ecosystem does not exist yet, style must carry through the medium/color slots alone; (3) base is always Miao8, cards do not switch checkpoints. Recipe numbers (steps/cfg/sampler/scheduler/shift) come from scripts/anima_models.json, never from cards. Density rule: assembled prompts must land at medium density or above (HAREM_PROMPT_GUIDE.md section 2). Cards whose color/light vocabulary is strong should be used with explicit hair/eye color locks in the subject slot. status lifecycle: unvalidated -> verified (2-seed batch passed + user review) / rejected (recorded honestly, kept for the archive).",
+  "resolution_default": "920x1536",
+  "cards": {
+    "moonlit_woodblock": {
+      "name_cn": "版画月光",
+      "intent": "浮世绘木刻+水墨的图形化剪影海报：巨月背光作圆光环，红作画面唯一暖点（SDXL C2 胜出概念移植）",
+      "slots": {
+        "medium": "traditional Japanese woodblock print, ukiyo-e print style, ink wash painting, flat printed color planes, visible paper grain texture",
+        "camera": "from below, full body shot",
+        "composition": "figure rendered as one dark graphic silhouette against the giant moon, negative space, small figure in a wide empty field, single continuous scene",
+        "lighting": "backlighting, contre-jour, huge full moon glow as halo, rim light on hair",
+        "pose": "dynamic dance pose, body forming one rising line, arms extended",
+        "expression": "quiet profile, chin slightly lowered, gaze ahead",
+        "color_mood": "indigo and black limited palette, flat print tones, one bright red obi sash as the only warm color in the frame"
+      },
+      "positive_guards": "one figure only, single unified composition",
+      "qc_cull": [
+        "多联图/分格构图（SDXL 卡曾靠 neg 压 multiple views，本线只能事后淘汰）",
+        "人物占比过小（用户口味硬规则）"
+      ],
+      "aspect": "tall",
+      "post_fx": {
+        "preset": "muted",
+        "overrides": ""
+      },
+      "sfw": true,
+      "status": "rejected",
+      "note": "SDXL 版依赖 96YOTTEA+HueSpark 双强 LoRA；本线纯靠 medium 槽词承载版画质感，能否立住待 2-seed 验证。",
+      "bg_brief": "极低照度空场，唯一光源=高位巨月（冷调、圆形光环感）；背景实体由背景线定义",
+      "validation": {
+        "date": "2026-07-16",
+        "seeds": [
+          7160101,
+          7160202
+        ],
+        "evidence": "outputs/_analysis/anima_directions_rework_2026-07-16/",
+        "note": "v2 重测：红点缀实物化成功（红腰带 2/2 唯一暖色），但版画质感与剪影抽象三测三败——Miao8 渲染先验不可越过。按原意图判废；实际产出固化为新卡 moonlit_obi_dance（见该卡）。"
+      }
+    },
+    "rembrandt_workshop": {
+      "name_cn": "暖光伦勃朗工坊",
+      "intent": "单源暖光油画亲密特写，暖灯丝对冷暗部，知性浅笑（SDXL C4-505 终选配方移植）",
+      "slots": {
+        "medium": "oil painting, visible brushstrokes",
+        "camera": "upper body shot",
+        "composition": "tight framing, deliberate claustrophobic crop",
+        "lighting": "rembrandt lighting, bare tungsten bulb glow as the only key, warm filament light, cool blue shadow fill",
+        "pose": "resting her chin on the back of one hand, elbow propped",
+        "expression": "light smile, barely there, more in the eyes than the mouth",
+        "color_mood": "monochrome silver-blue with warm candlelight breaking through"
+      },
+      "positive_guards": "face fully visible, unobstructed",
+      "qc_cull": [
+        "脸部被手/阴影吞掉（托腮姿势的固有风险）"
+      ],
+      "aspect": "portrait",
+      "post_fx": {
+        "preset": "film",
+        "overrides": ""
+      },
+      "sfw": true,
+      "status": "unvalidated",
+      "note": "SDXL 版无负面依赖，移植成本最低的一张。",
+      "bg_brief": "暖主光自左上（灯丝灯泡类点源），右侧留冷蓝暗部；工坊陈设由背景线定义",
+      "validation": {
+        "date": "2026-07-16",
+        "seeds": [
+          7160101,
+          7160202
+        ],
+        "evidence": "outputs/_analysis/anima_directions_2026-07-16/",
+        "note": "2/2 暖单源×冷暗部；琥珀瞳守住；Claude + visual-reviewer 技术判读通过。现有 review 记录没有 reviewer=user 行，按双门生命周期保持 unvalidated，待用户过目。"
+      }
+    },
+    "blue_hour_silhouette": {
+      "name_cn": "蓝调剪影",
+      "intent": "蓝调时刻的图形化剪影：人物读作亮底上的单一深形，轮廓承载全部信息",
+      "slots": {
+        "medium": "cel shading, flat color",
+        "camera": "full body shot",
+        "composition": "strong silhouette readability, dark figure against a bright field",
+        "lighting": "silhouette, backlighting, cool blue ambient with a single warm accent light",
+        "pose": "body forming a rising diagonal, mid-motion reach",
+        "expression": "none",
+        "color_mood": "smoky desaturated blues with one warm ember note"
+      },
+      "positive_guards": "clean single silhouette, full figure inside the frame",
+      "qc_cull": [
+        "轮廓不可读（剪影卡的唯一存在理由）",
+        "人物占比过小"
+      ],
+      "aspect": "tall",
+      "post_fx": {
+        "preset": "teal-orange",
+        "overrides": ""
+      },
+      "sfw": true,
+      "status": "rejected",
+      "note": "SDXL 版 neg_add 全是 xl2.0 基座伪影专用，对 Miao8 无对应物，直接砍。cel shading 是 Miao8 本调，预期适配度高。",
+      "bg_brief": "亮底剪影：人物后方为最亮区（蓝调天光感），地平线压低；实体由背景线定义",
+      "validation": {
+        "date": "2026-07-16",
+        "seeds": [
+          7160101,
+          7160202
+        ],
+        "evidence": "outputs/_analysis/anima_directions_2026-07-16/",
+        "note": "ember 氛围词劫持瞳色成红 2/2；剪影抽象被人物先验碾掉——正词控制天花板案例；用户终审 2026-07-16：不重测，剪影需求转 WS3"
+      }
+    },
+    "editorial_high_angle": {
+      "name_cn": "高机位编辑部",
+      "intent": "陡峭俯角+利落线条的时装编辑页：对角线人物独占画面（俯视构图=用户点名加分项）",
+      "slots": {
+        "medium": "flat color, clean lineart",
+        "camera": "high-angle editorial shot, looking down at a steep angle, from above",
+        "composition": "strong diagonal composition, body forming a rising diagonal, figure prominent in frame",
+        "lighting": "soft diffused overcast light, shadowless gentle modelling",
+        "pose": "standing contrapposto, weight settled on one hip, S-curve through the spine",
+        "expression": "sideways glance, cool and appraising",
+        "color_mood": "ivory and charcoal, the brightest value reserved for white fabric"
+      },
+      "positive_guards": "full body visible from head to feet",
+      "qc_cull": [
+        "俯角透视畸变（头身比崩）"
+      ],
+      "aspect": "portrait",
+      "post_fx": {
+        "preset": "muted",
+        "overrides": ""
+      },
+      "sfw": true,
+      "status": "verified",
+      "note": "SDXL 版基座 Dasiwa 的高机位强项由提示词接管；用户口味双命中（俯视+占比锚）优先验证。",
+      "bg_brief": "俯视地面即全部底面：单一材质、低对比，让对角线人物独占画面",
+      "validation": {
+        "date": "2026-07-16",
+        "seeds": [
+          7160101,
+          7160202
+        ],
+        "evidence": "outputs/_analysis/anima_directions_2026-07-16/",
+        "note": "用户终审 2026-07-16：俯角成立判 verified（采 Claude 读法胜 reviewer 分歧）；用户点名 seed 7160101 非常好——hero 候选。"
+      }
+    },
+    "sanctuary_god_rays": {
+      "name_cn": "光柱静修",
+      "intent": "高处斜射光柱下的静修小身影：体积光与大负空间叙事，纸本旧色",
+      "slots": {
+        "medium": "gouache, soft matte rendering",
+        "camera": "wide establishing shot",
+        "composition": "figure low in the frame, vast empty upper field",
+        "lighting": "volumetric lighting, god rays, visible shafts of light in haze, top-down pool of light",
+        "pose": "sitting upright cross-legged in meditation, spine vertical, back straight, hands resting on knees, head held level, composed and still",
+        "expression": "eyes closed, serene, unhurried breath",
+        "color_mood": "aged paper and ink tones, warm parchment neutrals"
+      },
+      "positive_guards": "modest flowing robes fully covering the body, upright seated posture, head above shoulders above hips",
+      "qc_cull": [
+        "gravure 漂移（SDXL 版靠 neg 压，本线正词+wd14 门+人工淘汰）",
+        "人物小到不可读（负空间卡与占比规则的固有张力，取样时人物锚在下三分线）"
+      ],
+      "aspect": "portrait",
+      "post_fx": {
+        "preset": "film",
+        "overrides": ""
+      },
+      "sfw": true,
+      "status": "unvalidated",
+      "note": "本卡与用户「人物占比别太小」规则有张力——验证批如实呈现，由用户定去留。",
+      "bg_brief": "上方亮、下方沉的大空间感：光柱自高处斜射（暖白），空间实体由背景线定义",
+      "validation": {
+        "date": "2026-07-16",
+        "seeds": [
+          7160101,
+          7160202
+        ],
+        "evidence": "outputs/_analysis/anima_directions_rework_2026-07-16/",
+        "note": "v2 重测 2/2：姿势锚生效，双 seed 直立静坐零 prone；光柱/纸本调/呼吸雾成立。注意项：seed1 长袍露背，与 fully-covering guard 有轻微出入（QC 留意）；负空间比卡面收紧、人物占比升高（合用户口味）。Claude 复审通过；按卡片生命周期（Claude 读 + 用户终审双门）降回 unvalidated 等用户过目 sheet（2026-07-16 Codex 评审指出 + hands_macro 两度翻车教训）。"
+      },
+      "rework": {
+        "date": "2026-07-16",
+        "reason": "v1 seed2 姿态漂 prone（用户终审：姿势锚强化后重测）",
+        "changes": "pose 槽全重写为直立静坐锚点；guards 加 upright/头肩髋序"
+      }
+    },
+    "white_coat_nocturne": {
+      "name_cn": "月下白大褂",
+      "intent": "白大褂/白衣作黑暗中唯一亮形——服装即构图；冷月环境光+发丝勾边",
+      "slots": {
+        "medium": "traditional media",
+        "camera": "cowboy shot",
+        "composition": "clothing reading as one bright graphic shape against darkness",
+        "lighting": "cool blue moonlight, pale ambient wash, rim light on hair",
+        "pose": "back to viewer, looking over one shoulder",
+        "expression": "sideways glance, cool and appraising",
+        "color_mood": "monochrome silver-blue with warm candlelight breaking through"
+      },
+      "positive_guards": "long white coat as the brightest shape in frame",
+      "qc_cull": [
+        "白衣不成形（亮形被环境光稀释）"
+      ],
+      "aspect": "tall",
+      "post_fx": {
+        "preset": "film",
+        "overrides": "--halation 0.12"
+      },
+      "sfw": true,
+      "status": "unvalidated",
+      "note": "SDXL 版 neg_add 是 xl2.0 伪影专用，砍。服装槽依赖主体侧提供白大褂类单品。",
+      "bg_brief": "深黑至深蓝低照度底，月光自画面左上；无实体要求",
+      "validation": {
+        "date": "2026-07-16",
+        "seeds": [
+          7160101,
+          7160202
+        ],
+        "evidence": "outputs/_analysis/anima_directions_2026-07-16/",
+        "note": "2/2 白衣唯一亮形；candlelight 词实体化为蜡烛群（机制发现，见 GUIDE）。Claude + visual-reviewer 技术判读通过；缺 reviewer=user 证据，待用户过目。"
+      }
+    },
+    "hands_macro_story": {
+      "name_cn": "手部叙事特写",
+      "intent": "手就是主角：整理已戴好的手套的一瞬讲角色的克制（Miao8 手部解剖在多轮实证里始终良好；「戴到一半」的中间态经 v5/v5.1 判定在 Miao8 先验之外，已按用户裁决放弃）",
+      "slots": {
+        "medium": "digital painting, visible brushstrokes",
+        "camera": "extreme close-up macro shot of her hands, hands filling most of the frame, face out of frame, cropped at the shoulders",
+        "composition": "tight crop centered on the two hands, one gloved and one bare, no face visible, blurry foreground, shallow depth of field",
+        "lighting": "sidelighting, hard raking light skimming across fabric texture, long shadows",
+        "pose": "adjusting gloves, one black leather glove fully worn and smooth, the other hand completely bare, bare fingers resting on the glove's cuff and pressing it flat against the wrist, eyes lowered to the task",
+        "expression": "none",
+        "color_mood": "desaturated film tones"
+      },
+      "positive_guards": "exactly two hands clearly separated, one gloved hand and one bare hand, five fingers per hand, all visible fingers anatomically correct, modest fitted attire",
+      "qc_cull": [
+        "手指计数错误（本卡零容忍）",
+        "双手融合/共用一个手套体（v2 实翻车模式，零容忍）",
+        "比例夸张漂移（SDXL Harem 的胯腰先验在 Miao8 是否复现待观察）"
+      ],
+      "aspect": "portrait",
+      "post_fx": {
+        "preset": "film",
+        "overrides": ""
+      },
+      "sfw": true,
+      "status": "validated",
+      "note": "SDXL 版的大串 neg_add（wide hips 等）全部失效——正词 guard + qc_cull 接管；--sfw 门常开。v2 教训：'gloved hands' 复数引导双手全戴并诱发融合——一戴一裸不对称即反融合分离锚。【禁写清单·2026-07-18】半戴/中间态语言（half-donned / halfway on / empty finger sheaths / glove pull / hooked into the cuff pulling it up 等）一律禁写：五轮 24 格实证（rework→rework5）证明 Miao8 画不出未填充的手套材料，强推的代价是手套本体破相（空套管悬浮/断腕带/超现实物理）。手套必须以完整佩戴形态出现，动作上限=整理袖口。",
+      "bg_brief": "前景虚化带刻意留白——物件线可替换为具体实体；中景外全部融掉",
+      "validation": {
+        "date": "2026-07-18",
+        "evidence": [
+          "outputs/_analysis/anima_directions_rework3_2026-07-16/",
+          "outputs/_analysis/anima_directions_rework4_2026-07-18/",
+          "outputs/_analysis/anima_directions_rework5_2026-07-18/"
+        ],
+        "note": "用户裁决（2026-07-18）：停止死磕半戴中间态——强推导致手套无法完整显示。卡面动作降档为「整理已戴好的手套」，即 v4（rework3）已实证的稳定渲染形态：手套完整、解剖 8+8 零翻车（五指/无融合）、构图达标。rework4/5 归档为负结果证据（三种策略×24 格：翻转动作主体/半戴状态词/空手套材料描述，动作轴严判 0/16 过，先验天花板与异色瞳同类）。"
+      },
+      "rework": {
+        "date": "2026-07-18",
+        "reason": "v5 收案：半戴态判死（先验之外），按用户裁决回归完整手套 + 整理袖口动作",
+        "changes": "pose 槽改为已实证稳定形态（fully worn and smooth + bare fingers resting on the cuff），剔除所有拉拽/中间态动词；intent 与 note 补禁写清单；v2-v5.1 全程见 git 历史与各轮 REPORT"
+      }
+    },
+    "overhead_repose": {
+      "name_cn": "俯瞰卧影",
+      "intent": "正俯视机位的卧姿人像：身体作对角线充满画面，直视上方镜头——俯视构图（用户点名加分项）",
+      "slots": {
+        "medium": "soft anime illustration, painterly shading",
+        "camera": "from above, bird's-eye view, directly overhead, top-down shot, looking up at viewer",
+        "composition": "subject lying on her back filling the frame diagonally, full figure, top-down flat lay framing",
+        "pose": "lying on her back, relaxed arms, hair fanned out",
+        "lighting": "soft even ambient light, gentle falloff toward the frame edges",
+        "expression": "calm direct gaze upward",
+        "color_mood": "soft cool neutrals with one warm accent"
+      },
+      "positive_guards": "modest casual outfit, natural relaxed anatomy, full figure in frame",
+      "qc_cull": [
+        "躺姿透视畸变（SDXL 版即为此设 neg，本线只能事后淘汰）",
+        "构图俯而不正（斜侧卧视角=未达卡意图）",
+        "暗示性姿态（wd14 门+人工双检）"
+      ],
+      "aspect": "tall",
+      "resolution": "920x1536",
+      "post_fx": {
+        "preset": "muted",
+        "overrides": ""
+      },
+      "sfw": true,
+      "status": "unvalidated",
+      "note": "SDXL 版是 square 画幅；Anima 未验证 square，v1 先以 920x1536 竖幅+对角线充画面验证，不成再开分辨率探针。用户口味双命中，优先验证。",
+      "bg_brief": "干净的地面/床单平面作纯色场，发丝与织物纹理提供细节；无杂物",
+      "validation": {
+        "date": "2026-07-16",
+        "seeds": [
+          7160101,
+          7160202
+        ],
+        "evidence": "outputs/_analysis/anima_directions_2026-07-16/",
+        "note": "2/2 正俯拍卧姿直视镜头，倒置脸解剖干净；命中已知用户口味。Claude + visual-reviewer 技术判读通过；缺 reviewer=user 证据，待用户过目。"
+      }
+    },
+    "window_light_room": {
+      "name_cn": "窗光独处",
+      "intent": "大窗侧天光下的室内独处：柔和方向性光塑形、光柱里尘埃微粒——日常里的安静体积感",
+      "slots": {
+        "medium": "soft anime illustration, gentle gradients",
+        "camera": "cowboy shot, three-quarter view",
+        "composition": "side-lit subject at frame edge, generous quiet negative space",
+        "lighting": "window light, soft directional daylight from one side, dust motes in the light shaft, gentle rim light on hair",
+        "pose": "seated at ease, shoulders relaxed",
+        "expression": "soft downward gaze, lost in thought",
+        "color_mood": "muted daylight neutrals, cool shadows, warm highlight edge"
+      },
+      "positive_guards": "figure prominent in frame",
+      "qc_cull": [
+        "人物占比过小（负空间与占比规则的张力）"
+      ],
+      "aspect": "tall",
+      "post_fx": {
+        "preset": "muted",
+        "overrides": ""
+      },
+      "sfw": true,
+      "status": "unvalidated",
+      "note": "SDXL 版 2026-07-03 A/B 全过、无负面依赖，移植成本低。",
+      "bg_brief": "单侧大面天光（冷白、柔和方向性），室内暗部微暖；窗与陈设实体由背景线定义",
+      "validation": {
+        "date": "2026-07-16",
+        "seeds": [
+          7160101,
+          7160202
+        ],
+        "evidence": "outputs/_analysis/anima_directions_2026-07-16/",
+        "note": "2/2 单侧窗光；镜别比卡面收紧，恰合占比口味。Claude + visual-reviewer 技术判读通过；缺 reviewer=user 证据，待用户过目。"
+      }
+    },
+    "golden_hour_rimlight": {
+      "name_cn": "黄昏金环逆光",
+      "intent": "日系写真定番：黄昏逆光把发丝烧成金环、镜头进一点眩光——胶片颗粒的温柔怀旧",
+      "slots": {
+        "medium": "soft anime illustration, film grain texture",
+        "camera": "upper body shot",
+        "composition": "outdoors, open sky behind the subject, light source behind the subject just out of frame, shallow depth of field",
+        "lighting": "golden hour backlighting, strong rim light on hair, warm lens flare, sun-kissed glowing hair edges, soft haze",
+        "expression": "gentle smile, eyes slightly narrowed against the light",
+        "color_mood": "amber and honey tones, lifted blacks, faded film warmth"
+      },
+      "positive_guards": "natural sunlight only, plain sky behind",
+      "qc_cull": [
+        "实体天使光环/halo 伪影（SDXL 版靠 neg 压且曾复发，本线为已知高危，命中即废）",
+        "暖色光劫持发瞳色（SDXL 线由组装器按 color_hijack 从 pack 注入；Anima 线暂无组装器，主体槽仍需手动带色锁）"
+      ],
+      "aspect": "portrait",
+      "post_fx": {
+        "preset": "film",
+        "overrides": ""
+      },
+      "sfw": true,
+      "status": "verified",
+      "note": "halo 是本卡在 SDXL 线的惯犯且负面手段在本线不存在——验证批重点看 halo 出现率，过高则如实标弃。",
+      "bg_brief": "低角度金色夕阳自人物身后（暖、强逆光、轻雾霾）；场景实体由背景线定义",
+      "validation": {
+        "date": "2026-07-16",
+        "seeds": [
+          7160101,
+          7160202
+        ],
+        "evidence": "outputs/_analysis/anima_directions_2026-07-16/",
+        "note": "语义 2/2 强、halo 0/2 未犯；但暖光把黑发主体洗棕金 2/2（自设 cull 触发），待用户政策；用户终审 2026-07-16：暖光洗发色判可接受，升 verified（卡面保留提醒）"
+      },
+      "flags": [
+        "color_hijack"
+      ]
+    },
+    "neon_rain_wash": {
+      "name_cn": "霓虹雨夜",
+      "intent": "雨夜霓虹灯牌的多色光洗在湿发湿肩上：路面反光把城市点亮两次（Miao8 高饱和赛璐璐调味的主场）",
+      "slots": {
+        "medium": "digital painting, wet-on-wet glow rendering",
+        "camera": "upper body shot, looking at viewer",
+        "composition": "subject close against a rain-washed night street, glowing color fields across the frame",
+        "lighting": "neon sign glow, magenta and cyan color wash on wet hair, rain droplets catching light, reflective wet sheen",
+        "expression": "cool level gaze under wet bangs",
+        "color_mood": "saturated neon on deep night blues"
+      },
+      "positive_guards": "modest opaque jacket fully covering the torso",
+      "qc_cull": [
+        "湿身走形/透视感服装（SDXL 版靠 neg 压 see-through，本线正词+wd14 门接管）",
+        "霓虹色劫持发瞳色（SDXL 线由组装器按 color_hijack 从 pack 注入；Anima 线暂无组装器，主体槽仍需手动带色锁）"
+      ],
+      "aspect": "tall",
+      "post_fx": {
+        "preset": "teal-orange",
+        "overrides": ""
+      },
+      "sfw": true,
+      "status": "unvalidated",
+      "note": "高饱和霓虹与 Miao8 鲜艳调味天然同向，预期适配度高。",
+      "bg_brief": "雨夜街道+霓虹灯牌色块（字形不必可读），湿路面倒影",
+      "validation": {
+        "date": "2026-07-16",
+        "seeds": [
+          7160101,
+          7160202
+        ],
+        "evidence": "outputs/_analysis/anima_directions_2026-07-16/",
+        "note": "2/2 品红/青双色洗；全批最强色光下色锁守住。Claude + visual-reviewer 技术判读通过；缺 reviewer=user 证据，待用户过目。"
+      },
+      "flags": [
+        "color_hijack"
+      ]
+    },
+    "hanabi_night_bloom": {
+      "name_cn": "花火夜宴",
+      "intent": "夜空花火在仰起的脸上开出暖光：瞬时光源的节日光照——夏夜祭典的一秒",
+      "slots": {
+        "medium": "soft anime illustration, glowing particle rendering",
+        "camera": "portrait, upper body shot, slight low angle",
+        "composition": "subject looking up and off-frame toward the light source, bloom of warm glow filling the sky side",
+        "lighting": "firework burst glow from the night sky, warm flickering light on an upturned face, deep night ambient behind",
+        "expression": "lips parted in wonder, eyes reflecting sparks",
+        "color_mood": "festival warm golds and reds over deep indigo night"
+      },
+      "positive_guards": "face fully visible and lit by the fireworks",
+      "qc_cull": [
+        "花火实体画崩或喧宾夺主（人物占比锚在 upper body）",
+        "暖色光劫持发瞳色（SDXL 线由组装器按 color_hijack 从 pack 注入；Anima 线暂无组装器，主体槽仍需手动带色锁）"
+      ],
+      "aspect": "tall",
+      "post_fx": {
+        "preset": "warm",
+        "overrides": ""
+      },
+      "sfw": true,
+      "status": "verified",
+      "note": "SDXL 版身份劫持靠色锁救回；本线无风格 LoRA，劫持源只剩色光词，色锁规则照搬。",
+      "bg_brief": "夜空花火散开的光点与烟迹在画面上部；地面暗",
+      "validation": {
+        "date": "2026-07-16",
+        "seeds": [
+          7160101,
+          7160202
+        ],
+        "evidence": "outputs/_analysis/anima_directions_2026-07-16/",
+        "note": "花火/仰脸/瞳内火花 2/2 佳；暖光洗发色 2/2 同上；用户终审 2026-07-16：暖光洗发色判可接受，升 verified（卡面保留提醒）"
+      },
+      "flags": [
+        "color_hijack"
+      ]
+    },
+    "moonlit_obi_dance": {
+      "name_cn": "月下红腰带",
+      "intent": "巨月背光下的黑和服之舞：红腰带与飘带作画面唯一暖色——moonlit_woodblock 三测后按实际产出如实改写的继任卡（不再主张版画质感与剪影）",
+      "slots": {
+        "medium": "soft anime illustration, glossy painterly rendering",
+        "camera": "from below, full body shot",
+        "composition": "figure large against a giant full moon, wide empty night field, single continuous scene",
+        "lighting": "backlighting, contre-jour, huge full moon glow as halo, rim light on hair",
+        "pose": "dynamic dance pose, body forming one rising line, arms extended",
+        "expression": "quiet profile, chin slightly lowered, gaze ahead",
+        "color_mood": "indigo and black limited palette, one bright red obi sash and trailing red ribbons as the only warm color"
+      },
+      "positive_guards": "one figure only, single unified composition",
+      "qc_cull": [
+        "背景杂入微型第三者剪影（v2 两 seed 均出现一枚远景小人影，QC 裁决去留）",
+        "人物占比过小（用户口味硬规则）"
+      ],
+      "subject_binding": "主体槽必须提供 flowing dark kimono with a bright red obi sash（红腰带是本卡暖色来源，实物化机制）",
+      "aspect": "tall",
+      "post_fx": {
+        "preset": "muted",
+        "overrides": ""
+      },
+      "sfw": true,
+      "status": "unvalidated",
+      "note": "由 moonlit_woodblock v2 重测产出固化（胜出概念→新卡流程）。红点缀实物化=光源词实体化机制的正向应用。",
+      "bg_brief": "极低照度空场，唯一光源=高位巨月（冷调、圆形光环感）；背景实体由背景线定义",
+      "validation": {
+        "date": "2026-07-16",
+        "seeds": [
+          7160101,
+          7160202
+        ],
+        "evidence": "outputs/_analysis/anima_directions_rework_2026-07-16/",
+        "note": "2/2 复现（巨月/黑和服舞姿/红腰带唯一暖色）指的是 moonlit_woodblock v2 跑批的实际输出——本卡 spec 从该胜出输出铸造，但铸造后的卡面原文（medium/composition/color_mood 有改写）尚未以其组装 prompt 跑过自己的 2-seed 批。按卡片生命周期保持 unvalidated：待自跑批 + 用户终审（2026-07-16 Codex 评审指出）。"
+      }
+    }
+  }
+}

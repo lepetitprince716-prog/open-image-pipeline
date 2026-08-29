@@ -1,0 +1,376 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/anima_step2a_dataset_manifest_v1.schema.json",
+  "title": "Anima Step 2a offline DRAFT/HOLD dataset manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "manifest_version",
+    "workflow_status",
+    "training_ready",
+    "operation",
+    "created_at",
+    "manifest_id",
+    "parent_manifest_sha256",
+    "parent_manifest_id",
+    "source",
+    "inputs",
+    "policy",
+    "stage_order",
+    "network_activity",
+    "review_plan",
+    "summary",
+    "records"
+  ],
+  "properties": {
+    "schema_version": {"const": "anima-step2a-dataset-manifest-v1"},
+    "manifest_version": {"const": 1},
+    "workflow_status": {"const": "DRAFT_HOLD_PENDING_USER_FINAL_REVIEW"},
+    "training_ready": {"const": false},
+    "operation": {"enum": ["plan", "reconcile", "review_package_plan"]},
+    "created_at": {"type": "string", "format": "date-time"},
+    "manifest_id": {"type": "string", "pattern": "^anima-step2a-v1-[a-f0-9]{24}$"},
+    "parent_manifest_sha256": {
+      "oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]
+    },
+    "parent_manifest_id": {
+      "oneOf": [
+        {"type": "null"},
+        {"type": "string", "pattern": "^anima-step2a-v1-[a-f0-9]{24}$"}
+      ]
+    },
+    "source": {"$ref": "#/$defs/source"},
+    "inputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/input"}
+    },
+    "policy": {"$ref": "#/$defs/policy"},
+    "stage_order": {
+      "const": [
+        "metadata_filter",
+        "md5_sha256_exact_dedup",
+        "phash_near_dedup",
+        "train_validation_split_after_dedup",
+        "human_review_plan"
+      ]
+    },
+    "network_activity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "network_requests_performed",
+        "bulk_image_download_count",
+        "bulk_image_download_bytes"
+      ],
+      "properties": {
+        "network_requests_performed": {"const": 0},
+        "bulk_image_download_count": {"const": 0},
+        "bulk_image_download_bytes": {"const": 0}
+      }
+    },
+    "review_plan": {"$ref": "#/$defs/reviewPlan"},
+    "summary": {"$ref": "#/$defs/summary"},
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100000,
+      "items": {"$ref": "#/$defs/record"}
+    }
+  },
+  "$defs": {
+    "md5": {"type": "string", "pattern": "^[a-f0-9]{32}$"},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "phash": {"type": "string", "pattern": "^[a-f0-9]{16}$"},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "revision",
+        "license",
+        "metadata_path",
+        "metadata_sha256",
+        "opt_out_contract",
+        "license_evidence"
+      ],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "revision": {"type": "string", "pattern": "^[a-f0-9]{40,64}$"},
+        "license": {"type": "string", "minLength": 1},
+        "metadata_path": {"type": "string", "minLength": 1},
+        "metadata_sha256": {"$ref": "#/$defs/sha256"},
+        "opt_out_contract": {"const": "explicit per record; unknown is held"},
+        "license_evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["url", "revision", "sha256", "captured_date"],
+          "properties": {
+            "url": {"type": "string", "pattern": "^https://"},
+            "revision": {"type": "string", "pattern": "^[a-f0-9]{40,64}$"},
+            "sha256": {"$ref": "#/$defs/sha256"},
+            "captured_date": {"type": "string", "format": "date"}
+          }
+        }
+      }
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "path",
+        "format",
+        "sha256",
+        "record_count",
+        "max_input_records"
+      ],
+      "properties": {
+        "role": {"enum": ["metadata", "parent_manifest", "hash_inventory"]},
+        "path": {"type": "string", "minLength": 1},
+        "format": {"enum": ["jsonl", "parquet", "json"]},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "record_count": {"type": "integer", "minimum": 1, "maximum": 100000},
+        "max_input_records": {"type": "integer", "minimum": 1, "maximum": 100000}
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "filter_version",
+        "policy_digest",
+        "min_score",
+        "ratings",
+        "hard_blocked_tags",
+        "watchlist_tags",
+        "phash_distance",
+        "validation_ratio",
+        "split_salt",
+        "review"
+      ],
+      "properties": {
+        "status": {"const": "DRAFT_PENDING_USER_FINAL_REVIEW"},
+        "filter_version": {"type": "string", "minLength": 1},
+        "policy_digest": {"$ref": "#/$defs/sha256"},
+        "min_score": {"type": "number"},
+        "ratings": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["eligible", "hold", "reject"],
+          "properties": {
+            "eligible": {"const": ["general"]},
+            "hold": {"const": ["sensitive"]},
+            "reject": {"const": ["questionable", "explicit"]}
+          }
+        },
+        "hard_blocked_tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "watchlist_tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "phash_distance": {"type": "integer", "minimum": 0, "maximum": 4},
+        "validation_ratio": {"type": "number", "exclusiveMinimum": 0, "maximum": 0.5},
+        "split_salt": {"type": "string", "minLength": 1},
+        "review": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["pilot_fraction", "later_minimum", "later_fraction"],
+          "properties": {
+            "pilot_fraction": {"const": 1.0},
+            "later_minimum": {"type": "integer", "minimum": 100},
+            "later_fraction": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}
+          }
+        }
+      }
+    },
+    "reviewPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "mode",
+        "status",
+        "eligible_population",
+        "minimum_sample",
+        "sampling_fraction",
+        "selected_record_keys",
+        "held_reconsideration_record_keys",
+        "actual_images_packaged"
+      ],
+      "properties": {
+        "version": {"const": "anima-step2a-review-package-plan-v1"},
+        "mode": {"enum": ["not_planned", "pilot", "batch"]},
+        "status": {"enum": ["NOT_PLANNED", "PLAN_ONLY_NO_IMAGES"]},
+        "eligible_population": {"type": "integer", "minimum": 0},
+        "minimum_sample": {"type": "integer", "minimum": 0},
+        "sampling_fraction": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1
+        },
+        "selected_record_keys": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "held_reconsideration_record_keys": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "actual_images_packaged": {"const": 0}
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "input_records",
+        "draft_eligible_records",
+        "held_records",
+        "rejected_records",
+        "train_records",
+        "validation_records",
+        "review_selected_records",
+        "decision_counts",
+        "bulk_images_downloaded_by_tool"
+      ],
+      "properties": {
+        "input_records": {"type": "integer", "minimum": 1},
+        "draft_eligible_records": {"type": "integer", "minimum": 0},
+        "held_records": {"type": "integer", "minimum": 0},
+        "rejected_records": {"type": "integer", "minimum": 0},
+        "train_records": {"type": "integer", "minimum": 0},
+        "validation_records": {"type": "integer", "minimum": 0},
+        "review_selected_records": {"type": "integer", "minimum": 0},
+        "decision_counts": {
+          "type": "object",
+          "additionalProperties": {"type": "integer", "minimum": 0}
+        },
+        "bulk_images_downloaded_by_tool": {"const": 0}
+      }
+    },
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_key",
+        "image_id",
+        "source",
+        "source_revision",
+        "source_license",
+        "asset_license",
+        "opt_out_status",
+        "tag_snapshot",
+        "tag_snapshot_field",
+        "tag_snapshot_sha256",
+        "filter_version",
+        "rating",
+        "score",
+        "hashes",
+        "filter_decision",
+        "filter_reasons",
+        "decision",
+        "decision_reasons",
+        "duplicate_of",
+        "phash_distance",
+        "split",
+        "review_selected"
+      ],
+      "properties": {
+        "record_key": {"type": "string", "minLength": 1},
+        "image_id": {
+          "oneOf": [{"type": "string", "minLength": 1}, {"type": "null"}]
+        },
+        "source": {"type": "string", "minLength": 1},
+        "source_revision": {"type": "string", "pattern": "^[a-f0-9]{40,64}$"},
+        "source_license": {"type": "string", "minLength": 1},
+        "asset_license": {"type": "string", "minLength": 1},
+        "opt_out_status": {
+          "enum": ["not_opted_out", "opted_out", "unknown"]
+        },
+        "tag_snapshot": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "tag_snapshot_field": {"type": "string", "minLength": 1},
+        "tag_snapshot_sha256": {"$ref": "#/$defs/sha256"},
+        "filter_version": {"type": "string", "minLength": 1},
+        "rating": {
+          "enum": ["general", "sensitive", "questionable", "explicit", "unknown"]
+        },
+        "score": {"oneOf": [{"type": "number"}, {"type": "null"}]},
+        "hashes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["md5", "sha256", "phash"],
+          "properties": {
+            "md5": {"oneOf": [{"$ref": "#/$defs/md5"}, {"type": "null"}]},
+            "sha256": {"oneOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+            "phash": {"oneOf": [{"$ref": "#/$defs/phash"}, {"type": "null"}]}
+          }
+        },
+        "filter_decision": {"$ref": "#/$defs/filterDecision"},
+        "filter_reasons": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "decision": {"$ref": "#/$defs/finalDecision"},
+        "decision_reasons": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "duplicate_of": {
+          "oneOf": [{"type": "string", "minLength": 1}, {"type": "null"}]
+        },
+        "phash_distance": {
+          "oneOf": [
+            {"type": "integer", "minimum": 0, "maximum": 64},
+            {"type": "null"}
+          ]
+        },
+        "split": {"enum": ["train", "validation", "none"]},
+        "review_selected": {"type": "boolean"}
+      }
+    },
+    "filterDecision": {
+      "enum": [
+        "DRAFT_ELIGIBLE",
+        "HOLD_MISSING_METADATA",
+        "HOLD_OPT_OUT_UNKNOWN",
+        "HOLD_RATING_SENSITIVE",
+        "HOLD_WATCHLIST_TAG",
+        "REJECT_OPT_OUT",
+        "REJECT_BLOCKED_TAG",
+        "REJECT_RATING",
+        "REJECT_SCORE"
+      ]
+    },
+    "finalDecision": {
+      "enum": [
+        "DRAFT_ELIGIBLE",
+        "HOLD_MISSING_METADATA",
+        "HOLD_OPT_OUT_UNKNOWN",
+        "HOLD_RATING_SENSITIVE",
+        "HOLD_WATCHLIST_TAG",
+        "HOLD_MISSING_DEDUP_HASH",
+        "HOLD_HASH_CONFLICT",
+        "REJECT_OPT_OUT",
+        "REJECT_BLOCKED_TAG",
+        "REJECT_RATING",
+        "REJECT_SCORE",
+        "REJECT_DUPLICATE_EXACT",
+        "REJECT_DUPLICATE_PHASH"
+      ]
+    }
+  }
+}

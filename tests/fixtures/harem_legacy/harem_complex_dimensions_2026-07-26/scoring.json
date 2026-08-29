@@ -1,0 +1,91 @@
+{
+  "schema": "harem-complex-prompt-scoring-v1",
+  "status": "provisional_two_seed_visual_review",
+  "reviewer": "Codex visual inspection of retained local originals and contact sheets",
+  "policy": {
+    "criterion_values": [
+      0,
+      1
+    ],
+    "ambiguous": 0,
+    "denominator_per_image": 8,
+    "note": "Prompt-adherence only. Rendering polish and anatomy defects are discussed separately."
+  },
+  "column_order_in_contact_sheets": [
+    "native_8step",
+    "control_8step",
+    "control_v15"
+  ],
+  "row_order_in_contact_sheets": [
+    202607262210,
+    202607262211
+  ],
+  "scores": {
+    "pose": {
+      "native_8step": {
+        "202607262210": [1, 1, 0, 0, 1, 1, 0, 0],
+        "202607262211": [1, 0, 0, 0, 0, 0, 0, 0]
+      },
+      "control_8step": {
+        "202607262210": [1, 0, 0, 0, 0, 0, 0, 0],
+        "202607262211": [1, 0, 0, 0, 1, 1, 0, 0]
+      },
+      "control_v15": {
+        "202607262210": [1, 0, 0, 0, 0, 1, 0, 0],
+        "202607262211": [1, 1, 0, 0, 0, 0, 0, 0]
+      },
+      "review_note": "All arms converted the requested asymmetric standing balance into kneeling or crouching. Ribbon and raised-arm concepts survived more often than the exact support-leg, step, waist-hand, and counter-rotation relations."
+    },
+    "scene": {
+      "native_8step": {
+        "202607262210": [1, 1, 1, 1, 1, 1, 1, 1],
+        "202607262211": [1, 0, 1, 1, 1, 1, 1, 1]
+      },
+      "control_8step": {
+        "202607262210": [1, 1, 1, 1, 1, 1, 1, 1],
+        "202607262211": [1, 0, 1, 1, 1, 1, 1, 1]
+      },
+      "control_v15": {
+        "202607262210": [1, 0, 1, 1, 1, 1, 1, 1],
+        "202607262211": [1, 0, 1, 1, 1, 1, 1, 1]
+      },
+      "review_note": "All arms preserved conservatory, floor, lilies, lantern, city, and split lighting. V1.5 omitted clearly visible rain in both seeds; 8-Step rendered explicit rain in one seed per recipe."
+    },
+    "clothing": {
+      "native_8step": {
+        "202607262210": [1, 0, 1, 0, 0, 0, 1, 1],
+        "202607262211": [1, 0, 0, 1, 0, 0, 1, 0]
+      },
+      "control_8step": {
+        "202607262210": [1, 1, 0, 0, 0, 0, 1, 1],
+        "202607262211": [1, 1, 0, 1, 0, 0, 1, 1]
+      },
+      "control_v15": {
+        "202607262210": [1, 1, 0, 0, 0, 0, 1, 0],
+        "202607262211": [1, 1, 0, 1, 0, 0, 1, 0]
+      },
+      "review_note": "Both models systematically placed the glove on the opposite arm and usually put cape and epaulette on the same shoulder instead of opposite shoulders. V1.5 was visually cleaner but not more accurate at left-right binding."
+    },
+    "composition": {
+      "native_8step": {
+        "202607262210": [1, 1, 1, 1, 1, 1, 1, 1],
+        "202607262211": [0, 1, 1, 1, 0, 1, 1, 1]
+      },
+      "control_8step": {
+        "202607262210": [0, 0, 1, 1, 0, 1, 1, 1],
+        "202607262211": [1, 0, 1, 1, 0, 1, 1, 1]
+      },
+      "control_v15": {
+        "202607262210": [0, 0, 1, 1, 0, 1, 0, 1],
+        "202607262211": [1, 0, 1, 1, 0, 1, 1, 1]
+      },
+      "review_note": "All arms understood stained glass, roses, stairs, and gothic depth. Native 8-Step produced the strongest Dutch tilt and negative space. V1.5 regularized the framing toward upright and centered compositions."
+    }
+  },
+  "observed_failures": [
+    "Exact multi-joint standing pose and counter-rotation were not reliably followed by either model.",
+    "Left-right garment binding failed systematically, especially glove/arm and cape/epaulette separation.",
+    "V1.5's cleaner aesthetic sometimes removed requested weather or compositional extremity.",
+    "Two seeds are enough to expose repeatable failure modes but not enough for a definitive population estimate."
+  ]
+}

@@ -1,0 +1,355 @@
+{
+  "schema": "loramake.defect_probe_spec.v1",
+  "description": "Frozen cross-model defect-probe campaign spec (workstream W3). 8 checkpoints x 18 anatomy/pose scenarios x 4 seeds = 576 cells. See scripts/defect_probe.py for the driver that consumes this file.",
+  "seeds": [
+    7160001,
+    7160002,
+    7160003,
+    7160004
+  ],
+  "quality_prefix": {
+    "sdxl": "masterpiece, best quality, amazing quality, very aesthetic, absurdres, newest, ",
+    "flow": "masterpiece, best quality, very aesthetic, newest, absurdres, safe, "
+  },
+  "suffix": ", detailed, high quality illustration",
+  "anatomy_negative": "worst quality, low quality, artist name, blurry, jpeg artifacts, chromatic aberration, bad anatomy, malformed hands, extra digits, missing digits, fused fingers, text, watermark, logo, child, loli, petite, childish, baby face, aged down, chibi",
+  "scenarios": [
+    {
+      "id": "h1",
+      "axis": "hands",
+      "difficulty": "easy",
+      "label": "arms at sides, full body",
+      "fragment": "1girl, solo, adult woman, mature female, standing, full body, arms at sides, hands relaxed, simple background",
+      "krea2_caption": "An adult woman stands facing the camera with her arms relaxed at her sides, her whole body visible against a plain background.",
+      "min_detected": 2
+    },
+    {
+      "id": "h2",
+      "axis": "hands",
+      "difficulty": "medium",
+      "label": "holding cup, both hands, upper body",
+      "fragment": "1girl, solo, adult woman, mature female, upper body, holding a cup with both hands, looking down at the cup, simple background",
+      "krea2_caption": "An adult woman holds a ceramic cup with both hands in front of her chest, looking down at it, shown from the waist up.",
+      "min_detected": 2
+    },
+    {
+      "id": "h3",
+      "axis": "hands",
+      "difficulty": "hard",
+      "label": "peace sign, hand close-up",
+      "fragment": "1girl, solo, adult woman, mature female, close-up, hand focus, peace sign, v sign, two fingers raised, looking at viewer",
+      "krea2_caption": "Close-up of an adult woman's hand making a peace sign near her face, two fingers raised, looking at the viewer.",
+      "min_detected": 1
+    },
+    {
+      "id": "h4",
+      "axis": "hands",
+      "difficulty": "hardest",
+      "label": "hands clasped, interlocked fingers, close-up",
+      "fragment": "1girl, solo, adult woman, mature female, close-up, hand focus, hands clasped together, interlocked fingers, folded hands",
+      "krea2_caption": "Close-up of an adult woman's two hands clasped together in front of her, fingers interlocked.",
+      "min_detected": 2
+    },
+    {
+      "id": "f1",
+      "axis": "feet",
+      "difficulty": "easy",
+      "label": "barefoot standing, full body (~15% frame)",
+      "fragment": "1girl, solo, adult woman, mature female, standing, full body, barefoot, bare feet, feet visible, simple background",
+      "krea2_caption": "An adult woman stands barefoot, her whole body visible in the frame with her bare feet taking up a small portion at the bottom.",
+      "min_detected": 1
+    },
+    {
+      "id": "f2",
+      "axis": "feet",
+      "difficulty": "medium",
+      "label": "barefoot from the knees down (~35% frame)",
+      "fragment": "1girl, solo, adult woman, mature female, standing, lower body, barefoot, bare feet, shot from the knees down, simple background",
+      "krea2_caption": "A adult woman's bare legs and feet are shown standing on the floor, framed from the knees down.",
+      "min_detected": 1
+    },
+    {
+      "id": "f3",
+      "axis": "feet",
+      "difficulty": "hard",
+      "label": "barefoot feet close-up from below (~60% frame)",
+      "fragment": "1girl, solo, adult woman, mature female, barefoot, bare feet, feet close-up, from below, sole focus, low angle",
+      "krea2_caption": "A close-up, low-angle shot looking up at a adult woman's bare feet, taken from below so the soles are prominent in frame.",
+      "min_detected": 1
+    },
+    {
+      "id": "f4",
+      "axis": "feet",
+      "difficulty": "control",
+      "label": "single foot raised, sole visible, close-up (single-foot cropping control)",
+      "fragment": "1girl, solo, adult woman, mature female, one bare foot raised, sole visible, close-up, single foot, foot focus",
+      "krea2_caption": "An adult woman. A close-up of a single bare foot lifted into frame with the sole facing the camera, the other foot and leg out of frame.",
+      "min_detected": 1
+    },
+    {
+      "id": "e1",
+      "axis": "eyes",
+      "difficulty": "easy",
+      "label": "portrait, looking at viewer",
+      "fragment": "1girl, solo, adult woman, mature female, portrait, looking at viewer, close-up on face, simple background",
+      "krea2_caption": "A portrait of an adult woman looking directly at the viewer, her face filling most of the frame.",
+      "min_detected": 2
+    },
+    {
+      "id": "e2",
+      "axis": "eyes",
+      "difficulty": "medium",
+      "label": "side glance, three-quarter view",
+      "fragment": "1girl, solo, adult woman, mature female, portrait, side glance, looking to the side, three-quarter view, close-up on face",
+      "krea2_caption": "A three-quarter view portrait of an adult woman glancing to the side rather than at the camera.",
+      "min_detected": 1
+    },
+    {
+      "id": "e3",
+      "axis": "eyes",
+      "difficulty": "hard",
+      "label": "heterochromia, one blue one red, close-up",
+      "fragment": "1girl, solo, adult woman, mature female, extreme close-up, eyes focus, heterochromia, one blue eye, one red eye, looking at viewer",
+      "krea2_caption": "An extreme close-up on an adult woman's eyes, showing heterochromia with one blue eye and one red eye.",
+      "min_detected": 2
+    },
+    {
+      "id": "m1",
+      "axis": "mouth",
+      "difficulty": "easy",
+      "label": "closed mouth, slight smile, portrait",
+      "fragment": "1girl, solo, adult woman, mature female, portrait, closed mouth, slight smile, looking at viewer, simple background",
+      "krea2_caption": "A portrait of an adult woman with a closed-mouth, gentle smile, looking at the viewer.",
+      "min_detected": 0
+    },
+    {
+      "id": "m2",
+      "axis": "mouth",
+      "difficulty": "medium",
+      "label": "laughing, open mouth, teeth visible",
+      "fragment": "1girl, solo, adult woman, mature female, portrait, laughing, open mouth, teeth visible, looking at viewer",
+      "krea2_caption": "A portrait of an adult woman laughing with her mouth open, her teeth visible.",
+      "min_detected": 0
+    },
+    {
+      "id": "m3",
+      "axis": "mouth",
+      "difficulty": "hard",
+      "label": "wide smile, teeth, mouth close-up",
+      "fragment": "1girl, solo, adult woman, mature female, extreme close-up, mouth focus, wide smile, teeth visible, close-up on mouth",
+      "krea2_caption": "An extreme close-up focused on an adult woman's mouth, showing a wide smile with her teeth clearly visible.",
+      "min_detected": 0
+    },
+    {
+      "id": "p1",
+      "axis": "pose",
+      "difficulty": "easy",
+      "label": "standing, arms at sides",
+      "fragment": "1girl, solo, adult woman, mature female, standing, arms at sides, full body, simple background",
+      "krea2_caption": "An adult woman stands upright with her arms at her sides, her full body visible against a plain background.",
+      "min_detected": 1
+    },
+    {
+      "id": "p2",
+      "axis": "pose",
+      "difficulty": "medium",
+      "label": "walking",
+      "fragment": "1girl, solo, adult woman, mature female, walking, full body, mid-stride, simple background",
+      "krea2_caption": "An adult woman is walking, captured mid-stride with her full body visible.",
+      "min_detected": 1
+    },
+    {
+      "id": "p3",
+      "axis": "pose",
+      "difficulty": "hard",
+      "label": "jumping, dynamic",
+      "fragment": "1girl, solo, adult woman, mature female, jumping, full body, dynamic pose, mid-air, simple background",
+      "krea2_caption": "An adult woman is caught mid-air while jumping, her full body visible in a dynamic pose.",
+      "min_detected": 1
+    },
+    {
+      "id": "p4",
+      "axis": "pose",
+      "difficulty": "hardest",
+      "label": "from above, foreshortened, looking up",
+      "fragment": "1girl, solo, adult woman, mature female, from above, high angle, foreshortening, looking up at viewer, full body",
+      "krea2_caption": "A high-angle shot looking down at an adult woman who tilts her head up toward the camera, her body foreshortened by the steep perspective.",
+      "min_detected": 1
+    }
+  ],
+  "models": [
+    {
+      "key": "ilustmix",
+      "family": "sdxl",
+      "ckpt": "iLustMix.safetensors",
+      "box": "zzz",
+      "engine": "zzz_bare",
+      "res": "1024x1536",
+      "params": {
+        "steps": 32,
+        "cfg": 5.0,
+        "sampler": "dpmpp_2m",
+        "scheduler": "karras",
+        "clip_skip": -2
+      },
+      "neg_add": "",
+      "notes": "ZZZ CheckpointLoaderSimple+CLIPSetLastLayer(-2)+CLIPTextEncode(pos/neg)+EmptyLatentImage+KSampler+VAEDecode+SaveImage bare graph (baked VAE via node ['4',2], no external VAELoader/LoRA/detailer/upscale); sampler settings copied verbatim from zzz_showcase.py's graph() base pass (steps32/cfg5.0/dpmpp_2m/karras/clip_skip-2/1024x1536), which itself matches z3_quality_gen RECIPES['illustrious']. Verified present as 'iLustMix.safetensors' in z3_model_index/index.json checkpoints and as CKPT in scripts/zzz_showcase.py."
+    },
+    {
+      "key": "waiv17",
+      "family": "sdxl",
+      "ckpt": "Illustrious\\anime\\waiIllustriousSDXL_v170.safetensors",
+      "box": "z3",
+      "engine": "z3_quality_gen",
+      "res": "1024x1536",
+      "params": {
+        "steps": 32,
+        "cfg": 5.0,
+        "sampler": "dpmpp_2m",
+        "scheduler": "karras",
+        "clip_skip": -2
+      },
+      "neg_add": "",
+      "notes": "z3_quality_gen.py RECIPES['illustrious']'s own default ckpt; base pass only (Z3_HIRES forced to 'off' before import, advanced=False -> no FreeU/PAG/RescaleCFG, no upscale, no FaceDetailer). Verified present in z3_model_index/index.json checkpoints."
+    },
+    {
+      "key": "harem",
+      "family": "sdxl",
+      "ckpt": "Illustrious\\anime\\miaomiao3DHarem_lh3dEPS20.safetensors",
+      "box": "z3",
+      "engine": "z3_quality_gen",
+      "res": "1024x1536",
+      "params": {
+        "steps": 32,
+        "cfg": 5.0,
+        "sampler": "dpmpp_2m",
+        "scheduler": "karras",
+        "clip_skip": -2
+      },
+      "neg_add": "wide hips, large hips, thick thighs, exaggerated hips, huge breasts, voluptuous, sheer, see-through, skin tight, overexposed, washed out",
+      "notes": "neg_add copied verbatim from scripts/model_quirks.json bases['miaomiao3DHarem_lh3dEPS20'].neg_add (provenance: `python3 scripts/model_quirks.py neg-add 'Harem'`; card verified 2026-07-01). The card also flags no_freeu=true, but this campaign never enables FreeU (advanced=False in every cell), so that flag has no effect here. Verified present in z3_model_index/index.json checkpoints."
+    },
+    {
+      "key": "dasiwa",
+      "family": "sdxl",
+      "ckpt": "Illustrious\\anime\\DasiwaIllustriousAnime_epitaphecstasy.safetensors",
+      "box": "z3",
+      "engine": "z3_quality_gen",
+      "res": "1024x1536",
+      "params": {
+        "steps": 32,
+        "cfg": 5.0,
+        "sampler": "dpmpp_2m",
+        "scheduler": "karras",
+        "clip_skip": -2
+      },
+      "neg_add": "",
+      "notes": "No model_quirks.json card for this base as of spec-build time; neg_add left empty. Verified present in z3_model_index/index.json checkpoints."
+    },
+    {
+      "key": "novaxl",
+      "family": "sdxl",
+      "ckpt": "Illustrious\\anime\\novaAnimeXL_ilV190.safetensors",
+      "box": "z3",
+      "engine": "z3_quality_gen",
+      "res": "1024x1536",
+      "params": {
+        "steps": 32,
+        "cfg": 5.0,
+        "sampler": "dpmpp_2m",
+        "scheduler": "karras",
+        "clip_skip": -2
+      },
+      "neg_add": "",
+      "notes": "Checkpoint name aligned to the live Z3 CheckpointLoaderSimple enum on 2026-07-16. The dispatcher still performs a live /object_info preflight before every run; no stale local index entry is accepted as runtime truth."
+    },
+    {
+      "key": "animaofficial",
+      "family": "flow",
+      "ckpt": "anima-preview3-base.safetensors",
+      "box": "z3",
+      "engine": "z3_quality_gen",
+      "res": "896x1152",
+      "params": {
+        "steps": 24,
+        "cfg": 4.0,
+        "sampler": "er_sde",
+        "scheduler": "simple",
+        "model_sampling": "auraflow",
+        "shift": 3.0
+      },
+      "neg_add": "",
+      "notes": "Uses the current live Z3 UNETLoader name 'anima-preview3-base.safetensors'. Parameters follow the matching anima-preview3-base research-compat recipe (24 steps, CFG 4.0, er_sde/simple, AuraFlow shift 3.0); 896x1152 is the campaign's frozen comparison resolution. The dispatcher re-checks the exact loader enum via live /object_info before submission."
+    },
+    {
+      "key": "animamiao",
+      "family": "flow",
+      "ckpt": "Anima\\anime\\miaomiaoHarem_anima8Step10.safetensors",
+      "box": "z3",
+      "engine": "z3_quality_gen",
+      "res": "832x1216",
+      "params": {
+        "steps": 12,
+        "cfg": 1.0,
+        "sampler": "euler",
+        "scheduler": "normal",
+        "model_sampling": "auraflow",
+        "shift": 3.0
+      },
+      "neg_add": "",
+      "notes": "Uses the current live Z3 UNETLoader name 'Anima\\anime\\miaomiaoHarem_anima8Step10.safetensors' and its cataloged low-CFG recipe (12 steps, CFG 1.0, euler/normal, AuraFlow shift 3.0) at the verified 832x1216 comparison resolution. CFG 1.0 makes the negative prompt effectively inert, so this remains the intended no-negative control. The dispatcher re-checks the exact loader enum via live /object_info before submission."
+    },
+    {
+      "key": "krea2",
+      "family": "krea2",
+      "ckpt": "darkBeastINT8Convrot2_krea211INT8Convrot.safetensors",
+      "box": "z3",
+      "engine": "krea2",
+      "res": "1024x1024",
+      "params": {
+        "steps": 8,
+        "cfg": 1.0,
+        "sampler": "euler",
+        "scheduler": "simple"
+      },
+      "neg_add": "",
+      "notes": "krea2_gen.py KREA2 defaults (unet/clip/vae/steps/cfg/sampler/scheduler); cfg=1.0 with the campaign's empty krea2 negative triggers krea2_gen.build_graph()'s ConditioningZeroOut path (no CLIPTextEncode negative node at all, verified by inspection). Uses krea2_caption instead of the quality_prefix/fragment/suffix scaffold (Krea-2 is a natural-language-caption model, not tag-trained)."
+    }
+  ],
+  "aggregation_policy": {
+    "scenario_axis_to_scan_axis": {
+      "hands": "hands",
+      "feet": "feet",
+      "eyes": "eyes",
+      "mouth": null,
+      "pose": "global_anatomy"
+    },
+    "required_signals": {
+      "hands": [
+        "hands",
+        "wd14"
+      ],
+      "feet": [
+        "feet",
+        "persons",
+        "wd14"
+      ],
+      "eyes": [
+        "eyes",
+        "faces"
+      ],
+      "pose": [
+        "persons",
+        "completeness",
+        "wd14"
+      ]
+    },
+    "mouth": "unscored_until_a_calibrated_authoritative_judge_exists",
+    "grok": "auxiliary_observation_only_never_league_score",
+    "rank_eligibility": {
+      "minimum_n_scored": 2,
+      "minimum_coverage_rate": 0.5,
+      "minimum_common_support": 2
+    }
+  }
+}

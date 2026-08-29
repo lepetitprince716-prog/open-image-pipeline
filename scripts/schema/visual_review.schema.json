@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Artistic contact-sheet visual pre-screen (rank, never crown)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "reviewer_model", "contact_sheet", "sheet_read_verified",
+               "images", "top3", "boundaries_ack"],
+  "properties": {
+    "schema_version": { "const": "visual-prescreen-v1" },
+    "reviewer_model": { "type": "string" },
+    "contact_sheet": { "type": "string" },
+    "sheet_read_verified": { "const": true },
+    "direction_intent": { "type": "string" },
+    "identity_spec": { "type": "string" },
+    "images": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["index", "anatomy_ok", "composition_ok", "semantic_ok", "identity_ok", "note"],
+        "properties": {
+          "index": { "type": "integer", "minimum": 0 },
+          "anatomy_ok": { "type": "boolean" },
+          "composition_ok": { "type": "boolean" },
+          "semantic_ok": { "type": "boolean" },
+          "identity_ok": { "type": ["boolean", "null"] },
+          "note": { "type": "string", "maxLength": 200 }
+        }
+      }
+    },
+    "top3": {
+      "type": "array",
+      "items": { "type": "integer", "minimum": 0 },
+      "minItems": 1,
+      "maxItems": 3
+    },
+    "boundaries_ack": { "const": "rank-never-crown" }
+  }
+}

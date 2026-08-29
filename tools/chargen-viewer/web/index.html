@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>chargen 3D viewer</title>
+<style>
+  :root {
+    --bg: #101014; --panel: #1a1a21; --border: #2a2a33;
+    --text: #e6e6ec; --muted: #9a9aa8; --accent: #7aa2f7;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; display: flex; height: 100vh; overflow: hidden;
+         background: var(--bg); color: var(--text);
+         font: 13px/1.5 -apple-system, "SF Pro Text", "PingFang SC", sans-serif; }
+  #sidebar { width: 300px; min-width: 300px; padding: 14px; overflow-y: auto;
+             background: var(--panel); border-right: 1px solid var(--border); }
+  #stage { flex: 1; position: relative; }
+  #stage canvas { display: block; }
+  h1 { font-size: 15px; margin: 0 0 12px; }
+  h2 { font-size: 12px; margin: 16px 0 6px; color: var(--muted);
+       text-transform: uppercase; letter-spacing: 0.06em; }
+  select { width: 100%; padding: 6px; background: var(--bg); color: var(--text);
+           border: 1px solid var(--border); border-radius: 6px; }
+  .model-btn { display: block; width: 100%; margin: 4px 0; padding: 6px 8px;
+               text-align: left; background: var(--bg); color: var(--text);
+               border: 1px solid var(--border); border-radius: 6px; cursor: pointer;
+               font: inherit; }
+  .model-btn:hover { border-color: var(--accent); }
+  .model-btn.active { border-color: var(--accent); color: var(--accent); }
+  .model-btn .size { float: right; color: var(--muted); }
+  label.toggle { display: flex; gap: 8px; align-items: center; margin: 6px 0;
+                 cursor: pointer; }
+  #report { white-space: pre-wrap; color: var(--muted); font-family: ui-monospace,
+            SFMono-Regular, Menlo, monospace; font-size: 11px; }
+  #status { position: absolute; left: 12px; bottom: 10px; color: var(--muted);
+            font-size: 12px; pointer-events: none; }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three.module.min.js",
+    "@pixiv/three-vrm": "./vendor/three-vrm.module.min.js"
+  }
+}
+</script>
+</head>
+<body>
+  <aside id="sidebar">
+    <h1>chargen 3D viewer</h1>
+    <h2>Run</h2>
+    <select id="run-select"></select>
+    <h2>Model files</h2>
+    <div id="model-list"></div>
+    <h2>Display</h2>
+    <label class="toggle"><input type="checkbox" id="toggle-rotate" checked> Auto rotate</label>
+    <label class="toggle"><input type="checkbox" id="toggle-wireframe"> Wireframe</label>
+    <label class="toggle"><input type="checkbox" id="toggle-skeleton"> Skeleton</label>
+    <h2>Reports</h2>
+    <div id="report">-</div>
+  </aside>
+  <main id="stage"><div id="status">loading runs…</div></main>
+  <script type="module" src="./viewer.js"></script>
+</body>
+</html>

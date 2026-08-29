@@ -1,0 +1,599 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/anima_step2a_parquet_footer_plan_evidence_v1.schema.json",
+  "title": "Anima Step 2a Parquet footer selected-column plan evidence v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "source",
+    "revision",
+    "filename",
+    "size_bytes",
+    "authorization",
+    "prior_raw_footer_probe",
+    "footer_refetch",
+    "parser",
+    "file_metadata",
+    "policy_field_resolution",
+    "selected_column_plan",
+    "gate",
+    "activity",
+    "status"
+  ],
+  "properties": {
+    "schema": {
+      "const": "anima-step2a-parquet-footer-plan-evidence-v1"
+    },
+    "source": {
+      "const": "deepghs/danbooru2024-webp-4Mpixel"
+    },
+    "revision": {
+      "const": "60ca7e02a844bccbe6c8344d1a18b7ea280b787f"
+    },
+    "filename": {
+      "const": "metadata.parquet"
+    },
+    "size_bytes": {
+      "const": 6846458425
+    },
+    "authorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "license_sha256",
+        "user_accepted_date",
+        "approval_id",
+        "approval_record_sha256",
+        "policy_digest"
+      ],
+      "properties": {
+        "license_sha256": {
+          "const": "d9827d69b4d5e9acb79871b589b09f62bc8e711798f17f78740923045815338c"
+        },
+        "user_accepted_date": {
+          "const": "2026-07-18"
+        },
+        "approval_id": {
+          "const": "anima-step2a-policy-approval-20260718-v1"
+        },
+        "approval_record_sha256": {
+          "const": "388922c14c093093c4f10ea80cfde6789d40dc840af31321ac9154b38cf60cc2"
+        },
+        "policy_digest": {
+          "const": "b037bd6804b08bceb9684365509a2784f2b1a66cf34a64da240fd79546cb0bc9"
+        }
+      }
+    },
+    "prior_raw_footer_probe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "footer_length_bytes",
+        "footer_sha256"
+      ],
+      "properties": {
+        "path": {
+          "const": "outputs/_analysis/anima_step2a_source_access_2026-07-18/parquet_footer_probe_v1.json"
+        },
+        "sha256": {
+          "const": "127e33acd7cf32eb8e25a7752854380363a13de1efb686ff470131d1f244fcc3"
+        },
+        "footer_length_bytes": {
+          "const": 139521
+        },
+        "footer_sha256": {
+          "const": "0c3d48949974d9e6870304290a2649a0d2b9f762d3453374ad6defb3b71fb276"
+        }
+      }
+    },
+    "footer_refetch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "request_count",
+        "bytes_received",
+        "footer_byte_cap",
+        "raw_footer_persisted",
+        "dependency_changes_performed"
+      ],
+      "properties": {
+        "request_count": {
+          "const": 3
+        },
+        "bytes_received": {
+          "const": 139533
+        },
+        "footer_byte_cap": {
+          "const": 16777216
+        },
+        "raw_footer_persisted": {
+          "const": false
+        },
+        "dependency_changes_performed": {
+          "const": false
+        }
+      }
+    },
+    "parser": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "serialization",
+        "implementation",
+        "full_parquet_file_required"
+      ],
+      "properties": {
+        "serialization": {
+          "const": "Apache Thrift TCompactProtocol"
+        },
+        "implementation": {
+          "const": "bounded Python standard-library reader"
+        },
+        "full_parquet_file_required": {
+          "const": false
+        }
+      }
+    },
+    "file_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "parquet_version",
+        "root_name",
+        "num_rows",
+        "row_group_count",
+        "leaf_column_count",
+        "columns"
+      ],
+      "properties": {
+        "parquet_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "root_name": {
+          "$ref": "#/$defs/sourceName"
+        },
+        "num_rows": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "row_group_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "leaf_column_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4096
+        },
+        "columns": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4096,
+          "items": {
+            "$ref": "#/$defs/schemaColumn"
+          }
+        }
+      }
+    },
+    "policy_field_resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "core_fields",
+        "optional_fields",
+        "missing_core_fields",
+        "explicit_per_record_opt_out_field_observed",
+        "explicit_per_record_opt_out_fields",
+        "related_but_not_explicit_fields",
+        "proof_status"
+      ],
+      "properties": {
+        "core_fields": {
+          "$ref": "#/$defs/fieldGroups"
+        },
+        "optional_fields": {
+          "$ref": "#/$defs/fieldGroups"
+        },
+        "missing_core_fields": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "source",
+              "source_revision",
+              "image_id",
+              "tags",
+              "rating",
+              "score",
+              "md5"
+            ]
+          }
+        },
+        "explicit_per_record_opt_out_field_observed": {
+          "type": "boolean"
+        },
+        "explicit_per_record_opt_out_fields": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/sourceName"
+          }
+        },
+        "related_but_not_explicit_fields": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/sourceName"
+          }
+        },
+        "proof_status": {
+          "enum": [
+            "ABSENT_FROM_SCHEMA",
+            "NAME_OBSERVED_VALUE_AND_REMOVAL_LEDGER_PROOF_PENDING"
+          ]
+        }
+      }
+    },
+    "selected_column_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pilot_record_cap",
+        "hard_pilot_record_cap",
+        "max_planned_column_bytes",
+        "row_selection_contract",
+        "selected_columns",
+        "whole_row_group_candidates",
+        "candidate_row_group_count",
+        "minimum_candidate_rows",
+        "minimum_candidate_selected_column_bytes",
+        "selected_row_group_index",
+        "rows_planned",
+        "request_count",
+        "bytes_planned",
+        "ranges",
+        "range_inventory_ready",
+        "plan_ready",
+        "column_payload_requests_performed",
+        "column_payload_bytes_received",
+        "column_payload_files_persisted"
+      ],
+      "properties": {
+        "pilot_record_cap": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "hard_pilot_record_cap": {
+          "const": 100000
+        },
+        "max_planned_column_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1073741824
+        },
+        "row_selection_contract": {
+          "const": "whole row groups only; no truncation, implicit first-N, or partial-row-group consumption"
+        },
+        "selected_columns": {
+          "type": "array",
+          "maxItems": 4096,
+          "items": {
+            "$ref": "#/$defs/selectedColumn"
+          }
+        },
+        "whole_row_group_candidates": {
+          "type": "array",
+          "maxItems": 100000,
+          "items": {
+            "$ref": "#/$defs/rowGroupCandidate"
+          }
+        },
+        "candidate_row_group_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100000
+        },
+        "minimum_candidate_rows": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "minimum_candidate_selected_column_bytes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "selected_row_group_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "rows_planned": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "request_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "bytes_planned": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ranges": {
+          "type": "array",
+          "maxItems": 4096,
+          "items": {
+            "$ref": "#/$defs/range"
+          }
+        },
+        "range_inventory_ready": {
+          "type": "boolean"
+        },
+        "plan_ready": {
+          "type": "boolean"
+        },
+        "column_payload_requests_performed": {
+          "const": 0
+        },
+        "column_payload_bytes_received": {
+          "const": 0
+        },
+        "column_payload_files_persisted": {
+          "const": 0
+        }
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "g1",
+        "reasons"
+      ],
+      "properties": {
+        "g1": {
+          "const": "HOLD"
+        },
+        "reasons": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        }
+      }
+    },
+    "activity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "metadata_range_requests_performed",
+        "metadata_range_bytes_received",
+        "full_metadata_file_downloaded",
+        "image_files_downloaded",
+        "image_bytes_downloaded",
+        "training_runs_started"
+      ],
+      "properties": {
+        "metadata_range_requests_performed": {
+          "const": 3
+        },
+        "metadata_range_bytes_received": {
+          "const": 139533
+        },
+        "full_metadata_file_downloaded": {
+          "const": false
+        },
+        "image_files_downloaded": {
+          "const": 0
+        },
+        "image_bytes_downloaded": {
+          "const": 0
+        },
+        "training_runs_started": {
+          "const": 0
+        }
+      }
+    },
+    "status": {
+      "const": "FOOTER_PARSED_SELECTED_COLUMN_PLAN_EVALUATED_G1_HOLD"
+    }
+  },
+  "$defs": {
+    "sourceName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z_][A-Za-z0-9_]*(\\.[A-Za-z0-9_]+)*$"
+    },
+    "schemaColumn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "leaf_index",
+        "path",
+        "physical_type",
+        "repetition_type",
+        "converted_type",
+        "logical_type"
+      ],
+      "properties": {
+        "leaf_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "path": {
+          "$ref": "#/$defs/sourceName"
+        },
+        "physical_type": {
+          "enum": [
+            "BOOLEAN",
+            "INT32",
+            "INT64",
+            "INT96",
+            "FLOAT",
+            "DOUBLE",
+            "BYTE_ARRAY",
+            "FIXED_LEN_BYTE_ARRAY"
+          ]
+        },
+        "repetition_type": {
+          "enum": [
+            "REQUIRED",
+            "OPTIONAL",
+            "REPEATED"
+          ]
+        },
+        "converted_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "logical_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "fieldGroups": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {
+          "$ref": "#/$defs/sourceName"
+        }
+      }
+    },
+    "selectedColumn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonical_field",
+        "source_path",
+        "leaf_index"
+      ],
+      "properties": {
+        "canonical_field": {
+          "enum": [
+            "source",
+            "source_revision",
+            "image_id",
+            "tags",
+            "rating",
+            "score",
+            "md5",
+            "asset_license",
+            "sha256",
+            "phash",
+            "explicit_per_record_opt_out"
+          ]
+        },
+        "source_path": {
+          "$ref": "#/$defs/sourceName"
+        },
+        "leaf_index": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "row_group_index",
+        "canonical_field",
+        "source_path",
+        "start",
+        "end",
+        "bytes"
+      ],
+      "properties": {
+        "row_group_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "canonical_field": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "source_path": {
+          "$ref": "#/$defs/sourceName"
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 4
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 4
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "rowGroupCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "index",
+        "rows",
+        "selected_column_bytes",
+        "within_pilot_record_cap",
+        "within_planned_byte_cap",
+        "ranges"
+      ],
+      "properties": {
+        "index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "rows": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "selected_column_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "within_pilot_record_cap": {
+          "type": "boolean"
+        },
+        "within_planned_byte_cap": {
+          "type": "boolean"
+        },
+        "ranges": {
+          "type": "array",
+          "maxItems": 4096,
+          "items": {
+            "$ref": "#/$defs/range"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,277 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/video_direction.schema.json",
+  "title": "Loramake video direction",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "project", "scenes"],
+  "properties": {
+    "schema": {"const": "loramake-video-direction-v1"},
+    "project": {"$ref": "#/$defs/project"},
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/scene"}
+    }
+  },
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[a-z0-9](?:[a-z0-9_-]{0,62}[a-z0-9])?$"
+    },
+    "timecode": {
+      "type": "string",
+      "pattern": "^[0-9]{2,}:[0-5][0-9]:[0-5][0-9]\\.[0-9]{3}$"
+    },
+    "nonEmptyString": {"type": "string", "minLength": 1},
+    "nullableString": {"type": ["string", "null"], "minLength": 1},
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "description",
+        "driver",
+        "asset_namespace",
+        "aspect_ratio",
+        "resolution",
+        "fps",
+        "duration_frames",
+        "duration_timecode"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/identifier"},
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "description": {"type": "string"},
+        "driver": {"$ref": "#/$defs/identifier"},
+        "asset_namespace": {"$ref": "#/$defs/identifier"},
+        "aspect_ratio": {"type": "string", "pattern": "^[1-9][0-9]*:[1-9][0-9]*$"},
+        "resolution": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["width", "height"],
+          "properties": {
+            "width": {"type": "integer", "minimum": 1, "maximum": 16384},
+            "height": {"type": "integer", "minimum": 1, "maximum": 16384}
+          }
+        },
+        "fps": {"type": "integer", "minimum": 1, "maximum": 120},
+        "duration_frames": {"type": "integer", "minimum": 1},
+        "duration_timecode": {"$ref": "#/$defs/timecode"}
+      }
+    },
+    "scene": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "order", "title", "shots"],
+      "properties": {
+        "id": {"$ref": "#/$defs/identifier"},
+        "order": {"type": "integer", "minimum": 1},
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "shots": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/shot"}
+        }
+      }
+    },
+    "shot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "order",
+        "title",
+        "timeline",
+        "shot_size",
+        "visual",
+        "implementation",
+        "start_state",
+        "end_state",
+        "action",
+        "camera",
+        "screen_direction",
+        "continuity_locks",
+        "generation",
+        "sound_cues",
+        "acceptance"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/identifier"},
+        "order": {"type": "integer", "minimum": 1},
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "timeline": {"$ref": "#/$defs/timeline"},
+        "shot_size": {"$ref": "#/$defs/nonEmptyString"},
+        "visual": {"$ref": "#/$defs/nonEmptyString"},
+        "implementation": {
+          "enum": ["wan_i2v", "still_motion", "title_card", "external"]
+        },
+        "start_state": {"$ref": "#/$defs/nonEmptyString"},
+        "end_state": {"$ref": "#/$defs/nonEmptyString"},
+        "action": {"$ref": "#/$defs/nonEmptyString"},
+        "camera": {"$ref": "#/$defs/nonEmptyString"},
+        "screen_direction": {"$ref": "#/$defs/nonEmptyString"},
+        "continuity_locks": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/nonEmptyString"}
+        },
+        "generation": {"$ref": "#/$defs/generation"},
+        "sound_cues": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/soundCue"}
+        },
+        "acceptance": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/nonEmptyString"}
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"implementation": {"const": "wan_i2v"}}},
+          "then": {
+            "properties": {
+              "generation": {
+                "properties": {
+                  "seed_image": {"type": "string", "minLength": 1},
+                  "seed": {"type": "integer", "minimum": 0},
+                  "prompt": {"type": "string", "minLength": 1},
+                  "res": {"type": "string", "pattern": "^[1-9][0-9]*x[1-9][0-9]*$"},
+                  "length": {"type": "integer", "minimum": 5, "maximum": 81},
+                  "source_fps": {"const": 16},
+                  "pos_suffix": {"type": "string"},
+                  "negative": {"type": "string"},
+                  "still_motion": {"type": "null"}
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {"properties": {"implementation": {"const": "still_motion"}}},
+          "then": {
+            "properties": {
+              "generation": {
+                "properties": {
+                  "seed_image": {"type": "string", "minLength": 1},
+                  "still_motion": {"$ref": "#/$defs/stillMotion"}
+                }
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "generation": {
+                "properties": {"still_motion": {"type": "null"}}
+              }
+            }
+          }
+        }
+      ]
+    },
+    "timeline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start_frame",
+        "end_frame",
+        "duration_frames",
+        "start_timecode",
+        "end_timecode"
+      ],
+      "properties": {
+        "start_frame": {"type": "integer", "minimum": 0},
+        "end_frame": {"type": "integer", "minimum": 1},
+        "duration_frames": {"type": "integer", "minimum": 1},
+        "start_timecode": {"$ref": "#/$defs/timecode"},
+        "end_timecode": {"$ref": "#/$defs/timecode"}
+      }
+    },
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "seed_image",
+        "identity_ref",
+        "seed",
+        "prompt",
+        "res",
+        "length",
+        "source_fps",
+        "pos_suffix",
+        "negative",
+        "anime_lora",
+        "still_motion"
+      ],
+      "properties": {
+        "seed_image": {"$ref": "#/$defs/nullableString"},
+        "identity_ref": {"$ref": "#/$defs/nullableString"},
+        "seed": {"type": ["integer", "null"], "minimum": 0},
+        "prompt": {"type": "string"},
+        "res": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "pattern": "^[1-9][0-9]*x[1-9][0-9]*$"}
+          ]
+        },
+        "length": {"type": ["integer", "null"], "minimum": 1},
+        "source_fps": {"type": ["integer", "null"], "minimum": 1},
+        "pos_suffix": {"type": ["string", "null"]},
+        "negative": {"type": ["string", "null"]},
+        "anime_lora": {"$ref": "#/$defs/nullableString"},
+        "still_motion": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/$defs/stillMotion"}
+          ]
+        }
+      }
+    },
+    "stillMotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["preset", "strength", "region", "color"],
+      "properties": {
+        "preset": {"enum": ["hold", "slow_push_in", "impact_jolt", "status_reveal"]},
+        "strength": {"type": "number", "minimum": 0, "maximum": 1},
+        "region": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["x", "y", "width", "height"],
+              "properties": {
+                "x": {"type": "number", "minimum": 0, "maximum": 1},
+                "y": {"type": "number", "minimum": 0, "maximum": 1},
+                "width": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+                "height": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}
+              }
+            }
+          ]
+        },
+        "color": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"}
+          ]
+        }
+      }
+    },
+    "soundCue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frame", "timecode", "kind", "description"],
+      "properties": {
+        "frame": {"type": "integer", "minimum": 0},
+        "timecode": {"$ref": "#/$defs/timecode"},
+        "kind": {"$ref": "#/$defs/nonEmptyString"},
+        "description": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    }
+  }
+}

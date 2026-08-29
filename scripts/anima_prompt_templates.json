@@ -1,0 +1,55 @@
+{
+  "schema": "loramake.anima_prompt_templates.v1",
+  "note": "Tournament-winning prompts per brief x checkpoint, verbatim, with blind-eval scores. Source: outputs/_analysis/anima_tournament_2026-07-17/ (results.json). Use as style/structure references when delegating prompt writing - not as literal reuse (scenes are brief-specific).",
+  "house_rulebook_ref": "docs/anima_line/PROMPT_DELEGATION_PLAYBOOK.md",
+  "templates": {
+    "R1_B1": {
+      "checkpoint": "miaomiaoHarem_anima8Step10",
+      "brief_intent": "A quiet indoor portrait: one young woman by a large window in soft natural daylight, calm mood, room interior readable but subordinate to the figure.",
+      "winner_model": "deepseek-v4-pro",
+      "blind_score": 12,
+      "prompt": "1girl, auburn hair, forest green eyes, solo, upper body, sitting beside a large window, soft natural daylight streaming through the glass, calm expression with eyes half-lowered, quiet contemplative mood, gentle shadows tracing her collarbone and jaw, subtle reflection of window panes on the polished wooden sill, holding a ceramic teacup in both hands close to her chest, indoor room with bookcase and muted neutral walls softly out of focus behind her, serene stillness",
+      "neg": null
+    },
+    "R1_B2": {
+      "checkpoint": "miaomiaoHarem_anima8Step10",
+      "brief_intent": "A golden-hour outdoor shot where backlight burns the subject's hair into a glowing rim and a hint of lens flare enters the frame; nostalgic film-photo warmth; the figure dominates the frame from a steep high-angle viewpoint.",
+      "winner_model": "claude-sonnet",
+      "blind_score": 12,
+      "prompt": "1girl, short copper-red hair, warm hazel eyes, flowing sundress, high-angle shot looking straight down at her. The camera hovers steeply above, filling the frame with her upturned face and shoulders so she dominates the composition edge to edge. Behind her, the setting sun sits low, its golden backlight tracing a glowing rim along the edges of her hair and igniting a soft flare that drifts across the corner of the frame. The whole scene carries a nostalgic, sun-faded film-photo warmth, grain and amber tones settling over her skin like an old summer snapshot.",
+      "neg": null
+    },
+    "R1_B3": {
+      "checkpoint": "miaomiaoHarem_anima8Step10",
+      "brief_intent": "Two women at a summer night festival watching fireworks bloom above them; the burst light blooms warm on their upturned faces. One is lighting a sparkler the other is holding — the handoff moment, four hands near the sparkler, visibly separate. The two must stay clearly distinct in hair color and outfit.",
+      "winner_model": "grok-4.5",
+      "blind_score": 11.25,
+      "prompt": "2girls, summer night festival, outdoor night, fireworks in night sky. Girl 1: silver hair, blue eyes, yukata with indigo patterns. Girl 2: black hair, brown eyes, red yukata with white floral print. Both look upward, warm burst light blooming on their upturned faces. Girl 1 is lighting a sparkler that girl 2 is holding — handoff moment, four hands near the sparkler, each hand visibly separate. Festival stalls and paper lanterns behind them. Two women at a night festival watching fireworks, sparkler handoff with four distinct hands.",
+      "neg": null
+    },
+    "R2_B1": {
+      "checkpoint": "anima_aestheticV11",
+      "brief_intent": "A quiet indoor portrait: one young woman by a large window in soft natural daylight, calm mood, room interior readable but subordinate to the figure.",
+      "winner_model": "claude-sonnet",
+      "blind_score": 12,
+      "prompt": "A quiet indoor portrait of a young woman with straight chestnut-brown hair and soft amber eyes, sitting near a large window in gentle afternoon daylight. The light falls from her left, tracing a soft warm line along her cheek and hands while the rest of the room dissolves into a calm, muted blur. She rests her chin lightly on one hand, eyes half-closed in quiet stillness, wearing a loose ivory cardigan. Upper body framing, soft focus background.",
+      "neg": "no harsh shadows, no clutter."
+    },
+    "R2_B2": {
+      "checkpoint": "anima_aestheticV11",
+      "brief_intent": "A golden-hour outdoor shot where backlight burns the subject's hair into a glowing rim and a hint of lens flare enters the frame; nostalgic film-photo warmth; the figure dominates the frame from a steep high-angle viewpoint.",
+      "winner_model": "gpt-5.6-luna",
+      "blind_score": 12,
+      "prompt": "A golden-hour outdoor film photograph from a steep high-angle viewpoint, looking down at a young woman who dominates the frame. Her long copper-red hair catches the low backlight, burning into a glowing rim around her head and shoulders. Warm amber sunlight creates a small lens flare near the edge of the image. She has deep blue eyes, a wistful expression, natural skin texture, nostalgic analog grain, soft contrast, and rich film-like warmth.",
+      "neg": null
+    },
+    "R2_B3": {
+      "checkpoint": "anima_aestheticV11",
+      "brief_intent": "Two women at a summer night festival watching fireworks bloom above them; the burst light blooms warm on their upturned faces. One is lighting a sparkler the other is holding — the handoff moment, four hands near the sparkler, visibly separate. The two must stay clearly distinct in hair color and outfit.",
+      "winner_model": "grok-4.5",
+      "blind_score": 10.5,
+      "prompt": "Two young women at a summer night festival looking upward as fireworks bloom in the dark sky, warm burst light painting their upturned faces. The left woman has short black hair and dark brown eyes, wearing a deep indigo yukata with white wave patterns; she is lighting a sparkler. The right woman has long strawberry-blonde hair and blue eyes, in a soft coral yukata with floral print; she is holding the sparkler steady. Four hands clustered near the sparkler, each hand visibly separate at the handoff moment. Festival stalls and paper lanterns soft in the background, night sky full of firework bursts, warm glow on both faces.",
+      "neg": null
+    }
+  }
+}

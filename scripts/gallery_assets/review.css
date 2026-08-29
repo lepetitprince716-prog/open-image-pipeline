@@ -1,0 +1,203 @@
+:root {
+  color-scheme: dark;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #111;
+  color: #eee;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+  background: #111;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 42px;
+  padding: 9px 12px;
+  border-bottom: 1px solid #333;
+  font-size: 13px;
+}
+
+header span,
+#name,
+#position,
+#status {
+  color: #aaa;
+  font-size: 12px;
+}
+
+main {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto auto;
+  gap: 6px;
+  padding: 10px;
+}
+
+#image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+  background: #0a0a0a;
+}
+
+#image.loading {
+  visibility: hidden;
+}
+
+#name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
+
+#caption {
+  margin: 0;
+  max-width: 60ch;
+  justify-self: center;
+  text-align: center;
+  color: #d5d5d5;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+#empty {
+  place-self: center;
+  color: #aaa;
+}
+
+footer {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border-top: 1px solid #333;
+}
+
+.decisions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.navigation,
+.editor-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+button {
+  min-height: 38px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background: #222;
+  color: #eee;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus-visible {
+  border-color: #aaa;
+}
+
+button.active {
+  border-color: #eee;
+  background: #3a3a3a;
+}
+
+button:disabled {
+  opacity: .45;
+  cursor: default;
+}
+
+/* The top tier carries its own accent, so a strong verdict is never mistaken for a
+   plain yes at a glance. */
+#love {
+  border-color: #7a6a2f;
+  color: #f5d67a;
+}
+
+#love:hover,
+#love:focus-visible,
+#love.active {
+  border-color: #f5d67a;
+}
+
+#love.active {
+  background: #3d3418;
+}
+
+.navigation button {
+  width: 44px;
+}
+
+kbd {
+  color: #999;
+  font-size: 10px;
+}
+
+#status {
+  min-height: 16px;
+  margin: 0;
+  text-align: center;
+}
+
+#status.done {
+  color: #d8f5d0;
+}
+
+#commentEditor {
+  position: absolute;
+  inset: auto 10px 10px 10px;
+  z-index: 2;
+  padding: 12px;
+  border: 1px solid #555;
+  border-radius: 8px;
+  background: #181818;
+}
+
+#commentEditor label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 13px;
+}
+
+#commentInput {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid #555;
+  border-radius: 5px;
+  padding: 8px;
+  background: #0d0d0d;
+  color: #eee;
+  font: inherit;
+}
+
+.editor-actions {
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.editor-actions button {
+  min-height: 34px;
+  padding: 0 12px;
+}
+
+[hidden] { display: none !important; }

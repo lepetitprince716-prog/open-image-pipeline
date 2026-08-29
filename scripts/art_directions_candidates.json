@@ -1,0 +1,609 @@
+{
+  "version": 2,
+  "note": "Candidate direction cards awaiting live A/B validation (>=2 seeds reproducible per ARTISTIC_LINE 候选→晋升规程) before merging into art_directions.json cards. Same schema as art_directions.json. Batch 2026-07-03 PM: 20 new cards across four families (composition/viewpoint, medium/texture, time-of-day/ambient light, scene atmosphere; user picked all four, balanced ~5 each) + 4 corrected cards from the 07-03 AM batch awaiting retest. A/B runs pass slots via gen.py artistic per-slot flags (--medium/--lighting/...), so nothing here is consumed by the app until promoted.",
+  "cards": {
+    "butterfly_glamour": {
+      "name_cn": "蝶光美人像",
+      "intent": "经典蝶形光美妆人像的 anime 转译：正上方柔光留鼻下小蝶影、双眼高光——干净华丽的定妆照气质",
+      "slots": {
+        "medium": "soft anime illustration, clean lineart, smooth shading",
+        "camera": "portrait, upper body shot, looking at viewer",
+        "composition": "centered composition, head-and-shoulders framing, simple field",
+        "lighting": "paramount beauty lighting, soft light from directly above the face, small symmetrical shadow under the nose, bright catchlight, even glow",
+        "expression": "composed gaze, subtle confident smile",
+        "color_mood": "clean neutral palette, soft warm skin tones, gentle contrast"
+      },
+      "pose_ref": null,
+      "pose_tags_any": [
+        "upper-body",
+        "elegant",
+        "seated"
+      ],
+      "aspect": "portrait",
+      "base": {
+        "primary": "iLustMix",
+        "alt": "miaomiao3DHarem_lh3dEPS20",
+        "why": "iLustMix 标准线；Harem 脸部细节最强且本卡是上半身安全镜别——换它必挂其脾气卡 neg_add + --no-freeu"
+      },
+      "style_loras": [
+        "Illustrious\\anime\\96YOTTEA-WAI.safetensors:0.8",
+        "Illustrious\\style\\HueSpark1llust.safetensors:0.6"
+      ],
+      "post_fx": {
+        "preset": "film",
+        "overrides": ""
+      },
+      "neg_add": "harsh shadows, dramatic lighting, butterfly, bug",
+      "flags": [],
+      "sfw": true,
+      "detail": true,
+      "sfw_note": "",
+      "note": "光位系。A/B 2026-07-03: 'butterfly lighting' token 字面化成画面实体蝴蝶+canon 遮眼发型与'both eyes catchlights'冲突->术语改 paramount、catchlight 单数、neg 压 butterfly，待重测 A/B 批1 2026-07-03(第二轮): paramount 措辞下仍无正俯美妆光、出环境抓拍，且瞳色漂琥珀——连续两轮语义不落地，退场存档（美妆光位术语路线判死）。",
+      "bg_brief": "高调影棚感浅色空场，主光=人物正上方大柔光源，无环境杂光"
+    },
+    "clamshell_idol": {
+      "name_cn": "蚌壳光偶像刊",
+      "intent": "蚌壳光（上下双柔光）无影美妆——偶像画报的明亮干净，上下双眼神光",
+      "slots": {
+        "medium": "clean lineart, flat color, glossy finish",
+        "camera": "extreme close-up, face focus, portrait, looking at viewer",
+        "composition": "tight symmetrical head-and-shoulders beauty framing",
+        "lighting": "clamshell beauty lighting, soft light from above and below, shadowless, luminous even glow, double catchlights",
+        "expression": "bright open expression, light smile",
+        "color_mood": "high-key pastel, porcelain brightness, soft pink accents"
+      },
+      "pose_ref": null,
+      "pose_tags_any": [
+        "upper-body",
+        "elegant"
+      ],
+      "aspect": "square",
+      "base": {
+        "primary": "iLustMix",
+        "alt": "DasiwaIllustriousAnime_epitaphecstasy",
+        "why": "iLustMix 标准线；Dasiwa 备选"
+      },
+      "style_loras": [
+        "Illustrious\\anime\\96YOTTEA-WAI.safetensors:0.7"
+      ],
+      "post_fx": {
+        "preset": "warm",
+        "overrides": ""
+      },
+      "neg_add": "harsh shadows, dramatic lighting, dark, cleavage, from above",
+      "flags": [],
+      "sfw": true,
+      "detail": true,
+      "sfw_note": "",
+      "note": "光位系。与 morning_high_key 区分：影棚无影美妆特写，非水彩雾景。A/B 2026-07-03: 初版漂成俯视深V半身(wd14 过但非本卡意图)->camera 收紧到 extreme close-up + neg 压 cleavage/from above，待重测 A/B 批2 2026-07-03(第二轮): camera 收紧后两 seed 仍漂深V低胸构图（累计4 seed）——美妆特写光位族与本栈不合，退场存档（同 butterfly 结论）。",
+      "bg_brief": "上下双大柔光包裹的无影高调，背景纯净亮场"
+    },
+    "overcast_airy_fresh": {
+      "name_cn": "阴天清透",
+      "intent": "阴天全天空柔光箱的日系清新：无影平光、通透浅色、留白呼吸感的生活抓拍",
+      "slots": {
+        "medium": "soft anime illustration, clean airy rendering",
+        "camera": "cowboy shot",
+        "composition": "outdoors, open air, airy framing, generous headroom, off-center subject",
+        "lighting": "overcast soft diffused light, shadowless ambient daylight, cool clean brightness",
+        "expression": "unposed natural glance, mid-moment",
+        "color_mood": "pale blue-grey freshness, transparent pastels, low saturation high brightness"
+      },
+      "pose_ref": null,
+      "pose_tags_any": [
+        "standing",
+        "casual",
+        "relaxed",
+        "contrapposto"
+      ],
+      "aspect": "tall",
+      "base": {
+        "primary": "iLustMix",
+        "alt": "perfectdeliberate_v90",
+        "why": "iLustMix 标准线；perfectdeliberate 优雅备选"
+      },
+      "style_loras": [
+        "Illustrious\\style\\HueSpark1llust.safetensors:0.6"
+      ],
+      "post_fx": {
+        "preset": "muted",
+        "overrides": ""
+      },
+      "neg_add": "dramatic lighting, backlighting",
+      "flags": [],
+      "sfw": true,
+      "detail": true,
+      "sfw_note": "",
+      "note": "胶片日系。与 morning_high_key 区分：清透生活抓拍 vs 水彩雾气静立。A/B 2026-07-03: 初版两 seed 场景漂移(室内窗边 vs 檐廊)且 cel 平涂被厚涂盖掉->composition 加 outdoors 锚、medium 撤 cel 要求，待重测 A/B 批4(第三轮): outdoors 锚住但平光阴天 4 seed 均不落地（戏剧云天先验完胜）——退场存档。",
+      "bg_brief": "全天空柔光箱（阴天、无方向、冷白）；街景/绿地实体由背景线定义"
+    },
+    "dutch_tilt_moment": {
+      "name_cn": "荷兰角瞬间",
+      "intent": "倾斜地平线的动势抓拍：画面斜切带来不安定能量，风中回眸/起步的一瞬",
+      "slots": {
+        "medium": "clean lineart, flat color, dynamic anime illustration",
+        "camera": "dutch angle, canted camera, tilted frame, cowboy shot",
+        "composition": "strongly tilted diagonal horizon line, subject leaning into the tilt, motion energy across the frame",
+        "lighting": "clear daylight, crisp directional sun, simple shadows",
+        "expression": "caught mid-turn, surprised bright glance",
+        "color_mood": "high clarity daylight palette, saturated primaries kept clean"
+      },
+      "pose_ref": null,
+      "pose_tags_any": [
+        "standing",
+        "casual"
+      ],
+      "aspect": "portrait",
+      "base": {
+        "primary": "DasiwaIllustriousAnime_epitaphecstasy",
+        "alt": "iLustMix",
+        "why": "Dasiwa 线条利落贴平涂动势；标准线备选"
+      },
+      "style_loras": [
+        "Illustrious\\anime\\96YOTTEA-WAI.safetensors:0.7"
+      ],
+      "post_fx": {
+        "preset": "none",
+        "overrides": ""
+      },
+      "neg_add": "motion blur, blurry",
+      "flags": [],
+      "sfw": true,
+      "detail": true,
+      "sfw_note": "",
+      "note": "构图视角系。荷兰角动势是卡组空白；风险=模型爱把地平线拉直，A/B 看倾斜保不保得住。 A/B 批1 2026-07-03: 存活图画面被拉平（模型爱水平线）->倾斜词组加强+diagonal horizon line 显式化，批4 重测。 A/B 批4(第二轮): 3 seed 零倾斜——token 够不着相机几何，需后期旋转或相机控制 LoRA，超本轮手段，退场存档。",
+      "bg_brief": "简洁街景/天空对角线分割，元素少而利落"
+    },
+    "mirror_reflection_duet": {
+      "name_cn": "镜面对影",
+      "intent": "人物与镜中影同框：真身背影/侧身+镜内正脸，一张图两个叙事层",
+      "slots": {
+        "medium": "digital painting, soft brush shading",
+        "camera": "upper body shot, over-the-shoulder toward a mirror",
+        "composition": "subject seen from behind at an angle, her face visible in the mirror reflection, two visual layers in one frame",
+        "lighting": "soft vanity light around the mirror, warm key on the reflected face",
+        "expression": "reflected gaze meeting the viewer through the mirror",
+        "color_mood": "intimate warm interior tones, deep soft shadows"
+      },
+      "pose_ref": null,
+      "pose_tags_any": [
+        "seated",
+        "elegant",
+        "upper-body"
+      ],
+      "aspect": "portrait",
+      "base": {
+        "primary": "iLustMix",
+        "alt": "miaomiao3DHarem_lh3dEPS20",
+        "why": "标准线；镜内正脸靠 FaceDetailer，Harem 脸部强项备选（换它必挂其脾气卡+--no-freeu）"
+      },
+      "style_loras": [
+        "Illustrious\\anime\\96YOTTEA-WAI.safetensors:0.8",
+        "Illustrious\\style\\HueSpark1llust.safetensors:0.6"
+      ],
+      "post_fx": {
+        "preset": "warm",
+        "overrides": ""
+      },
+      "neg_add": "",
+      "flags": [],
+      "sfw": true,
+      "detail": true,
+      "sfw_note": "",
+      "note": "构图视角系。已知高风险卡：镜像一致性是 SD 弱项——A/B 专看镜内外身份/服装一致，镜内脸崩即弃；故意不加 2girls 负面（会连反射一起压掉）。 A/B 批1 2026-07-03: _00 镜中出异常红瞳第二人影、_01 无对影双层——两 seed 各败一种，SD 镜像一致性硬伤如卡注预告，退场存档。",
+      "bg_brief": "梳妆镜/立镜为画面第二层，镜框作内框；室内暗调"
+    },
+    "foreground_veil_candid": {
+      "name_cn": "前景纱影",
+      "intent": "穿过失焦前景拍人：花枝/薄纱虚化作画框边缘，偷得一瞬自然神态",
+      "slots": {
+        "medium": "soft anime illustration, depth-aware rendering",
+        "camera": "upper body shot, shot through out-of-focus foreground flowers, shallow depth of field",
+        "composition": "blurred foreground flowers occluding the frame edges, sharp subject beyond them, candid framing",
+        "lighting": "soft natural daylight, gentle bloom through the foreground blur",
+        "expression": "natural unguarded moment, soft distant look",
+        "color_mood": "airy pastel field with a sharp clear subject"
+      },
+      "pose_ref": null,
+      "pose_tags_any": [
+        "standing",
+        "casual",
+        "relaxed"
+      ],
+      "aspect": "portrait",
+      "base": {
+        "primary": "iLustMix",
+        "alt": "perfectdeliberate_v90",
+        "why": "标准线；perfectdeliberate 柔和备选"
+      },
+      "style_loras": [
+        "Illustrious\\style\\HueSpark1llust.safetensors:0.6"
+      ],
+      "post_fx": {
+        "preset": "muted",
+        "overrides": ""
+      },
+      "neg_add": "blurry face, out of focus subject, bridal veil, wedding dress",
+      "flags": [],
+      "sfw": true,
+      "detail": true,
+      "sfw_note": "",
+      "note": "构图视角系。前景遮挡纵深；风险=主体跟着糊（neg 锚脸部清晰）、前景占比失控吃人物。 A/B 批1 2026-07-03: 'veil' 两 seed 字面化成新娘头纱（token 教训第4条）->槽位去 veil 换 blurred foreground flowers+neg 压 bridal，批4 重测。 A/B 批4(重测): 头纱劫持已修（2/2 无 hijack），_00 干净过、_01 前景框松——批5 补掷确认。 A/B 批5: 无劫持 4/4 稳但前景遮挡构图命中率 ~1/2（两轮均未 2/2）——留候选区，待前景遮挡专用手段（regional/构图控制）。",
+      "bg_brief": "前景=失焦花枝/薄纱占画框边缘两成；远处浅色简洁"
+    },
+    "riso_duotone_poster": {
+      "name_cn": "riso 双色海报",
+      "intent": "riso 孔版印刷的两色海报：限定油墨、错位套印、纸感颗粒——图形化平面强卡",
+      "slots": {
+        "medium": "risograph print style, screen print texture, limited two-ink palette, offset misregistration, paper grain",
+        "camera": "upper body shot, looking at viewer",
+        "composition": "bold flat poster composition, large graphic shapes, generous flat color fields",
+        "lighting": "flat graphic lighting, no rendered shading, shapes carry the contrast",
+        "expression": "cool poised look",
+        "color_mood": "vermilion red and indigo ink duotone on warm paper white"
+      },
+      "pose_ref": null,
+      "pose_tags_any": [
+        "upper-body",
+        "elegant"
+      ],
+      "aspect": "tall",
+      "base": {
+        "primary": "Illustrious-XL-v2.0",
+        "alt": "DasiwaIllustriousAnime_epitaphecstasy",
+        "why": "Illustrious-XL 平涂图形强（blue_hour 同款选择）；Dasiwa 备选"
+      },
+      "style_loras": [
+        "Illustrious\\anime\\96YOTTEA-WAI.safetensors:0.7"
+      ],
+      "post_fx": {
+        "preset": "none",
+        "overrides": ""
+      },
+      "neg_add": "demon horns, ahoge, hair wings, bare legs, thigh slit, cleavage, glossy shading, photorealistic rendering",
+      "flags": [],
+      "sfw": true,
+      "detail": true,
+      "sfw_note": "",
+      "note": "媒介质感系。与 gel_split_duotone 区分：印刷油墨双色/零光影渲染 vs 舞台双色灯光。风险=riso token 偏弱，靠 screen print/duotone 词群兜底。 A/B 批2: --box zzz 强制 iLustMix（本卡设计基座 Illustrious-XL）——双色海报构图成立但 riso 网点判定无效，Z3 本座重测中。 Z3 本座重测 2026-07-03: Illustrious-XL 上网点/错位套印仍零出现（4 seed×2 基座全败），seed00 另出男性主体（无 --ref 时身份裸奔）——退场存档；结论=riso 质感需专用 style LoRA，纯 token 不成立。",
+      "bg_brief": "海报式纯色场+一两个几何图形元素，印刷网点纹理"
+    },
+    "charcoal_croquis": {
+      "name_cn": "炭笔速写",
+      "intent": "美术教室炭笔速写气质：粗砺纸纹、蹭抹阴影、单色调里一笔朱色",
+      "slots": {
+        "medium": "(charcoal drawing:1.3), rough charcoal strokes, smudged graphite shading, monochrome sketch, rough paper texture, unfinished pencil edges",
+        "camera": "portrait, upper body shot",
+        "composition": "loose sketch framing, unfinished edges fading into raw paper",
+        "lighting": "single window-side key suggested by smudged tonal masses",
+        "expression": "quiet concentration, softly lowered gaze",
+        "color_mood": "graphite greys on warm paper, one vermilion accent stroke"
+      },
+      "pose_ref": null,
+      "pose_tags_any": [
+        "seated",
+        "upper-body",
+        "relaxed"
+      ],
+      "aspect": "portrait",
+      "base": {
+        "primary": "iLustMix",
+        "alt": "pieModels_nutella",
+        "why": "标准线；nutella 纸本感备选"
+      },
+      "style_loras": [
+        "Illustrious\\anime\\96YOTTEA-WAI.safetensors:0.6"
+      ],
+      "post_fx": {
+        "preset": "none",
+        "overrides": ""
+      },
+      "neg_add": "colorful, glossy shading, clean lineart, digital ink, sepia wash",
+      "flags": [],
+      "sfw": true,
+      "detail": true,
+      "sfw_note": "",
+      "note": "媒介质感系。卡组无素描/单色媒介；风险=被基模强行上色（neg colorful）、construction lines 出乱线。 A/B 批2: 单色/纸纹成立但偏墨线非炭笔蹭抹，两 seed 均 QC 旗（surfaced）——待预筛裁决。 预筛批2: 两 seed 均渲成棕褐矢量非炭笔（_00 另有肋骨穿透+重复人脸）->medium 加权+反矢量负面，批4 最后一测，再败即退场。 A/B 批4(第三轮·加权版): 6 seed 零炭笔且 sepia 负面无效、身份塌——按卡注自判退场（干性媒介 token 定律再证）。",
+      "bg_brief": "生纸留白即场，边缘故意未完成"
+    },
+    "pastel_powder_bloom": {
+      "name_cn": "粉彩糖霜",
+      "intent": "软粉彩纸本：粉质颗粒、糖果低饱和、边缘晕染——比水彩更绒的温柔",
+      "slots": {
+        "medium": "soft pastel drawing, powdery chalk texture, velvety grain, blended edges",
+        "camera": "portrait, upper body shot, looking at viewer",
+        "composition": "centered gentle framing, soft vignette of powder texture",
+        "lighting": "diffuse frontal softness, no hard shadows",
+        "expression": "dreamy content smile",
+        "color_mood": "powdered candy pastels, milky rose and mint, low saturation"
+      },
+      "pose_ref": null,
+      "pose_tags_any": [
+        "upper-body",
+        "elegant",
+        "relaxed"
+      ],
+      "aspect": "portrait",
+      "base": {
+        "primary": "perfectdeliberate_v90",
+        "alt": "iLustMix",
+        "why": "perfectdeliberate 优雅柔和贴粉彩；标准线备选"
+      },
+      "style_loras": [
+        "Illustrious\\style\\HueSpark1llust.safetensors:0.6"
+      ],
+      "post_fx": {
+        "preset": "muted",
+        "overrides": ""
+      },
+      "neg_add": "glossy, high contrast",
+      "flags": [],
+      "sfw": true,
+      "detail": true,
+      "sfw_note": "",
+      "note": "媒介质感系。与 morning_high_key（水彩湿边）区分：干性粉质 vs 湿性水彩。 A/B 批2: --box zzz 强制 iLustMix（本卡设计基座 perfectdeliberate）——粉质判定无效，Z3 本座重测中。 Z3 本座重测 2026-07-03: perfectdeliberate 上粉质颗粒仍零出现、glossy 先验完胜（4 seed×2 基座全败）——退场存档；结论同 riso=干性媒介质感需专用 LoRA。",
+      "bg_brief": "粉彩纸底色微渐变即场，颗粒可见"
+    },
+    "noon_hard_light": {
+      "name_cn": "正午白灼",
+      "intent": "夏日正午的硬光：干脆的深影作图形元素、高反差白灼——少年漫画式的夏天精神",
+      "slots": {
+        "medium": "clean lineart, flat color, crisp anime illustration",
+        "camera": "cowboy shot, looking at viewer",
+        "composition": "outdoors in bright open daylight, hard-edged cast shadow as a graphic shape anchoring the frame, bright open space",
+        "lighting": "(harsh midday sunlight:1.2), direct overhead summer sun, blown-white highlights, crisp hard-edged dark shadows, high contrast",
+        "expression": "squinting confident grin",
+        "color_mood": "bleached whites, deep shadow blacks, one saturated primary accent"
+      },
+      "pose_ref": null,
+      "pose_tags_any": [
+        "standing",
+        "casual",
+        "contrapposto"
+      ],
+      "aspect": "portrait",
+      "base": {
+        "primary": "iLustMix",
+        "alt": "DasiwaIllustriousAnime_epitaphecstasy",
+        "why": "标准线；Dasiwa 平涂备选"
+      },
+      "style_loras": [
+        "Illustrious\\anime\\96YOTTEA-WAI.safetensors:0.7"
+      ],
+      "post_fx": {
+        "preset": "none",
+        "overrides": ""
+      },
+      "neg_add": "soft lighting, hazy",
+      "flags": [],
+      "sfw": true,
+      "detail": true,
+      "sfw_note": "",
+      "note": "时段-环境光系。卡组全是柔光/暗调，硬光正午是空白；风险=顶光吃眼睛（A/B 看眼部阴影）。 A/B 批3: 2/2 出近黑背景+柔光（完全反向）->lighting 加权+composition 加 outdoors bright 锚，批4 重测。 A/B 批4(重测): 身份修复、硬光 1/2 渐近——批5 补掷。 A/B 批5: 硬光渐近（_01 近中）但三轮未 2/2——留候选区，白灼高反差需进一步词权/基座实验。",
+      "bg_brief": "白灼天光下的简洁地面/墙面，深影形状清晰"
+    },
+    "engawa_dusk_breeze": {
+      "name_cn": "檐廊晚风",
+      "intent": "黄昏檐廊上的晚风：木廊暖影、风里发丝与衣摆——和风的一天收尾",
+      "slots": {
+        "medium": "soft anime illustration, warm painterly glow",
+        "camera": "cowboy shot, three-quarter view",
+        "composition": "subject seated on a wooden veranda edge, long warm shadows raking along the wood grain",
+        "lighting": "low golden dusk light raking along the corridor, warm wood bounce, wind-lifted hair catching light",
+        "expression": "day's-end ease, distant soft look",
+        "color_mood": "honeyed wood tones cooling into evening lavender"
+      },
+      "pose_ref": null,
+      "pose_tags_any": [
+        "seated",
+        "relaxed",
+        "casual"
+      ],
+      "aspect": "tall",
+      "base": {
+        "primary": "iLustMix",
+        "alt": "pieModels_nutella",
+        "why": "标准线；nutella 纸本旧色备选"
+      },
+      "style_loras": [
+        "Illustrious\\style\\HueSpark1llust.safetensors:0.6"
+      ],
+      "post_fx": {
+        "preset": "warm",
+        "overrides": ""
+      },
+      "neg_add": "",
+      "flags": [],
+      "sfw": true,
+      "detail": true,
+      "sfw_note": "",
+      "note": "场景氛围系。与 golden_hour_rimlight（逆光光效）区分：顺光暖廊场景叙事；与 tungsten_kissa（室内灯）区分：室外天光。 A/B 批4: 1/2（_00 檐廊金光全中，_01 卧姿漂+紫发）——批5 色锁补掷。 A/B 批5: 1 图被 SFW 门拦+存活图站姿非坐——两轮未复现，退场存档（场景族已有雨窗/落雪入库）。",
+      "bg_brief": "木檐廊纵深线+庭院暮色；廊柱影拉长"
+    },
+    "aquarium_drift": {
+      "name_cn": "水族蓝漂",
+      "intent": "水族馆大缸前的蓝色沉浸：水波光纹在脸上流动、悬浮微光——深蓝里的失重感",
+      "slots": {
+        "medium": "digital painting, luminous glaze rendering",
+        "camera": "portrait, upper body shot, three-quarter view",
+        "composition": "subject before the glass wall of a huge aquarium tank, rippling water light patterns cast across her face and hair",
+        "lighting": "deep aquarium blue glow, wavering caustic light ripples, soft floating particle shimmer",
+        "expression": "absorbed wonder",
+        "color_mood": "immersive deep blues with drifting cyan light"
+      },
+      "pose_ref": null,
+      "pose_tags_any": [
+        "standing",
+        "upper-body",
+        "elegant"
+      ],
+      "aspect": "square",
+      "base": {
+        "primary": "iLustMix",
+        "alt": "Illustrious-XL-v2.0",
+        "why": "标准线；Illustrious-XL 图形化备选"
+      },
+      "style_loras": [
+        "Illustrious\\anime\\96YOTTEA-WAI.safetensors:0.8",
+        "Illustrious\\style\\HueSpark1llust.safetensors:0.6"
+      ],
+      "post_fx": {
+        "preset": "none",
+        "overrides": ""
+      },
+      "neg_add": "underwater, submerged",
+      "flags": [],
+      "sfw": true,
+      "detail": true,
+      "sfw_note": "",
+      "note": "场景氛围系。水波光纹（caustics）是卡组没有的光纹理；风险=人物被画成水中（neg 锚 underwater）。 A/B 批4: 'water-glass plane' 两 seed 画成玩具飞机（字面化第6条）->改 'glass wall of aquarium tank'，批5 重测。 A/B 批5: 飞机字面化已修但水族语义不可读（无鱼/无焦散线索，两轮）——退场存档；水波焦散需参考图/LoRA 支撑。",
+      "bg_brief": "巨大水族缸玻璃面作发光场，游鱼剪影与气泡由背景线定义"
+    },
+    "candle_vigil": {
+      "name_cn": "烛焰守夜",
+      "intent": "胸前小火焰自下而上柔光的对称守夜像：克制的哀而不伤（Harem 脸手强项专用镜别）",
+      "slots": {
+        "medium": "oil painting, impasto highlights",
+        "camera": "close-up portrait",
+        "composition": "centered symmetrical composition, deliberate formal stillness",
+        "lighting": "gentle warm underlighting, face lit softly from below by a small flame, deep shadow falloff",
+        "pose": "hands cupped together in front of her chest",
+        "expression": "restrained grief, face held deliberately still",
+        "color_mood": "moody low-key color"
+      },
+      "pose_ref": null,
+      "pose_tags_any": [],
+      "aspect": "square",
+      "base": {
+        "primary": "miaomiao3DHarem_lh3dEPS20",
+        "alt": "iLustMix",
+        "why": "Harem 脸/手细节第一强项，特写镜别避开其胯腰先验；脾气卡 neg_add + --no-freeu 已由本卡携带"
+      },
+      "style_loras": [
+        "Illustrious\\anime\\96YOTTEA-WAI.safetensors:0.8",
+        "Illustrious\\style\\HueSpark1llust.safetensors:0.6"
+      ],
+      "post_fx": {
+        "preset": "warm",
+        "overrides": ""
+      },
+      "neg_add": "wide hips, large hips, thick thighs, exaggerated hips, huge breasts, voluptuous, sheer, see-through, skin tight, overexposed, washed out",
+      "flags": [
+        "--no-freeu"
+      ],
+      "sfw": true,
+      "detail": true,
+      "sfw_note": "underlighting 的恐怖谷倾向已被 gentle/softly 软化；Harem 面料先验由 neg_add 接管，--sfw 门常开",
+      "bg_brief": "全黑或近黑底即可，无需背景实体；唯一光源=胸前小火焰（暖）",
+      "note": "降级候选区 2026-07-03（Codex review 采纳）：复验三败、配方当前不产出卡面承诺——晋升规则下正式卡组=已验证配方。预览实证 2026-07-03：Harem 基座+下位烛光两 seed 均结构解体（QC 门一次漏检）；预览改用 iLustMix 近似，卡的 primary 待复验。 第三掷（iLustMix）：解剖修复但 'small flame' token 字面化成脸部火焰特效（token 教训第5条）——三配置三败，暂无预览，卡待复验重写。"
+    },
+    "gel_split_duotone": {
+      "name_cn": "双色 gel 分割",
+      "intent": "品红/青对向 gel 舞台光打动态骨架：肢体三角形切割画面的图形化能量",
+      "slots": {
+        "medium": "cel shading, flat color",
+        "camera": "full body shot",
+        "composition": "zigzag composition, limbs breaking the frame into triangles",
+        "lighting": "duotone gel lighting, magenta key and cyan rim from opposite sides",
+        "expression": "looking at viewer, direct gaze, calm and unhurried",
+        "color_mood": "limited two-tone palette"
+      },
+      "pose_ref": "flamenco_arms",
+      "pose_tags_any": [
+        "dance",
+        "dynamic"
+      ],
+      "aspect": "tall",
+      "base": {
+        "primary": "iLustMix",
+        "alt": "DasiwaIllustriousAnime_epitaphecstasy",
+        "why": "动态骨架必须 iLustMix 锁姿配方（唯一验证锁得住 openpose 的 base）"
+      },
+      "style_loras": [],
+      "post_fx": {
+        "preset": "teal-orange",
+        "overrides": "--temp 0"
+      },
+      "neg_add": "2girls, multiple views, duplicate",
+      "flags": [],
+      "sfw": true,
+      "detail": true,
+      "sfw_note": "",
+      "note": "降级候选区 2026-07-03（Codex review 采纳）：复验三败、配方当前不产出卡面承诺——晋升规则下正式卡组=已验证配方。色相已由 gel 定 -> post_fx 只要对比（--temp 0）；骨架线去重脸负面进 neg_add 已知交互 2026-07-03：pose_ref 配对注入的光照建议优先级高于卡槽位→本卡 gel 光被顶掉；手动跑用 --no-pair + 显式 --lighting 兜，引擎级修法待议。 第三掷（--no-pair+显式 --lighting）：骨架保住但品红/青依然零出现、服装再暴露——三败，暂无预览，gel 色适配待专项排查。",
+      "bg_brief": "纯色深底+两侧对向 gel 溢光即可，无需实体"
+    },
+    "morning_high_key": {
+      "name_cn": "晨雾高调",
+      "intent": "高调水彩留白：亮雾场中的克制静立——卡组唯一高调，防审美单一化",
+      "slots": {
+        "medium": "watercolor \\(medium\\), soft pigment bleed",
+        "camera": "full body shot",
+        "composition": "negative space, small figure in a wide empty field",
+        "lighting": "high-key lighting, bright airy field, faint soft shadows only",
+        "pose": "perfectly vertical stillness, shoulders level, hands quiet at her sides",
+        "expression": "looking afar, thoughts elsewhere",
+        "color_mood": "porcelain pastels with a gray-green undertone"
+      },
+      "pose_ref": null,
+      "pose_tags_any": [],
+      "aspect": "tall",
+      "base": {
+        "primary": "perfectdeliberate_v90",
+        "alt": "pieModels_nutella",
+        "why": "perfectdeliberate clean full body（脾气卡）；高调场里比例干净最重要"
+      },
+      "style_loras": [
+        "Illustrious\\style\\HueSpark1llust.safetensors:0.6"
+      ],
+      "post_fx": {
+        "preset": "muted",
+        "overrides": "--grain 0.028"
+      },
+      "neg_add": "overexposed, washed out, blown highlights, wet, wet clothes, see-through",
+      "flags": [],
+      "sfw": true,
+      "detail": true,
+      "sfw_note": "",
+      "note": "降级候选区 2026-07-03（Codex review 采纳）：复验三败、配方当前不产出卡面承诺——晋升规则下正式卡组=已验证配方。高调最易『AI 扁平』-> post_fx 补细颗粒（--grain 0.028） 预览实证 2026-07-03：medium 的 'wet edges' 两 seed 均字面化成湿身衣物（同 butterfly lighting 教训）→ 改 'soft pigment bleed' + neg 压 wet 系。 第三掷（去wet措辞+neg）：湿衣消失但 perfectdeliberate 基座写实华丽倾向压过水彩 token——三败，暂无预览，或需换基座/加权重再验。",
+      "bg_brief": "亮雾底，地平线几乎消失；任何背景实体保持极低对比"
+    },
+    "rembrandt_workshop": {
+      "name_cn": "暖光伦勃朗工坊",
+      "intent": "单源暖光油画亲密特写，暖灯丝对冷暗部，知性浅笑（C4-505 终选配方固化）",
+      "slots": {
+        "medium": "oil painting, visible brushstrokes",
+        "camera": "upper body shot",
+        "composition": "tight framing, deliberate claustrophobic crop",
+        "lighting": "rembrandt lighting, bare tungsten bulb glow as the only key, warm filament light, cool blue shadow fill",
+        "pose": "resting her chin on the back of one hand, elbow propped",
+        "expression": "light smile, barely there, more in the eyes than the mouth",
+        "color_mood": "monochrome silver-blue with warm candlelight breaking through"
+      },
+      "pose_ref": null,
+      "pose_tags_any": [
+        "seated"
+      ],
+      "aspect": "portrait",
+      "base": {
+        "primary": "iLustMix",
+        "alt": "miaomiao3DHarem_lh3dEPS20",
+        "why": "iLustMix+双强风格是 C4-505 验证配方；Harem 脸/手细节更强（上半身景别安全），换它时必挂其脾气卡 neg_add + --no-freeu"
+      },
+      "style_loras": [
+        "Illustrious\\anime\\96YOTTEA-WAI.safetensors:0.8",
+        "Illustrious\\style\\HueSpark1llust.safetensors:0.6"
+      ],
+      "post_fx": {
+        "preset": "film",
+        "overrides": ""
+      },
+      "neg_add": "",
+      "flags": [],
+      "sfw": true,
+      "detail": true,
+      "sfw_note": "",
+      "bg_brief": "暖主光自左上（灯丝灯泡类点源），右侧留冷蓝暗部；工坊陈设由背景线定义",
+      "note": "用户退场判定 2026-08-04: 该风格以后不太需要，预览崩坏较为明显（rembrandt_workshop.png）。侧证: anime_teen 年龄分类器对该预览仅 non_teen 0.49 低置信（崩坏脸与分类不确定相关）。原为 C4-505 终选配方固化卡；配套 goal chiaroscuro-portrait 同步移除。复活需重拍 A/B 过验。"
+    }
+  }
+}

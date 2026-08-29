@@ -1,0 +1,44 @@
+# lighting v2 — one full lighting recipe per line (pattern + direction + quality + temperature).
+# Confidence markers live ONLY in these group headers ([高]=learned danbooru tag, [中]=CLIP-parsable
+# phrase, [低]=photo jargon carried by its inline plain-language description). Entries must not name
+# environment objects; motivated light SOURCES (candle/bulb/lamp) are allowed as emitters only.
+# A. named portrait patterns [低 — jargon; each line carries its own plain description]
+rembrandt lighting, single warm key from upper left, small triangle of light on the shadowed cheek
+split lighting, face half in shadow, hard vertical shadow edge down the nose
+butterfly lighting, symmetrical key from high front, small soft shadow under the nose
+loop lighting, key slightly off to one side, small nose shadow looping toward the cheek
+short lighting, shadow side of the face turned to viewer, narrow dramatic portrait light
+# B. edge / separation [高 — backlighting, rim light, silhouette are learned tags]
+rim light, bright edge outline along hair and shoulders, face mostly in shadow
+backlighting, contre-jour, glowing outline, details swallowed by shadow
+silhouette, figure reading as a single dark shape against a bright field
+kicker light from behind at forty-five degrees, one bright line along jaw and shoulder
+hair light from high behind, halo glow on silver hair
+# C. direction x quality [高/中]
+sidelighting, hard raking light skimming across fabric texture, long shadows
+harsh sunlight, hard-edged cast shadows, squinting brightness
+soft diffused overcast light, shadowless gentle modelling
+top-down spotlight, pool of light, eyes falling into shadow
+gentle warm underlighting, face lit softly from below by a small flame
+dappled sunlight, broken patches of light and shadow across the figure
+# D. motivated practicals [中 — the filament-bulb key is print-validated (C4-505)]
+warm candlelight, single flame as the only key light, deep shadow falloff
+bare tungsten bulb glow, warm filament light, intimate amber cast
+oil lamp glow, low warm pool of light, edges fading to darkness
+paper lantern glow, soft warm omnidirectional light
+cool blue moonlight, pale ambient wash, soft silver highlights
+# E. color-temperature contrast / gels [中 — two-source color splits steer reliably]
+warm orange key with cool blue fill, teal and orange split
+duotone gel lighting, magenta key and cyan rim from opposite sides
+cool moonlight ambient with a single warm accent light
+golden hour backlight, long warm rays, cool blue shadow fill
+neon glow spill, colored gel light washing over skin
+volumetric lighting, god rays, visible shafts of light in haze
+# F. value structure [高 — chiaroscuro validated best on Illustrious-XL-v2.0]
+dramatic chiaroscuro, low-key, darkness swallowing most of the figure
+low-key lighting, single small source, ninety percent shadow
+high-key lighting, bright airy field, faint soft shadows only
+a pool of light in darkness, figure emerging from black
+warm indoor lamplight, cozy enveloping glow
+lens flare, sun glare cutting across the frame
+studio three-point lighting, clean key fill and rim

@@ -1,0 +1,3384 @@
+{
+  "schema": "loramake.nai-artist-strings/v1",
+  "version": 1,
+  "note": "NovelAI V5 artist string cards (SFW refined line). NAI-line only: the artist: prefix and N::tag :: weights are the community standard here; the Anima-line rules (@ prefix, no quality tags) do NOT apply. Cards are the global style layer and stay character-neutral (universality contract: no subject wording on card faces; verified requires cross-subject consistency in the calibration evidence). First deck seeded 2026-08-27 from fresh SFW research (5ch NAI wiki, sese2000ai, myspellstorage S-rank, nax.moe V5 1900-tag survey, Danbooru spelling checks); all weights are research starting points until V5 same-seed calibration backfills status.",
+  "cards": {
+    "nardack_solo": {
+      "name_cn": "水彩童话",
+      "intent": "柔和粉彩水彩，童话绘本式的柔光",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "nardack",
+          "kind": "artist",
+          "weight": 1.2
+        }
+      ],
+      "axes": {
+        "line": [
+          "soft dissolved lines"
+        ],
+        "color": [
+          "gentle pastel washes"
+        ],
+        "shading": [
+          "diffuse fairytale glow"
+        ],
+        "medium": [
+          "watercolor"
+        ],
+        "mood": [
+          "storybook warmth",
+          "dreamy"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "off",
+        "scene_bias": [
+          "garden",
+          "soft daylight interior"
+        ],
+        "lighting_bias": [
+          "soft ambient light",
+          "gentle backlight"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 SFW 调研: https://danbooru.donmai.us/posts?tags=nardack + nax.moe V5 survey",
+      "status": "verified",
+      "verified": {
+        "model": "nai-diffusion-5-full",
+        "date": "2026-08-27",
+        "evidence": "outputs/_analysis/nai_v5_artist_calibration_2026-08-27/"
+      }
+    },
+    "hiten_solo": {
+      "name_cn": "清透高光",
+      "intent": "透明感清亮上色，光线穿透式的轻盈质感",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "hiten (hitenkei)",
+          "kind": "artist",
+          "weight": 1.25
+        }
+      ],
+      "axes": {
+        "line": [
+          "fine clean lineart"
+        ],
+        "color": [
+          "clear translucent brights",
+          "glassy highlights"
+        ],
+        "shading": [
+          "luminous soft shading"
+        ],
+        "medium": [
+          "digital with watercolor-like clarity"
+        ],
+        "mood": [
+          "fresh",
+          "summer-light radiance"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [
+          "bright outdoor daylight"
+        ],
+        "lighting_bias": [
+          "strong daylight",
+          "translucent backlight"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 SFW 调研: myspellstorage S-rank + https://danbooru.donmai.us/posts?tags=hiten_(hitenkei)",
+      "status": "rejected",
+      "verified": null,
+      "note": "语料带泳装倾向；SFW 场景词与着装词必须在场；R1 2026-08-27 三场景同 seed 标定：用户否决"
+    },
+    "dangmill_solo": {
+      "name_cn": "淡彩留白",
+      "intent": "铅笔般细线加湿边水彩，安静空气感；兼作弱先验测试位",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "dangmill",
+          "kind": "artist",
+          "weight": 1.5
+        }
+      ],
+      "axes": {
+        "line": [
+          "delicate thin pencil-like lines"
+        ],
+        "color": [
+          "translucent muted cool washes"
+        ],
+        "shading": [
+          "wet-edge soft gradients",
+          "paper-white reserves"
+        ],
+        "medium": [
+          "watercolor"
+        ],
+        "mood": [
+          "quiet",
+          "airy nostalgia"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "off",
+        "scene_bias": [
+          "quiet interior",
+          "overcast outdoor"
+        ],
+        "lighting_bias": [
+          "diffuse window light"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 SFW 调研: https://danbooru.donmai.us/posts?tags=dangmill (232 posts, 弱先验)",
+      "status": "rejected",
+      "verified": null,
+      "note": "弱先验（<300 posts）测试位：标定权重配平法则用，起手 1.5；R1 2026-08-27 三场景同 seed 标定：用户否决"
+    },
+    "wlop_solo": {
+      "name_cn": "电影厚涂",
+      "intent": "无线条厚涂，宝石色调与强轮廓光的电影感",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "wlop",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "lineless, paint-defined edges"
+        ],
+        "color": [
+          "deep jewel tones",
+          "cinematic teal-gold"
+        ],
+        "shading": [
+          "glossy semi-realistic rendering",
+          "strong rim light"
+        ],
+        "medium": [
+          "thick digital painting"
+        ],
+        "mood": [
+          "epic",
+          "melancholic grandeur"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [
+          "night city",
+          "grand fantasy interior"
+        ],
+        "lighting_bias": [
+          "rim light",
+          "single strong key light"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 SFW 调研: https://danbooru.donmai.us/posts?tags=wlop + nax.moe V5 survey",
+      "status": "rejected",
+      "verified": null,
+      "note": "语料含裸露成分且脸部偏写实；SFW 场景锚必须在场，标定时观察写实拉力；R1 2026-08-27 三场景同 seed 标定：用户否决"
+    },
+    "reoen_solo": {
+      "name_cn": "油画暖光",
+      "intent": "油画式厚颜料笔触，琥珀暖褐的古典亲密感",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "reoen",
+          "kind": "artist",
+          "weight": 1.45
+        }
+      ],
+      "axes": {
+        "line": [
+          "lineless, stroke-built forms"
+        ],
+        "color": [
+          "warm rich oils",
+          "amber-brown depth"
+        ],
+        "shading": [
+          "thick oil-like impasto",
+          "textured highlights"
+        ],
+        "medium": [
+          "oil painting texture"
+        ],
+        "mood": [
+          "warm",
+          "classical intimacy"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "off",
+        "scene_bias": [
+          "candlelit interior",
+          "dusk room"
+        ],
+        "lighting_bias": [
+          "warm low-key light"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 SFW 调研: https://danbooru.donmai.us/posts?tags=reoen + nax.moe V5 survey",
+      "status": "verified",
+      "verified": {
+        "model": "nai-diffusion-5-full",
+        "date": "2026-08-27",
+        "evidence": "outputs/_analysis/nai_v5_artist_calibration_2026-08-27/"
+      }
+    },
+    "rella_solo": {
+      "name_cn": "晶莹抒情",
+      "intent": "高完成度平滑厚涂，MV 式的晶莹抒情色光",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "rella",
+          "kind": "artist",
+          "weight": 1.35
+        }
+      ],
+      "axes": {
+        "line": [
+          "clean painterly-absorbed lines"
+        ],
+        "color": [
+          "luminous filmic grading"
+        ],
+        "shading": [
+          "smooth polished painterly"
+        ],
+        "medium": [
+          "high-finish digital painting"
+        ],
+        "mood": [
+          "serene",
+          "crystalline lyricism"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "on",
+        "scene_bias": [
+          "sky",
+          "water reflections"
+        ],
+        "lighting_bias": [
+          "clear cool light"
+        ],
+        "note": "质量杠杆 A/B（S1 同 seed，用户裁决 2026-08-27）：qualityToggle 开 与 手写 V4.5 尾缀（location, very aesthetic, masterpiece, no text）均过审；scale6 与权重 1.5 否决。证据 outputs/_analysis/nai_v5_artist_calibration_2026-08-27/renders_quality/"
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 SFW 调研: https://danbooru.donmai.us/posts?tags=rella + nax.moe V5 survey",
+      "status": "verified",
+      "verified": {
+        "model": "nai-diffusion-5-full",
+        "date": "2026-08-27",
+        "evidence": "outputs/_analysis/nai_v5_artist_calibration_2026-08-27/"
+      }
+    },
+    "torino_aqua_solo": {
+      "name_cn": "闪亮清透",
+      "intent": "细闪线条与宝石感高光的透亮赛璐璐",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "torino aqua",
+          "kind": "artist",
+          "weight": 1.25
+        }
+      ],
+      "axes": {
+        "line": [
+          "fine sparkling lineart"
+        ],
+        "color": [
+          "clear aqua-tinted brights"
+        ],
+        "shading": [
+          "glossy cel with glitter highlights"
+        ],
+        "medium": [
+          "polished digital cel"
+        ],
+        "mood": [
+          "sparkling",
+          "effervescent purity"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [
+          "bright daylight",
+          "sparkling water"
+        ],
+        "lighting_bias": [
+          "high-key daylight"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 SFW 调研: myspellstorage S-rank + https://danbooru.donmai.us/posts?tags=torino_aqua",
+      "status": "rejected",
+      "verified": null,
+      "note": "R1 2026-08-27 三场景同 seed 标定：用户否决"
+    },
+    "ciloranko_solo": {
+      "name_cn": "糖果精致",
+      "intent": "精准线稿加糖果般干净配色的偶像级赛璐璐",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "ciloranko",
+          "kind": "artist",
+          "weight": 1.5
+        }
+      ],
+      "axes": {
+        "line": [
+          "crisp precise lineart"
+        ],
+        "color": [
+          "candy-clean brights",
+          "high clarity"
+        ],
+        "shading": [
+          "soft cel with subtle gradients"
+        ],
+        "medium": [
+          "polished digital cel"
+        ],
+        "mood": [
+          "sweet",
+          "pristine idol-clean"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [
+          "clean bright interior"
+        ],
+        "lighting_bias": [
+          "soft even light"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 SFW 调研: https://danbooru.donmai.us/posts?tags=ciloranko (252 posts 但社区响应口碑远超计数)",
+      "status": "verified",
+      "verified": {
+        "model": "nai-diffusion-5-full",
+        "date": "2026-08-27",
+        "evidence": "outputs/_analysis/nai_v5_artist_calibration_2026-08-27/",
+        "note": "泛化探针观察：老年主体面部有理想化年轻化倾向；质量杠杆 A/B：权重 1.4→1.5 用户过审（qualityToggle/尾缀/scale6 否决），证据 outputs/_analysis/nai_v5_artist_calibration_2026-08-27/renders_quality/"
+      }
+    },
+    "hanekoto_solo": {
+      "name_cn": "黄昏怀旧",
+      "intent": "圆润线条加橙蓝黄昏对比光的情绪赛璐璐",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "hanekoto",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "soft rounded lineart"
+        ],
+        "color": [
+          "warm dusk palette",
+          "orange-blue contrast"
+        ],
+        "shading": [
+          "cel base with atmospheric backlight"
+        ],
+        "medium": [
+          "digital cel with painterly sky"
+        ],
+        "mood": [
+          "emotional",
+          "golden-hour nostalgia"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [
+          "dusk rooftop",
+          "sunset street"
+        ],
+        "lighting_bias": [
+          "golden hour backlight"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 SFW 调研: https://danbooru.donmai.us/posts?tags=hanekoto + nax.moe V5 survey",
+      "status": "rejected",
+      "verified": null,
+      "note": "R1 2026-08-27 三场景同 seed 标定：用户否决"
+    },
+    "murata_range_solo": {
+      "name_cn": "复古印刷",
+      "intent": "手绘墨线加低饱和暖平涂的复古未来印刷质感",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "murata range",
+          "kind": "artist",
+          "weight": 1.25
+        }
+      ],
+      "axes": {
+        "line": [
+          "confident hand-drawn ink lines"
+        ],
+        "color": [
+          "muted warm flats",
+          "retro-future palette"
+        ],
+        "shading": [
+          "restrained hand-tinted shading"
+        ],
+        "medium": [
+          "hand-drawn illustration",
+          "print-era finish"
+        ],
+        "mood": [
+          "retro-futurist",
+          "mechanical warmth"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "off",
+        "scene_bias": [
+          "retro street",
+          "mechanical props"
+        ],
+        "lighting_bias": [
+          "flat daylight"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 SFW 调研: https://danbooru.donmai.us/posts?tags=murata_range + nax.moe V5 survey",
+      "status": "rejected",
+      "verified": null,
+      "note": "R1 2026-08-27 三场景同 seed 标定：用户否决"
+    },
+    "mikimoto_haruhiko_solo": {
+      "name_cn": "八零喷枪",
+      "intent": "铅笔加喷枪渐变的八十年代 OVA 抒情画风，年代词锁定",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "mikimoto haruhiko",
+          "kind": "artist",
+          "weight": 1.45
+        },
+        {
+          "tag": "year 1985",
+          "kind": "style",
+          "weight": null
+        }
+      ],
+      "axes": {
+        "line": [
+          "soft pencil-and-brush anime lines"
+        ],
+        "color": [
+          "80s airbrush pastels"
+        ],
+        "shading": [
+          "airbrushed gradients",
+          "cel-era softness"
+        ],
+        "medium": [
+          "1980s anime illustration"
+        ],
+        "mood": [
+          "romantic",
+          "wistful classic OVA"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "off",
+        "scene_bias": [
+          "retro city",
+          "starry sky"
+        ],
+        "lighting_bias": [
+          "soft airbrushed glow"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 SFW 调研: sese2000ai 年代锁法 + https://danbooru.donmai.us/posts?tags=mikimoto_haruhiko",
+      "status": "rejected",
+      "verified": null,
+      "note": "year 1985 是该串设计的一部分（sese2000ai 年代锁），不是独立变量；R1 2026-08-27 三场景同 seed 标定：用户否决"
+    },
+    "mika_pikazo_solo": {
+      "name_cn": "色块爆炸",
+      "intent": "粗细变化线条加高饱和硬边色块的流行海报风",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "mika pikazo",
+          "kind": "artist",
+          "weight": 1.25
+        }
+      ],
+      "axes": {
+        "line": [
+          "bold varied-weight lines"
+        ],
+        "color": [
+          "explosive high-saturation color blocks"
+        ],
+        "shading": [
+          "hard-edged color-zone shading"
+        ],
+        "medium": [
+          "graphic digital illustration"
+        ],
+        "mood": [
+          "loud",
+          "pop-art celebration"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [
+          "colorful urban",
+          "stage light"
+        ],
+        "lighting_bias": [
+          "saturated colored light"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 SFW 调研: sese2000ai V5 指南示例画师 + https://danbooru.donmai.us/posts?tags=mika_pikazo",
+      "status": "rejected",
+      "verified": null,
+      "note": "R1 2026-08-27 三场景同 seed 标定：用户否决"
+    },
+    "lack_solo": {
+      "name_cn": "明暗戏剧",
+      "intent": "暗底强主光的奇亚罗斯库罗式游戏插画厚涂",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "lack",
+          "kind": "artist",
+          "weight": 1.25
+        }
+      ],
+      "axes": {
+        "line": [
+          "paint-edge lines",
+          "minimal outlines"
+        ],
+        "color": [
+          "dark grounds with saturated key light"
+        ],
+        "shading": [
+          "chiaroscuro",
+          "dramatic single-source lighting"
+        ],
+        "medium": [
+          "painterly digital game illustration"
+        ],
+        "mood": [
+          "heroic",
+          "theatrical tension"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [
+          "night scene",
+          "ruins"
+        ],
+        "lighting_bias": [
+          "single dramatic key light",
+          "chiaroscuro"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 SFW 调研: https://danbooru.donmai.us/posts?tags=lack + nax.moe V5 survey",
+      "status": "rejected",
+      "verified": null,
+      "note": "R1 2026-08-27 三场景同 seed 标定：用户否决"
+    },
+    "five_element_watercolor": {
+      "name_cn": "五要素水彩",
+      "intent": "无画师名的五要素兜底串，画师标签失效时的替代路线",
+      "structure": "style_only",
+      "components": [
+        {
+          "tag": "watercolor (medium)",
+          "kind": "style",
+          "weight": 1.5
+        },
+        {
+          "tag": "thin lines",
+          "kind": "style",
+          "weight": null
+        },
+        {
+          "tag": "pastel colors",
+          "kind": "style",
+          "weight": null
+        },
+        {
+          "tag": "soft shading",
+          "kind": "style",
+          "weight": null
+        }
+      ],
+      "axes": {
+        "line": [
+          "thin lines"
+        ],
+        "color": [
+          "pastel colors"
+        ],
+        "shading": [
+          "soft shading"
+        ],
+        "medium": [
+          "watercolor"
+        ],
+        "mood": [
+          "gentle",
+          "neutral style probe"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "off",
+        "scene_bias": [],
+        "lighting_bias": [
+          "soft ambient light"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "docs/novelai_line/V45_ARTIST_MIX_GUIDE.md §三 五要素分解法",
+      "status": "rejected",
+      "verified": null,
+      "note": "R1 2026-08-27 三场景同 seed 标定：用户否决"
+    },
+    "duo_nardack_x_rella": {
+      "name_cn": "水彩晶莹",
+      "intent": "童话水彩为主，注入晶莹光感的通透度",
+      "structure": "duo",
+      "components": [
+        {
+          "tag": "nardack",
+          "kind": "artist",
+          "weight": 1.5
+        },
+        {
+          "tag": "rella",
+          "kind": "artist",
+          "weight": 0.5
+        }
+      ],
+      "axes": {
+        "line": [
+          "soft dissolved lines"
+        ],
+        "color": [
+          "pastel washes with luminous grading"
+        ],
+        "shading": [
+          "fairytale glow",
+          "polished light"
+        ],
+        "medium": [
+          "watercolor with filmic finish"
+        ],
+        "mood": [
+          "dreamy",
+          "lyrical"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "off",
+        "scene_bias": [
+          "garden",
+          "sky light"
+        ],
+        "lighting_bias": [
+          "soft luminous backlight"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "R2 duo 设计：R1 verified singles 配对，起手 1.5/0.5（V45_ARTIST_MIX_GUIDE §二）",
+      "status": "verified",
+      "verified": {
+        "model": "nai-diffusion-5-full",
+        "date": "2026-08-27",
+        "evidence": "outputs/_analysis/nai_v5_artist_calibration_2026-08-27/",
+        "note": "S1 同 seed 对照主辅 single，用户裁决通过"
+      }
+    },
+    "duo_rella_x_reoen": {
+      "name_cn": "晶莹油韵",
+      "intent": "晶莹抒情为主，掺入油画笔触的温度",
+      "structure": "duo",
+      "components": [
+        {
+          "tag": "rella",
+          "kind": "artist",
+          "weight": 1.5
+        },
+        {
+          "tag": "reoen",
+          "kind": "artist",
+          "weight": 0.5
+        }
+      ],
+      "axes": {
+        "line": [
+          "painterly-absorbed lines"
+        ],
+        "color": [
+          "luminous grading over warm depth"
+        ],
+        "shading": [
+          "polished painterly with impasto hints"
+        ],
+        "medium": [
+          "high-finish painting"
+        ],
+        "mood": [
+          "serene",
+          "warm lyricism"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [
+          "dusk sky",
+          "water reflections"
+        ],
+        "lighting_bias": [
+          "warm clear light"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "R2 duo 设计：R1 verified singles 配对，起手 1.5/0.5（V45_ARTIST_MIX_GUIDE §二）",
+      "status": "verified",
+      "verified": {
+        "model": "nai-diffusion-5-full",
+        "date": "2026-08-27",
+        "evidence": "outputs/_analysis/nai_v5_artist_calibration_2026-08-27/",
+        "note": "S1 同 seed 对照主辅 single，用户裁决通过"
+      }
+    },
+    "duo_reoen_x_nardack": {
+      "name_cn": "油画柔彩",
+      "intent": "油画厚笔触为主，晕入水彩式的柔和粉彩",
+      "structure": "duo",
+      "components": [
+        {
+          "tag": "reoen",
+          "kind": "artist",
+          "weight": 1.5
+        },
+        {
+          "tag": "nardack",
+          "kind": "artist",
+          "weight": 0.5
+        }
+      ],
+      "axes": {
+        "line": [
+          "stroke-built forms"
+        ],
+        "color": [
+          "amber warmth with pastel softening"
+        ],
+        "shading": [
+          "impasto with diffuse glow"
+        ],
+        "medium": [
+          "oil painting texture"
+        ],
+        "mood": [
+          "classical warmth",
+          "gentle"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "off",
+        "scene_bias": [
+          "candlelit interior"
+        ],
+        "lighting_bias": [
+          "warm low-key light"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "R2 duo 设计：R1 verified singles 配对，起手 1.5/0.5（V45_ARTIST_MIX_GUIDE §二）",
+      "status": "rejected",
+      "verified": null,
+      "note": "R2 2026-08-27 S1 同 seed duo 对照：用户否决"
+    },
+    "duo_ciloranko_x_rella": {
+      "name_cn": "糖果流光",
+      "intent": "糖果赛璐璐为主，加一层晶莹光泽",
+      "structure": "duo",
+      "components": [
+        {
+          "tag": "ciloranko",
+          "kind": "artist",
+          "weight": 1.5
+        },
+        {
+          "tag": "rella",
+          "kind": "artist",
+          "weight": 0.5
+        }
+      ],
+      "axes": {
+        "line": [
+          "crisp precise lineart"
+        ],
+        "color": [
+          "candy brights with luminous grading"
+        ],
+        "shading": [
+          "soft cel with polished light"
+        ],
+        "medium": [
+          "polished digital cel"
+        ],
+        "mood": [
+          "sweet",
+          "radiant"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [
+          "clean bright interior"
+        ],
+        "lighting_bias": [
+          "clear soft light"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "R2 duo 设计：R1 verified singles 配对，起手 1.5/0.5（V45_ARTIST_MIX_GUIDE §二）",
+      "status": "rejected",
+      "verified": null,
+      "note": "R2 2026-08-27 S1 同 seed duo 对照：用户否决"
+    },
+    "duo_nardack_x_reoen": {
+      "name_cn": "童话油暖",
+      "intent": "童话水彩为主，垫一层油画的暖褐厚度",
+      "structure": "duo",
+      "components": [
+        {
+          "tag": "nardack",
+          "kind": "artist",
+          "weight": 1.5
+        },
+        {
+          "tag": "reoen",
+          "kind": "artist",
+          "weight": 0.5
+        }
+      ],
+      "axes": {
+        "line": [
+          "soft dissolved lines"
+        ],
+        "color": [
+          "pastel washes over amber depth"
+        ],
+        "shading": [
+          "diffuse glow with textured warmth"
+        ],
+        "medium": [
+          "watercolor-oil hybrid feel"
+        ],
+        "mood": [
+          "storybook warmth",
+          "intimate"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "off",
+        "scene_bias": [
+          "soft daylight interior"
+        ],
+        "lighting_bias": [
+          "warm ambient light"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "R2 duo 设计：R1 verified singles 配对，起手 1.5/0.5（V45_ARTIST_MIX_GUIDE §二）",
+      "status": "rejected",
+      "verified": null,
+      "note": "R2 2026-08-27 S1 同 seed duo 对照：用户否决"
+    },
+    "duo_ciloranko_x_nardack": {
+      "name_cn": "糖果童话",
+      "intent": "糖果赛璐璐为主，融入童话水彩的柔雾",
+      "structure": "duo",
+      "components": [
+        {
+          "tag": "ciloranko",
+          "kind": "artist",
+          "weight": 1.5
+        },
+        {
+          "tag": "nardack",
+          "kind": "artist",
+          "weight": 0.5
+        }
+      ],
+      "axes": {
+        "line": [
+          "crisp lineart, softened edges"
+        ],
+        "color": [
+          "candy brights with pastel haze"
+        ],
+        "shading": [
+          "soft cel with fairytale glow"
+        ],
+        "medium": [
+          "digital cel with wash feel"
+        ],
+        "mood": [
+          "sweet",
+          "dreamy"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [
+          "garden",
+          "bright interior"
+        ],
+        "lighting_bias": [
+          "soft daylight"
+        ]
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "R2 duo 设计：R1 verified singles 配对，起手 1.5/0.5（V45_ARTIST_MIX_GUIDE §二）",
+      "status": "rejected",
+      "verified": null,
+      "note": "R2 2026-08-27 S1 同 seed duo 对照：用户否决"
+    },
+    "askzy_solo": {
+      "name_cn": "华彩光效",
+      "intent": "光效晶莹、金蓝对比的高完成度厚涂",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "ask (askzy)",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "clean fine lines"
+        ],
+        "color": [
+          "gold-blue luminous contrast"
+        ],
+        "shading": [
+          "glossy luminous painterly"
+        ],
+        "medium": [
+          "digital painterly-cel hybrid"
+        ],
+        "mood": [
+          "ornate lyricism"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: rella_adjacent；R4 2026-08-27 裸探针海选：用户否决"
+    },
+    "atdan_solo": {
+      "name_cn": "柔光透亮",
+      "intent": "柔光烘染的空气感厚涂，立绘级 finish",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "atdan",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "minimal lines, form by color"
+        ],
+        "color": [
+          "soft glowing daylight tones"
+        ],
+        "shading": [
+          "airy polished painterly"
+        ],
+        "medium": [
+          "digital painting"
+        ],
+        "mood": [
+          "luminous elegance"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: rella_adjacent；语料含 NSFW 成分，SFW 场景锚保持在场；R4 全矩阵 2026-08-27：裸探针过筛但三场景矩阵用户否决（多少有点问题）"
+    },
+    "asteroid_ill_solo": {
+      "name_cn": "星辉透明",
+      "intent": "星光与透明感的教科书，晶莹浓度最高",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "asteroid ill",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "fine lines with sparkling highlights"
+        ],
+        "color": [
+          "starlight blue-violet, watery clarity"
+        ],
+        "shading": [
+          "crystalline highlights, moist iris rendering"
+        ],
+        "medium": [
+          "digital wash with light effects"
+        ],
+        "mood": [
+          "starlit lyricism"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: rella_adjacent；R4 全矩阵 2026-08-27：裸探针过筛但三场景矩阵用户否决（多少有点问题）"
+    },
+    "bison_cangshu_solo": {
+      "name_cn": "电影光斑",
+      "intent": "filmic 色彩分级与逆光光斑的抒情厚涂",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "bison cangshu",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "lineless painterly"
+        ],
+        "color": [
+          "warm-cool filmic grading"
+        ],
+        "shading": [
+          "dense bokeh and backlight, oily glow"
+        ],
+        "medium": [
+          "digital impasto"
+        ],
+        "mood": [
+          "lyrical narrative light"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: rella_adjacent；R4 2026-08-27 裸探针海选：用户否决"
+    },
+    "kieed_solo": {
+      "name_cn": "高级灰光",
+      "intent": "低饱和高级灰加局部亮色的克制优雅",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "kieed",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "minimal lines, light-melted edges"
+        ],
+        "color": [
+          "refined greys with accent brights"
+        ],
+        "shading": [
+          "smooth gradients, light haze"
+        ],
+        "medium": [
+          "digital painting"
+        ],
+        "mood": [
+          "cool quiet elegance"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "signature, artist name",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "verified",
+      "verified": {
+        "model": "nai-diffusion-5-full",
+        "date": "2026-08-27",
+        "evidence": "outputs/_analysis/nai_v5_artist_calibration_2026-08-27/",
+        "note": "R4 全矩阵+探针全过；用户矩阵评价「非常喜欢」（全库口味天花板锚点）；裸场景易出画师签名，neg_add 已护"
+      },
+      "note": "R3 口味簇: rella_adjacent"
+    },
+    "tidsean_solo": {
+      "name_cn": "宝石华彩",
+      "intent": "宝石般浓郁光色的圆润厚涂",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "tidsean",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "melted lines"
+        ],
+        "color": [
+          "jewel-rich light tones"
+        ],
+        "shading": [
+          "strong but polished light"
+        ],
+        "medium": [
+          "digital impasto"
+        ],
+        "mood": [
+          "dreamlike splendor"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: rella_adjacent；语料含 NSFW 成分，SFW 场景锚保持在场；R4 2026-08-27 裸探针海选：用户否决"
+    },
+    "starshadowmagician_solo": {
+      "name_cn": "魔法光辉",
+      "intent": "蓝金粒子与镜头光的发光体渲染",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "starshadowmagician",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "fine lines under light effects"
+        ],
+        "color": [
+          "magical radiance, blue-gold particles"
+        ],
+        "shading": [
+          "glowing-body rendering, lens flare"
+        ],
+        "medium": [
+          "digital painting"
+        ],
+        "mood": [
+          "radiant fantasy lyricism"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: rella_adjacent；语料含 NSFW 成分，SFW 场景锚保持在场；R4 2026-08-27 裸探针海选：用户否决"
+    },
+    "kito_sorahate_solo": {
+      "name_cn": "天空抒情",
+      "intent": "空与光的歌词 PV 式青春抒情",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "kito (sorahate)",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "clear delicate lines"
+        ],
+        "color": [
+          "sky blue and cloud light"
+        ],
+        "shading": [
+          "strong aerial perspective, transparent"
+        ],
+        "medium": [
+          "digital wash"
+        ],
+        "mood": [
+          "lyric-video youth"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: rella_adjacent；R4 2026-08-27 裸探针海选：用户否决"
+    },
+    "void_0_solo": {
+      "name_cn": "清冷晶莹",
+      "intent": "冷调荧光与湿润高光的清冷厚涂",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "void 0",
+          "kind": "artist",
+          "weight": 1.45
+        }
+      ],
+      "axes": {
+        "line": [
+          "melted lines"
+        ],
+        "color": [
+          "cool fluorescent accents, translucent darks"
+        ],
+        "shading": [
+          "moist glossy painterly"
+        ],
+        "medium": [
+          "digital impasto"
+        ],
+        "mood": [
+          "cold crystalline"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "verified",
+      "verified": {
+        "model": "nai-diffusion-5-full",
+        "date": "2026-08-27",
+        "evidence": "outputs/_analysis/nai_v5_artist_calibration_2026-08-27/",
+        "note": "R4 全矩阵+探针全过（弱先验位逆袭）；showcase 热度一般（首轮 1/2 过，重制轮未投），用户裁定保留"
+      },
+      "note": "R3 口味簇: rella_adjacent；语料含 NSFW 成分，SFW 场景锚保持在场；弱先验且 nax.moe V5 库未收录，高风险试串位"
+    },
+    "kase_daiki_solo": {
+      "name_cn": "卡面质感",
+      "intent": "TCG 卡面级层次与金属宝石高光",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "kase daiki",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "precise fine lines"
+        ],
+        "color": [
+          "card-grade saturated light tones"
+        ],
+        "shading": [
+          "metal and gem highlights, many layers"
+        ],
+        "medium": [
+          "digital impasto, TCG finish"
+        ],
+        "mood": [
+          "ornate gravitas"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: high_finish；R4 全矩阵 2026-08-27：裸探针过筛但三场景矩阵用户否决（多少有点问题）"
+    },
+    "swd3e2_solo": {
+      "name_cn": "立绘光泽",
+      "intent": "游戏立绘级光泽与服饰材质刻画",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "swd3e2",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "fine lines, ornate density"
+        ],
+        "color": [
+          "opulent warm gold and cool blue"
+        ],
+        "shading": [
+          "glossy painterly, fabric materials"
+        ],
+        "medium": [
+          "digital impasto"
+        ],
+        "mood": [
+          "fantasy opulence"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: high_finish；语料含 NSFW 成分，SFW 场景锚保持在场；R4 2026-08-27 裸探针海选：用户否决"
+    },
+    "toridamono_solo": {
+      "name_cn": "时髦华丽",
+      "intent": "高级灰底彩度点睛的官方立绘 finish",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "toridamono",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "confident varied-weight lines"
+        ],
+        "color": [
+          "refined grey base with accent chroma"
+        ],
+        "shading": [
+          "glossy finish, metal accents"
+        ],
+        "medium": [
+          "digital painting"
+        ],
+        "mood": [
+          "fashionable polish"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: high_finish；语料含 NSFW 成分，SFW 场景锚保持在场；R4 全矩阵 2026-08-27：裸探针过筛但三场景矩阵用户否决（多少有点问题）"
+    },
+    "shirabi_solo": {
+      "name_cn": "静谧唯美",
+      "intent": "LN 封面级细腻光影，清冷克制",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "shirabi",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "clean fine lines"
+        ],
+        "color": [
+          "cool silver-grey, soft sky light"
+        ],
+        "shading": [
+          "delicate restrained lighting"
+        ],
+        "medium": [
+          "digital painting, LN cover finish"
+        ],
+        "mood": [
+          "serene beauty"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: high_finish；R4 2026-08-27 裸探针海选：用户否决"
+    },
+    "modare_solo": {
+      "name_cn": "奶油光泽",
+      "intent": "极度平滑的奶油质感光泽厚涂",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "modare",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "melted smooth lines"
+        ],
+        "color": [
+          "creamy warm light"
+        ],
+        "shading": [
+          "ultra-smooth glossy gradients"
+        ],
+        "medium": [
+          "digital impasto"
+        ],
+        "mood": [
+          "soft luxury"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: high_finish；语料含 NSFW 成分，SFW 场景锚保持在场；R4 2026-08-27 裸探针海选：用户否决"
+    },
+    "ohisashiburi_solo": {
+      "name_cn": "利落时髦",
+      "intent": "标志性利落线与锐利高光的高完成度",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "ohisashiburi",
+          "kind": "artist",
+          "weight": 1.0
+        }
+      ],
+      "axes": {
+        "line": [
+          "signature crisp lines, sharp highlights"
+        ],
+        "color": [
+          "candy brights with controlled greys"
+        ],
+        "shading": [
+          "sharp cel with local painterly"
+        ],
+        "medium": [
+          "digital illustration"
+        ],
+        "mood": [
+          "stylish vivacity"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: high_finish；语料含 NSFW 成分，SFW 场景锚保持在场；个人风格极强，V5 低权重也压场，从 1.0 起；R4 2026-08-27 裸探针海选：用户否决"
+    },
+    "u6_eternal_land_solo": {
+      "name_cn": "绢彩贵气",
+      "intent": "绢质淡彩与金色光的梦幻贵气",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "6u (eternal land)",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "fine graceful lines"
+        ],
+        "color": [
+          "silken pale tones with gold light"
+        ],
+        "shading": [
+          "fine soft light, ornate fabric detail"
+        ],
+        "medium": [
+          "digital painting"
+        ],
+        "mood": [
+          "dreamy nobility"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: high_finish；R4 全矩阵 2026-08-27：裸探针过筛但三场景矩阵用户否决（多少有点问题）"
+    },
+    "cait_aron_solo": {
+      "name_cn": "柔焦光晕",
+      "intent": "奶油粉彩柔焦光晕的打磨质感",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "cait aron",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "soft lines"
+        ],
+        "color": [
+          "cream pastels, translucent light"
+        ],
+        "shading": [
+          "soft-focus glow, luminous rendering"
+        ],
+        "medium": [
+          "digital impasto"
+        ],
+        "mood": [
+          "tender dreaminess"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: high_finish；语料含 NSFW 成分，SFW 场景锚保持在场；R4 2026-08-27 裸探针海选：用户否决"
+    },
+    "fly_marguerite_solo": {
+      "name_cn": "清透唯美",
+      "intent": "LN 封面级清透细腻",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "fly (marguerite)",
+          "kind": "artist",
+          "weight": 1.4
+        }
+      ],
+      "axes": {
+        "line": [
+          "delicate lines"
+        ],
+        "color": [
+          "transparent pale tones, saturated accents"
+        ],
+        "shading": [
+          "soft fine shading"
+        ],
+        "medium": [
+          "digital painting, LN cover"
+        ],
+        "mood": [
+          "youthful beauty"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: high_finish；nax.moe V5 库未收录，V5 响应未证实；R4 2026-08-27 裸探针海选：用户否决"
+    },
+    "fuzichoco_solo": {
+      "name_cn": "青蓝幻想",
+      "intent": "标志性青蓝幻想色阶与光粒子",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "fuzichoco",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "precise fine lines"
+        ],
+        "color": [
+          "signature azure fantasy palette"
+        ],
+        "shading": [
+          "light particles, gauzy glow"
+        ],
+        "medium": [
+          "digital painting"
+        ],
+        "mood": [
+          "grand dreamscape"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "signature, artist name",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: dreamy_glow；R5 2026-08-27 showcase 画风否决：用户评「太偏劣质二游」（矩阵/探针虽过，最终口味一票否决）"
+    },
+    "hakusai_solo": {
+      "name_cn": "水光透明",
+      "intent": "水色透明感与潋滟水光",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "hakusai (tiahszld)",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "pale melted lines"
+        ],
+        "color": [
+          "aqueous clarity, blue-white"
+        ],
+        "shading": [
+          "shimmering water light"
+        ],
+        "medium": [
+          "digital wash"
+        ],
+        "mood": [
+          "limpid lyricism"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: dreamy_glow；R4 2026-08-27 裸探针海选：用户否决"
+    },
+    "rosuuri_solo": {
+      "name_cn": "糖霜柔光",
+      "intent": "bloom 柔光与星光的甜美工整",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "rosuuri",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "soft fine lines"
+        ],
+        "color": [
+          "frosted pink-violet with starlight"
+        ],
+        "shading": [
+          "bloom glow, twinkling highlights"
+        ],
+        "medium": [
+          "digital painting"
+        ],
+        "mood": [
+          "sweet dreaminess"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: dreamy_glow；R4 全矩阵 2026-08-27：裸探针过筛但三场景矩阵用户否决（多少有点问题）"
+    },
+    "migolu_solo": {
+      "name_cn": "暮色梦境",
+      "intent": "暮色紫橙大面积柔光与宝石感瞳孔",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "migolu",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "soft lines"
+        ],
+        "color": [
+          "dusk violet-orange, lake blue"
+        ],
+        "shading": [
+          "broad soft gradients, jewel iris rendering"
+        ],
+        "medium": [
+          "digital painting"
+        ],
+        "mood": [
+          "twilight dreamscape"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: dreamy_glow；R4 2026-08-27 裸探针海选：用户否决"
+    },
+    "anmi_solo": {
+      "name_cn": "空气粉彩",
+      "intent": "粉彩空气感薄涂，轻盈通透",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "anmi",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "relaxed graceful lines"
+        ],
+        "color": [
+          "pastel airiness, low contrast"
+        ],
+        "shading": [
+          "thin wash with soft glow"
+        ],
+        "medium": [
+          "digital wash, watercolor feel"
+        ],
+        "mood": [
+          "weightless clarity"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: dreamy_glow；R4 2026-08-27 裸探针海选：用户否决"
+    },
+    "ke_ta_solo": {
+      "name_cn": "白金光辉",
+      "intent": "细密线与白金光辉的神圣柔光",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "ke-ta",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "ultra-fine dense lines"
+        ],
+        "color": [
+          "platinum radiance, gauzy tints"
+        ],
+        "shading": [
+          "grainy light and mist veils"
+        ],
+        "medium": [
+          "digital painting"
+        ],
+        "mood": [
+          "sacred glow"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: dreamy_glow；R4 全矩阵 2026-08-27：裸探针过筛但三场景矩阵用户否决（多少有点问题）"
+    },
+    "maccha_solo": {
+      "name_cn": "霓光闪耀",
+      "intent": "霓光粉紫蓝湿亮高光与星光瞳孔",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "maccha (mochancc)",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "soft lines"
+        ],
+        "color": [
+          "neon pink-violet-blue"
+        ],
+        "shading": [
+          "wet glossy highlights, bloom"
+        ],
+        "medium": [
+          "digital impasto"
+        ],
+        "mood": [
+          "sparkling sweetness"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: dreamy_glow；语料含 NSFW 成分，SFW 场景锚保持在场；R4 全矩阵 2026-08-27：裸探针过筛但三场景矩阵用户否决（多少有点问题）"
+    },
+    "mocha_cotton_solo": {
+      "name_cn": "云软抒情",
+      "intent": "天空与光的柔软抒情（复核首推）",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "mocha (cotton)",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "thin fluffy lines"
+        ],
+        "color": [
+          "pale pastel low saturation"
+        ],
+        "shading": [
+          "powdery soft gradients"
+        ],
+        "medium": [
+          "watercolor-pastel hybrid"
+        ],
+        "mood": [
+          "cloud-soft lyricism"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: dreamy_glow；R4 全矩阵 2026-08-27：裸探针过筛但三场景矩阵用户否决（多少有点问题）"
+    },
+    "quasarcake_solo": {
+      "name_cn": "梦幻光斑",
+      "intent": "glow 弥散的梦幻光色",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "quasarcake",
+          "kind": "artist",
+          "weight": 1.45
+        }
+      ],
+      "axes": {
+        "line": [
+          "light-dissolved edges"
+        ],
+        "color": [
+          "glowing pastels with bloom"
+        ],
+        "shading": [
+          "hazy light diffusion"
+        ],
+        "medium": [
+          "soft digital painting"
+        ],
+        "mood": [
+          "wistful radiance"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: dreamy_glow；nax.moe V5 库未收录，V5 响应未证实；R4 全矩阵 2026-08-27：裸探针过筛但三场景矩阵用户否决（多少有点问题）"
+    },
+    "necomi_solo": {
+      "name_cn": "金昏暖光",
+      "intent": "琥珀金暖光晕染的柔光",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "necomi",
+          "kind": "artist",
+          "weight": 1.35
+        }
+      ],
+      "axes": {
+        "line": [
+          "soft merged lines"
+        ],
+        "color": [
+          "warm amber-gold"
+        ],
+        "shading": [
+          "gouache-like glow, backlight halos"
+        ],
+        "medium": [
+          "gouache-style wash"
+        ],
+        "mood": [
+          "sunlit tenderness"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R3 扩列调研（rella 口味簇）: Danbooru tags API 核对 + nax.moe V5 横评库",
+      "status": "rejected",
+      "verified": null,
+      "note": "R3 口味簇: dreamy_glow；语料含 NSFW 成分，SFW 场景锚保持在场；R4 2026-08-27 裸探针海选：用户否决"
+    },
+    "yy_ysk_ygc_solo": {
+      "name_cn": "灰蓝构成",
+      "intent": "灰蓝主调加单点色的冷静构成系",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "y_y (ysk ygc)",
+          "kind": "artist",
+          "weight": 1.4
+        }
+      ],
+      "axes": {
+        "line": [
+          "fine restrained lines"
+        ],
+        "color": [
+          "grey-blue base with single accent color"
+        ],
+        "shading": [
+          "soft low contrast"
+        ],
+        "medium": [
+          "flat-leaning digital painting"
+        ],
+        "mood": [
+          "cool detached elegance"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [
+          "night street"
+        ],
+        "lighting_bias": [
+          "cool neon accents"
+        ],
+        "note": "R5 矩阵观察：S3 夜街表现突出（用户点名）"
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "verified",
+      "verified": {
+        "model": "nai-diffusion-5-full",
+        "date": "2026-08-27",
+        "evidence": "outputs/_analysis/nai_v5_artist_calibration_2026-08-27/",
+        "note": "R5 全流程过；弱先验（113 posts）实测响应成立，S3 夜街不错"
+      },
+      "note": "R5 口味簇: muted_elegant；弱先验（113 posts）且 nax 未收录，先 A/B"
+    },
+    "wanke_solo": {
+      "name_cn": "苍白留白",
+      "intent": "苍白低饱和的安静薄涂",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "wanke",
+          "kind": "artist",
+          "weight": 1.4
+        }
+      ],
+      "axes": {
+        "line": [
+          "relaxed thin lines"
+        ],
+        "color": [
+          "pale desaturated tones"
+        ],
+        "shading": [
+          "thin wash"
+        ],
+        "medium": [
+          "watercolor-feel digital"
+        ],
+        "mood": [
+          "quiet weightless calm"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [
+          "night snow street"
+        ],
+        "lighting_bias": [
+          "single warm lamp"
+        ],
+        "note": "R5 矩阵观察：S3 夜街表现突出（用户点名）；夜景压暗配方（2026-08-27 用户验收）：拔雾罩词（soft haze/muted colors 与薄涂灰调叠加会发灰发亮），上 deep night, dark background, strong shadows, low key lighting + -2::overexposed, glowing ::，负面加 overexposed, bright, fog, haze, washed out"
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "verified",
+      "verified": {
+        "model": "nai-diffusion-5-full",
+        "date": "2026-08-27",
+        "evidence": "outputs/_analysis/nai_v5_artist_calibration_2026-08-27/",
+        "note": "R5 全流程过（海选「非常喜欢」+ 矩阵 + 双探针）；S3 夜雪场景为强项；压暗版 showcase 用户对话验收「非常棒」"
+      },
+      "note": "R5 口味簇: muted_elegant；弱先验，nax 未收录；R5 海选用户「非常喜欢」"
+    },
+    "os_fresa_solo": {
+      "name_cn": "铅灰内省",
+      "intent": "高级灰加极少量色的铅笔质感",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "os (os fresa)",
+          "kind": "artist",
+          "weight": 1.45
+        }
+      ],
+      "axes": {
+        "line": [
+          "delicate pencil-like lines"
+        ],
+        "color": [
+          "refined greys, minimal color"
+        ],
+        "shading": [
+          "faint shading"
+        ],
+        "medium": [
+          "pencil-texture digital"
+        ],
+        "mood": [
+          "still introspection"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: muted_elegant；全名单最低先验（67 posts），tag 可能几乎无效；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "wataboku_solo": {
+      "name_cn": "灰绿单点",
+      "intent": "灰绿基调红色单点的都市疏离插画",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "wataboku",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "clean decisive lines"
+        ],
+        "color": [
+          "grey-green base with red accent"
+        ],
+        "shading": [
+          "flat illustrative shading"
+        ],
+        "medium": [
+          "digital illustration"
+        ],
+        "mood": [
+          "urban youthful detachment"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: muted_elegant；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "tarbo_solo": {
+      "name_cn": "灰雾诗性",
+      "intent": "近单色灰雾加局部暖光的阴郁厚涂",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "tarbo (exxxpiation)",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "loose brushy lines"
+        ],
+        "color": [
+          "near-monochrome grey with warm accents"
+        ],
+        "shading": [
+          "low-contrast impasto"
+        ],
+        "medium": [
+          "digital impasto"
+        ],
+        "mood": [
+          "somber poetic haze"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: muted_elegant；少量暗黑向，SFW 出图注意负面；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "kkia_solo": {
+      "name_cn": "灰粉轻愁",
+      "intent": "灰粉低饱和的柔和精致薄涂",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "kkia",
+          "kind": "artist",
+          "weight": 1.4
+        }
+      ],
+      "axes": {
+        "line": [
+          "fine soft lines"
+        ],
+        "color": [
+          "greyed pink, low saturation"
+        ],
+        "shading": [
+          "gentle shading"
+        ],
+        "medium": [
+          "digital thin wash"
+        ],
+        "mood": [
+          "wistful refinement"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [
+          "night street after rain"
+        ],
+        "lighting_bias": [
+          "neon haze"
+        ],
+        "note": "R5 矩阵观察：S3 夜街表现突出（用户点名）；夜景压暗配方（2026-08-27 用户验收）：拔雾罩词（soft haze/muted colors 与薄涂灰调叠加会发灰发亮），上 deep night, dark background, strong shadows, low key lighting + -2::overexposed, glowing ::，负面加 overexposed, bright, fog, haze, washed out"
+      },
+      "neg_add": "signature, artist name",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "verified",
+      "verified": {
+        "model": "nai-diffusion-5-full",
+        "date": "2026-08-27",
+        "evidence": "outputs/_analysis/nai_v5_artist_calibration_2026-08-27/",
+        "note": "R5 全流程过（海选「非常喜欢」+ 矩阵 S3 获评「非常好」+ 双探针）；压暗 v3 showcase 用户对话验收「非常棒」；裸场景会把画师名织进霓虹招牌，neg_add 已护"
+      },
+      "note": "R5 口味簇: muted_elegant；nax 未收录；R5 海选用户「非常喜欢」"
+    },
+    "loundraw_solo": {
+      "name_cn": "物哀装帧",
+      "intent": "清透蓝白与暮色留白的文库装画本尊",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "loundraw",
+          "kind": "artist",
+          "weight": 1.4
+        }
+      ],
+      "axes": {
+        "line": [
+          "clean simple lines"
+        ],
+        "color": [
+          "clear blue-white with dusk tones"
+        ],
+        "shading": [
+          "broad negative-space light"
+        ],
+        "medium": [
+          "digital illustration"
+        ],
+        "mood": [
+          "youthful mono no aware"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: literary_illustration；名气大但仅 164 posts、nax 未收录——tag 可用性存疑，必 A/B；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "achiki_solo": {
+      "name_cn": "日常抒情",
+      "intent": "低饱和日常色的干净文艺插画",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "achiki",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "gentle lines"
+        ],
+        "color": [
+          "muted everyday palette"
+        ],
+        "shading": [
+          "thin soft-light wash"
+        ],
+        "medium": [
+          "digital illustration"
+        ],
+        "mood": [
+          "clean daily lyricism"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "verified",
+      "verified": {
+        "model": "nai-diffusion-5-full",
+        "date": "2026-08-27",
+        "evidence": "outputs/_analysis/nai_v5_artist_calibration_2026-08-27/",
+        "note": "R5 全流程过（loundraw 替身位转正）"
+      },
+      "note": "R5 口味簇: literary_illustration"
+    },
+    "avogado6_solo": {
+      "name_cn": "隐喻平涂",
+      "intent": "平面克制加象征性单色的情绪隐喻",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "avogado6",
+          "kind": "artist",
+          "weight": 1.0
+        }
+      ],
+      "axes": {
+        "line": [
+          "simple flat lines"
+        ],
+        "color": [
+          "muted base with symbolic single color"
+        ],
+        "shading": [
+          "pure flat shading"
+        ],
+        "medium": [
+          "flat conceptual illustration"
+        ],
+        "mood": [
+          "metaphorical emotion"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: literary_illustration；主题偏致郁；会拉向概念图式构图；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "umishima_senbon_solo": {
+      "name_cn": "装帧清透",
+      "intent": "轻小说装帧级的透明感洗练",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "umishima senbon",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "refined polished lines"
+        ],
+        "color": [
+          "translucent mid-saturation tones"
+        ],
+        "shading": [
+          "soft gradients"
+        ],
+        "medium": [
+          "light-novel cover finish"
+        ],
+        "mood": [
+          "fresh lyric clarity"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: literary_illustration；少量轻度擦边，SFW 词下干净；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "mattaku_mousuke_solo": {
+      "name_cn": "怀旧淡彩",
+      "intent": "铅笔感怀旧暖灰的生活流淡彩",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "mattaku mousuke",
+          "kind": "artist",
+          "weight": 1.05
+        }
+      ],
+      "axes": {
+        "line": [
+          "relaxed pencil-feel lines"
+        ],
+        "color": [
+          "nostalgic warm greys"
+        ],
+        "shading": [
+          "pale tinted wash"
+        ],
+        "medium": [
+          "hand-drawn-feel light color"
+        ],
+        "mood": [
+          "tender everyday nostalgia"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: literary_illustration；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "gemi_solo": {
+      "name_cn": "限色色块",
+      "intent": "限色平涂色块的海报级构成",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "gemi",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "bold design-weight lines"
+        ],
+        "color": [
+          "limited-palette flat blocks"
+        ],
+        "shading": [
+          "no-gradient pure flats"
+        ],
+        "medium": [
+          "flat design illustration"
+        ],
+        "mood": [
+          "crisp modern art-poster"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: flat_design_refined；nax 未收录；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "pomodorosa_solo": {
+      "name_cn": "时装平涂",
+      "intent": "时装画式线条与 MV 式克制配色",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "pomodorosa",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "fluid fashion-sketch lines"
+        ],
+        "color": [
+          "restrained music-video palette"
+        ],
+        "shading": [
+          "flat with sparse light"
+        ],
+        "medium": [
+          "flat digital illustration"
+        ],
+        "mood": [
+          "metropolitan chic"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: flat_design_refined；nax 未收录；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "goback_solo": {
+      "name_cn": "色块构成",
+      "intent": "克制配色大胆构成的平面设计感",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "goback",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "hard color-block edges"
+        ],
+        "color": [
+          "restrained palette, bold composition"
+        ],
+        "shading": [
+          "flat shading"
+        ],
+        "medium": [
+          "graphic flat illustration"
+        ],
+        "mood": [
+          "cool composed design"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: flat_design_refined；R5 全矩阵 2026-08-27：用户否决"
+    },
+    "hito_komoru_solo": {
+      "name_cn": "白底极简",
+      "intent": "白底铅笔细线加极少色的留白美学",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "hito komoru",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "fine pencil lines"
+        ],
+        "color": [
+          "white ground with minimal color"
+        ],
+        "shading": [
+          "almost none"
+        ],
+        "medium": [
+          "white-background sketch style"
+        ],
+        "mood": [
+          "minimal negative space"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: flat_design_refined；nax 未收录，但 SD 时代著名可复现画风；R5 全矩阵 2026-08-27：用户否决"
+    },
+    "banishment_solo": {
+      "name_cn": "辽阔天空",
+      "intent": "人物融进巨大天空与废墟的叙事场景",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "banishment",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "lines dissolved into scenery"
+        ],
+        "color": [
+          "atmospheric sky blue-grey"
+        ],
+        "shading": [
+          "light-and-shadow painterly"
+        ],
+        "medium": [
+          "scenery impasto"
+        ],
+        "mood": [
+          "vast lonely narrative"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: atmospheric_scenery；nax 未收录；R5 全矩阵 2026-08-27：用户否决"
+    },
+    "issakawaguchi_solo": {
+      "name_cn": "清澈流动",
+      "intent": "空气与水感的清透场景人物",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "1ssakawaguchi",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "limpid lines"
+        ],
+        "color": [
+          "airy blue-green"
+        ],
+        "shading": [
+          "transparent watery light"
+        ],
+        "medium": [
+          "digital illustration"
+        ],
+        "mood": [
+          "clear flowing air"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: atmospheric_scenery；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "snatti_solo": {
+      "name_cn": "北欧水彩",
+      "intent": "北欧水彩淡调的童话静谧场景",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "snatti",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "watercolor edges"
+        ],
+        "color": [
+          "nordic pale wash tones"
+        ],
+        "shading": [
+          "wet-on-wet light"
+        ],
+        "medium": [
+          "traditional watercolor"
+        ],
+        "mood": [
+          "fairytale stillness"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: atmospheric_scenery；nax 未收录；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "yogisya_solo": {
+      "name_cn": "和风夜灯",
+      "intent": "夜色暖灯低饱和的幽玄和风场景",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "yogisya",
+          "kind": "artist",
+          "weight": 1.4
+        }
+      ],
+      "axes": {
+        "line": [
+          "lines sunk into darkness"
+        ],
+        "color": [
+          "night tones with warm lamps"
+        ],
+        "shading": [
+          "dark ambient light"
+        ],
+        "medium": [
+          "japanese scenery painting"
+        ],
+        "mood": [
+          "nostalgic mystery"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: atmospheric_scenery；弱先验，nax 未收录；R5 全矩阵 2026-08-27：用户否决"
+    },
+    "ibuki_satsuki_solo": {
+      "name_cn": "古典雅正",
+      "intent": "工笔细线淡彩晕染的中式古典雅致",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "ibuki satsuki",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "gongbi fine lines"
+        ],
+        "color": [
+          "understated classical palette"
+        ],
+        "shading": [
+          "light color wash"
+        ],
+        "medium": [
+          "fine-brush wash painting"
+        ],
+        "mood": [
+          "classical grace"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: ink_wash_refined；nax 未收录；R5 全矩阵用户评语：「本身画风可以，但是不太适合 blend」——画风获认可，仅不适合本库混用场景，非画风否定"
+    },
+    "heikala_solo": {
+      "name_cn": "绘本水彩",
+      "intent": "实体水彩层叠的绘本诗意",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "heikala",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "fine pen lines"
+        ],
+        "color": [
+          "limited pale palette"
+        ],
+        "shading": [
+          "layered watercolor"
+        ],
+        "medium": [
+          "traditional watercolor"
+        ],
+        "mood": [
+          "storybook poetry"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: ink_wash_refined；nax 未收录；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "fadingz_solo": {
+      "name_cn": "墨线朱点",
+      "intent": "干枯墨线留白加朱红单点的文人速写",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "fadingz",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "dry ink sketch lines"
+        ],
+        "color": [
+          "ink grey with vermilion accent"
+        ],
+        "shading": [
+          "negative-space led"
+        ],
+        "medium": [
+          "ink line with light wash"
+        ],
+        "mood": [
+          "literati sketch"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: ink_wash_refined；R5 全矩阵 2026-08-27：用户否决"
+    },
+    "nekosuke_oxo_solo": {
+      "name_cn": "和纸怪谈",
+      "intent": "褪色和纸调古拙墨线的怪谈雅趣",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "nekosuke (oxo)",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "archaic ink lines"
+        ],
+        "color": [
+          "faded washi-paper tones"
+        ],
+        "shading": [
+          "flat with ink stains"
+        ],
+        "medium": [
+          "japanese ink and color"
+        ],
+        "mood": [
+          "strange elegant folklore"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: ink_wash_refined；语料含成人作，SFW 出图加强负面；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "senmu_0107_solo": {
+      "name_cn": "水渍速写",
+      "intent": "松散水性线与水渍晕染的日常诗意",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "senmu (0107)",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "loose aqueous lines"
+        ],
+        "color": [
+          "pale low-saturation wash"
+        ],
+        "shading": [
+          "water-stain blooms"
+        ],
+        "medium": [
+          "light-color sketch"
+        ],
+        "mood": [
+          "relaxed daily poetry"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: ink_wash_refined；语料含成人作，SFW 出图注意；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "hood_james_x_solo": {
+      "name_cn": "冷峻油画",
+      "intent": "沉稳暗调精准光的古典油画厚涂",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "hood (james x)",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "paint-dissolved lines"
+        ],
+        "color": [
+          "subdued dark palette with precise light"
+        ],
+        "shading": [
+          "classical oil impasto"
+        ],
+        "medium": [
+          "thick oil-style painting"
+        ],
+        "mood": [
+          "weighty austere polish"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: premium_gacha；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "namie_kun_solo": {
+      "name_cn": "灰调史诗",
+      "intent": "灰调大气节制点缀的电影感立绘",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "namie-kun",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "polished refined lines"
+        ],
+        "color": [
+          "atmospheric greys, restrained accents"
+        ],
+        "shading": [
+          "cinematic lighting"
+        ],
+        "medium": [
+          "digital impasto"
+        ],
+        "mood": [
+          "epic stillness"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: premium_gacha；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "criin_solo": {
+      "name_cn": "洁净装饰",
+      "intent": "极干净装饰线与节制明快色的优雅立绘",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "criin",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "immaculate decorative lines"
+        ],
+        "color": [
+          "bright but disciplined palette"
+        ],
+        "shading": [
+          "cel with subtle gradients"
+        ],
+        "medium": [
+          "digital illustration"
+        ],
+        "mood": [
+          "luminous elegance"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "rejected",
+      "verified": null,
+      "note": "R5 口味簇: premium_gacha；R5 裸探针海选 2026-08-27：用户否决"
+    },
+    "huanxiang_heitu_solo": {
+      "name_cn": "柔雾温柔",
+      "intent": "柔雾低饱和柔光厚涂的梦幻温柔",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "huanxiang heitu",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "soft dissolved lines"
+        ],
+        "color": [
+          "misty low-saturation tones"
+        ],
+        "shading": [
+          "soft-glow impasto"
+        ],
+        "medium": [
+          "digital impasto"
+        ],
+        "mood": [
+          "dreamy gentleness"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "verified",
+      "verified": {
+        "model": "nai-diffusion-5-full",
+        "date": "2026-08-27",
+        "evidence": "outputs/_analysis/nai_v5_artist_calibration_2026-08-27/",
+        "note": "R5 全流程过（premium_gacha 簇首位 verified）"
+      },
+      "note": "R5 口味簇: premium_gacha"
+    },
+    "nagu_solo": {
+      "name_cn": "清雅华美",
+      "intent": "清雅蓝白金细腻渐变的收敛华美",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "nagu",
+          "kind": "artist",
+          "weight": 1.1
+        }
+      ],
+      "axes": {
+        "line": [
+          "exquisite fine lines"
+        ],
+        "color": [
+          "serene blue-white-gold"
+        ],
+        "shading": [
+          "delicate gradients"
+        ],
+        "medium": [
+          "digital illustration"
+        ],
+        "mood": [
+          "cool measured splendor"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "verified",
+      "verified": {
+        "model": "nai-diffusion-5-full",
+        "date": "2026-08-27",
+        "evidence": "outputs/_analysis/nai_v5_artist_calibration_2026-08-27/",
+        "note": "R5 全流程过（premium_gacha 簇）"
+      },
+      "note": "R5 口味簇: premium_gacha"
+    },
+    "alchemaniac_solo": {
+      "name_cn": "大地古典",
+      "intent": "暖灰大地色古典画光的沉静厚涂",
+      "structure": "single",
+      "components": [
+        {
+          "tag": "alchemaniac",
+          "kind": "artist",
+          "weight": 1.3
+        }
+      ],
+      "axes": {
+        "line": [
+          "visible brushwork lines"
+        ],
+        "color": [
+          "warm grey earth tones"
+        ],
+        "shading": [
+          "classical painting light"
+        ],
+        "medium": [
+          "digital impasto"
+        ],
+        "mood": [
+          "calm narrative gravity"
+        ]
+      },
+      "pairing": {
+        "quality_tags": "unknown",
+        "scene_bias": [],
+        "lighting_bias": []
+      },
+      "neg_add": "",
+      "sfw": true,
+      "source": "2026-08-27 R5 扩列调研（反劣质二游六簇）: Danbooru tags API 核对 + nax.moe V5 横评全量比对",
+      "status": "unvalidated",
+      "verified": null,
+      "note": "R5 口味簇: premium_gacha；nax 未收录；R5 全矩阵用户评语：「画面有点太尖锐了…不太好，但还有改进空间」——保持 unvalidated 挂调参复试（降权/柔化场景）"
+    }
+  }
+}

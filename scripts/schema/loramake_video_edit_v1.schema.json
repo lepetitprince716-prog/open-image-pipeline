@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/loramake_video_edit_v1.schema.json",
+  "title": "loramake-video-edit-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "project_id",
+    "edit_id",
+    "driving_model",
+    "assets",
+    "timeline",
+    "tracks",
+    "titles",
+    "profile",
+    "output",
+    "audio_normalization"
+  ],
+  "properties": {
+    "schema_version": {"const": "loramake-video-edit-v1"},
+    "project_id": {"$ref": "#/$defs/id"},
+    "edit_id": {"$ref": "#/$defs/id"},
+    "driving_model": {"$ref": "#/$defs/id"},
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/asset"}
+    },
+    "timeline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "fps", "duration_s", "background"],
+      "properties": {
+        "width": {"type": "integer", "minimum": 16, "multipleOf": 2},
+        "height": {"type": "integer", "minimum": 16, "multipleOf": 2},
+        "fps": {"type": "integer", "minimum": 1, "maximum": 120},
+        "duration_s": {"type": "number", "exclusiveMinimum": 0},
+        "background": {"type": "string", "minLength": 1}
+      }
+    },
+    "tracks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["video", "audio"],
+      "properties": {
+        "video": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {"$ref": "#/$defs/videoTrack"}
+        },
+        "audio": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/audioTrack"}
+        }
+      }
+    },
+    "titles": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/title"}
+    },
+    "profile": {"enum": ["work", "master", "delivery"]},
+    "output": {"type": "string", "minLength": 1},
+    "audio_normalization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled", "integrated_lufs", "true_peak_db", "lra"],
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "integrated_lufs": {"type": "number", "minimum": -70, "maximum": -5},
+        "true_peak_db": {"type": "number", "minimum": -9, "maximum": 0},
+        "lra": {"type": "number", "minimum": 1, "maximum": 50}
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "path", "sha256"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "kind": {"enum": ["video", "image", "audio", "font"]},
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "transition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "duration_s"],
+      "properties": {
+        "type": {"enum": ["hard_cut", "crossfade"]},
+        "duration_s": {"type": "number", "minimum": 0, "maximum": 0.5}
+      }
+    },
+    "videoClip": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "asset_id", "in_s", "out_s", "transition_to_next"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "asset_id": {"$ref": "#/$defs/id"},
+        "in_s": {"type": "number", "minimum": 0},
+        "out_s": {"type": "number", "exclusiveMinimum": 0},
+        "transition_to_next": {"$ref": "#/$defs/transition"}
+      }
+    },
+    "videoTrack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "clips"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "clips": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/videoClip"}
+        }
+      }
+    },
+    "audioClip": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "asset_id", "in_s", "out_s", "start_s", "gain_db", "fade_in_s", "fade_out_s"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "asset_id": {"$ref": "#/$defs/id"},
+        "in_s": {"type": "number", "minimum": 0},
+        "out_s": {"type": "number", "exclusiveMinimum": 0},
+        "start_s": {"type": "number", "minimum": 0},
+        "gain_db": {"type": "number", "minimum": -96, "maximum": 24},
+        "fade_in_s": {"type": "number", "minimum": 0},
+        "fade_out_s": {"type": "number", "minimum": 0}
+      }
+    },
+    "audioTrack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "clips"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "clips": {"type": "array", "items": {"$ref": "#/$defs/audioClip"}}
+      }
+    },
+    "title": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "text",
+        "font_asset_id",
+        "start_s",
+        "end_s",
+        "font_size",
+        "color",
+        "align",
+        "valign",
+        "margin_x",
+        "margin_y",
+        "box",
+        "box_color",
+        "box_border_w"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "text": {"type": "string", "minLength": 1, "maxLength": 500},
+        "font_asset_id": {"$ref": "#/$defs/id"},
+        "start_s": {"type": "number", "minimum": 0},
+        "end_s": {"type": "number", "exclusiveMinimum": 0},
+        "font_size": {"type": "integer", "minimum": 6},
+        "color": {"type": "string", "minLength": 1},
+        "align": {"enum": ["left", "center", "right"]},
+        "valign": {"enum": ["top", "center", "bottom"]},
+        "margin_x": {"type": "integer", "minimum": 0},
+        "margin_y": {"type": "integer", "minimum": 0},
+        "box": {"type": "boolean"},
+        "box_color": {"type": "string", "minLength": 1},
+        "box_border_w": {"type": "integer", "minimum": 0}
+      }
+    }
+  }
+}

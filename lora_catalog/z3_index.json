@@ -1,0 +1,1839 @@
+[
+  {
+    "id": "8dd924cf52c6",
+    "name": "Example Asset 001",
+    "file": "character\\example_001.safetensors",
+    "base_model": "Illustrious",
+    "category": "character",
+    "triggers": [
+      "example trigger 1"
+    ],
+    "tags": [
+      "portrait",
+      "lineart"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_001.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "ce43b4f38356",
+    "name": "Example Asset 002",
+    "file": "style\\example_002.safetensors",
+    "base_model": "Illustrious",
+    "category": "style",
+    "triggers": [
+      "example trigger 2"
+    ],
+    "tags": [
+      "lineart",
+      "watercolour"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_002.jpeg",
+    "zzz_file": "example_002.safetensors"
+  },
+  {
+    "id": "93ccdd809989",
+    "name": "Example Asset 003",
+    "file": "example_003.safetensors",
+    "base_model": "Illustrious",
+    "category": "concept",
+    "triggers": [],
+    "tags": [
+      "watercolour",
+      "mecha"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_003.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "2aad4c89c5aa",
+    "name": "Example Asset 004",
+    "file": "anime\\example_004.safetensors",
+    "base_model": "Illustrious",
+    "category": "anime",
+    "triggers": [
+      "example trigger 4"
+    ],
+    "tags": [
+      "mecha",
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_004.jpeg",
+    "zzz_file": "example_004.safetensors"
+  },
+  {
+    "id": "f4deae0bb106",
+    "name": "Example Asset 005",
+    "file": "clothing\\example_005.safetensors",
+    "base_model": "Illustrious",
+    "category": "clothing",
+    "triggers": [
+      "example trigger 5"
+    ],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_005.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "4f4912b55086",
+    "name": "Example Asset 006",
+    "file": "example_006.safetensors",
+    "base_model": "Illustrious",
+    "category": "poses",
+    "triggers": [],
+    "tags": [
+      "landscape",
+      "portrait"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_006.jpeg",
+    "zzz_file": "example_006.safetensors"
+  },
+  {
+    "id": "385f10d0aea8",
+    "name": "Example Asset 007",
+    "file": "tool\\example_007.safetensors",
+    "base_model": "Illustrious",
+    "category": "tool",
+    "triggers": [
+      "example trigger 7"
+    ],
+    "tags": [
+      "portrait",
+      "lineart"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "unknown",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_007.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "14bbcbe3a9f1",
+    "name": "Example Asset 008",
+    "file": "root\\example_008.safetensors",
+    "base_model": "Illustrious",
+    "category": "root",
+    "triggers": [
+      "example trigger 8"
+    ],
+    "tags": [
+      "lineart",
+      "watercolour"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_008.jpeg",
+    "zzz_file": "example_008.safetensors"
+  },
+  {
+    "id": "cd732a17f94b",
+    "name": "Example Asset 009",
+    "file": "example_009.safetensors",
+    "base_model": "NoobAI",
+    "category": "character",
+    "triggers": [],
+    "tags": [
+      "watercolour",
+      "mecha"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_009.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "92e2d8ee10fa",
+    "name": "Example Asset 010",
+    "file": "style\\example_010.safetensors",
+    "base_model": "NoobAI",
+    "category": "style",
+    "triggers": [
+      "example trigger 10"
+    ],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_010.jpeg",
+    "zzz_file": "example_010.safetensors"
+  },
+  {
+    "id": "c96c667b43d5",
+    "name": "Example Asset 011",
+    "file": "concept\\example_011.safetensors",
+    "base_model": "NoobAI",
+    "category": "concept",
+    "triggers": [
+      "example trigger 11"
+    ],
+    "tags": [
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_011.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "27b99c20a951",
+    "name": "Example Asset 012",
+    "file": "example_012.safetensors",
+    "base_model": "NoobAI",
+    "category": "anime",
+    "triggers": [],
+    "tags": [
+      "landscape",
+      "portrait"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_012.jpeg",
+    "zzz_file": "example_012.safetensors"
+  },
+  {
+    "id": "612101b17af7",
+    "name": "Example Asset 013",
+    "file": "clothing\\example_013.safetensors",
+    "base_model": "NoobAI",
+    "category": "clothing",
+    "triggers": [
+      "example trigger 13"
+    ],
+    "tags": [
+      "portrait",
+      "lineart"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_013.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "3292d0766dcb",
+    "name": "Example Asset 014",
+    "file": "poses\\example_014.safetensors",
+    "base_model": "NoobAI",
+    "category": "poses",
+    "triggers": [
+      "example trigger 14"
+    ],
+    "tags": [
+      "lineart",
+      "watercolour"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "unknown",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_014.jpeg",
+    "zzz_file": "example_014.safetensors"
+  },
+  {
+    "id": "a6d7df9ccd3f",
+    "name": "Example Asset 015",
+    "file": "example_015.safetensors",
+    "base_model": "NoobAI",
+    "category": "tool",
+    "triggers": [],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_015.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "d4c6c3d5f4b7",
+    "name": "Example Asset 016",
+    "file": "root\\example_016.safetensors",
+    "base_model": "NoobAI",
+    "category": "root",
+    "triggers": [
+      "example trigger 16"
+    ],
+    "tags": [
+      "mecha",
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_016.jpeg",
+    "zzz_file": "example_016.safetensors"
+  },
+  {
+    "id": "8337b2cafec8",
+    "name": "Example Asset 017",
+    "file": "character\\example_017.safetensors",
+    "base_model": "Anima",
+    "category": "character",
+    "triggers": [
+      "example trigger 17"
+    ],
+    "tags": [
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_017.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "560a5239f157",
+    "name": "Example Asset 018",
+    "file": "example_018.safetensors",
+    "base_model": "Anima",
+    "category": "style",
+    "triggers": [],
+    "tags": [
+      "landscape",
+      "portrait"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_018.jpeg",
+    "zzz_file": "example_018.safetensors"
+  },
+  {
+    "id": "86df2482d029",
+    "name": "Example Asset 019",
+    "file": "concept\\example_019.safetensors",
+    "base_model": "Anima",
+    "category": "concept",
+    "triggers": [
+      "example trigger 19"
+    ],
+    "tags": [
+      "portrait",
+      "lineart"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_019.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "87e98cfce823",
+    "name": "Example Asset 020",
+    "file": "anime\\example_020.safetensors",
+    "base_model": "Anima",
+    "category": "anime",
+    "triggers": [
+      "example trigger 20"
+    ],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_020.jpeg",
+    "zzz_file": "example_020.safetensors"
+  },
+  {
+    "id": "143a6f63c0bb",
+    "name": "Example Asset 021",
+    "file": "example_021.safetensors",
+    "base_model": "Anima",
+    "category": "clothing",
+    "triggers": [],
+    "tags": [
+      "watercolour",
+      "mecha"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "unknown",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_021.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "028c9e9e9e3e",
+    "name": "Example Asset 022",
+    "file": "poses\\example_022.safetensors",
+    "base_model": "Anima",
+    "category": "poses",
+    "triggers": [
+      "example trigger 22"
+    ],
+    "tags": [
+      "mecha",
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_022.jpeg",
+    "zzz_file": "example_022.safetensors"
+  },
+  {
+    "id": "e07b8cbef331",
+    "name": "Example Asset 023",
+    "file": "tool\\example_023.safetensors",
+    "base_model": "Anima",
+    "category": "tool",
+    "triggers": [
+      "example trigger 23"
+    ],
+    "tags": [
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_023.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "454b54df9e25",
+    "name": "Example Asset 024",
+    "file": "example_024.safetensors",
+    "base_model": "Anima",
+    "category": "root",
+    "triggers": [],
+    "tags": [
+      "landscape",
+      "portrait"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_024.jpeg",
+    "zzz_file": "example_024.safetensors"
+  },
+  {
+    "id": "0c70aaa01870",
+    "name": "Example Asset 025",
+    "file": "character\\example_025.safetensors",
+    "base_model": "Pony",
+    "category": "character",
+    "triggers": [
+      "example trigger 25"
+    ],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_025.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "f0a0d8ab6bde",
+    "name": "Example Asset 026",
+    "file": "style\\example_026.safetensors",
+    "base_model": "Pony",
+    "category": "style",
+    "triggers": [
+      "example trigger 26"
+    ],
+    "tags": [
+      "lineart",
+      "watercolour"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_026.jpeg",
+    "zzz_file": "example_026.safetensors"
+  },
+  {
+    "id": "1b3778ff9c5f",
+    "name": "Example Asset 027",
+    "file": "example_027.safetensors",
+    "base_model": "Pony",
+    "category": "concept",
+    "triggers": [],
+    "tags": [
+      "watercolour",
+      "mecha"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_027.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "23168de9a126",
+    "name": "Example Asset 028",
+    "file": "anime\\example_028.safetensors",
+    "base_model": "Pony",
+    "category": "anime",
+    "triggers": [
+      "example trigger 28"
+    ],
+    "tags": [
+      "mecha",
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "unknown",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_028.jpeg",
+    "zzz_file": "example_028.safetensors"
+  },
+  {
+    "id": "e29135cb0fc6",
+    "name": "Example Asset 029",
+    "file": "clothing\\example_029.safetensors",
+    "base_model": "Pony",
+    "category": "clothing",
+    "triggers": [
+      "example trigger 29"
+    ],
+    "tags": [
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_029.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "e5140f1bf6d4",
+    "name": "Example Asset 030",
+    "file": "example_030.safetensors",
+    "base_model": "Pony",
+    "category": "poses",
+    "triggers": [],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_030.jpeg",
+    "zzz_file": "example_030.safetensors"
+  },
+  {
+    "id": "c2cf48558388",
+    "name": "Example Asset 031",
+    "file": "tool\\example_031.safetensors",
+    "base_model": "Pony",
+    "category": "tool",
+    "triggers": [
+      "example trigger 31"
+    ],
+    "tags": [
+      "portrait",
+      "lineart"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_031.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "7eb73c1cd163",
+    "name": "Example Asset 032",
+    "file": "root\\example_032.safetensors",
+    "base_model": "Pony",
+    "category": "root",
+    "triggers": [
+      "example trigger 32"
+    ],
+    "tags": [
+      "lineart",
+      "watercolour"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_032.jpeg",
+    "zzz_file": "example_032.safetensors"
+  },
+  {
+    "id": "cf53d652cab5",
+    "name": "Example Asset 033",
+    "file": "example_033.safetensors",
+    "base_model": "SDXL 1.0",
+    "category": "character",
+    "triggers": [],
+    "tags": [
+      "watercolour",
+      "mecha"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_033.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "0d71b1fb5466",
+    "name": "Example Asset 034",
+    "file": "style\\example_034.safetensors",
+    "base_model": "SDXL 1.0",
+    "category": "style",
+    "triggers": [
+      "example trigger 34"
+    ],
+    "tags": [
+      "mecha",
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_034.jpeg",
+    "zzz_file": "example_034.safetensors"
+  },
+  {
+    "id": "336600703bb8",
+    "name": "Example Asset 035",
+    "file": "concept\\example_035.safetensors",
+    "base_model": "SDXL 1.0",
+    "category": "concept",
+    "triggers": [
+      "example trigger 35"
+    ],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_035.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "b585a1f196f3",
+    "name": "Example Asset 036",
+    "file": "example_036.safetensors",
+    "base_model": "SDXL 1.0",
+    "category": "anime",
+    "triggers": [],
+    "tags": [
+      "landscape",
+      "portrait"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_036.jpeg",
+    "zzz_file": "example_036.safetensors"
+  },
+  {
+    "id": "973258853014",
+    "name": "Example Asset 037",
+    "file": "clothing\\example_037.safetensors",
+    "base_model": "SDXL 1.0",
+    "category": "clothing",
+    "triggers": [
+      "example trigger 37"
+    ],
+    "tags": [
+      "portrait",
+      "lineart"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_037.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "4d22f55c6719",
+    "name": "Example Asset 038",
+    "file": "poses\\example_038.safetensors",
+    "base_model": "SDXL 1.0",
+    "category": "poses",
+    "triggers": [
+      "example trigger 38"
+    ],
+    "tags": [
+      "lineart",
+      "watercolour"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_038.jpeg",
+    "zzz_file": "example_038.safetensors"
+  },
+  {
+    "id": "3337897c8c66",
+    "name": "Example Asset 039",
+    "file": "example_039.safetensors",
+    "base_model": "SDXL 1.0",
+    "category": "tool",
+    "triggers": [],
+    "tags": [
+      "watercolour",
+      "mecha"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_039.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "e53f3701b721",
+    "name": "Example Asset 040",
+    "file": "root\\example_040.safetensors",
+    "base_model": "SDXL 1.0",
+    "category": "root",
+    "triggers": [
+      "example trigger 40"
+    ],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_040.jpeg",
+    "zzz_file": "example_040.safetensors"
+  },
+  {
+    "id": "52c508a864d2",
+    "name": "Example Asset 041",
+    "file": "character\\example_041.safetensors",
+    "base_model": "SD 1.5",
+    "category": "character",
+    "triggers": [
+      "example trigger 41"
+    ],
+    "tags": [
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_041.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "0559d1b2caa0",
+    "name": "Example Asset 042",
+    "file": "example_042.safetensors",
+    "base_model": "SD 1.5",
+    "category": "style",
+    "triggers": [],
+    "tags": [
+      "landscape",
+      "portrait"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "unknown",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_042.jpeg",
+    "zzz_file": "example_042.safetensors"
+  },
+  {
+    "id": "f6ad0b622d18",
+    "name": "Example Asset 043",
+    "file": "concept\\example_043.safetensors",
+    "base_model": "SD 1.5",
+    "category": "concept",
+    "triggers": [
+      "example trigger 43"
+    ],
+    "tags": [
+      "portrait",
+      "lineart"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_043.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "62367d78da24",
+    "name": "Example Asset 044",
+    "file": "anime\\example_044.safetensors",
+    "base_model": "SD 1.5",
+    "category": "anime",
+    "triggers": [
+      "example trigger 44"
+    ],
+    "tags": [
+      "lineart",
+      "watercolour"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_044.jpeg",
+    "zzz_file": "example_044.safetensors"
+  },
+  {
+    "id": "330ed81276f7",
+    "name": "Example Asset 045",
+    "file": "example_045.safetensors",
+    "base_model": "SD 1.5",
+    "category": "clothing",
+    "triggers": [],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_045.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "6338b7a2f582",
+    "name": "Example Asset 046",
+    "file": "poses\\example_046.safetensors",
+    "base_model": "SD 1.5",
+    "category": "poses",
+    "triggers": [
+      "example trigger 46"
+    ],
+    "tags": [
+      "mecha",
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_046.jpeg",
+    "zzz_file": "example_046.safetensors"
+  },
+  {
+    "id": "23d72d40579f",
+    "name": "Example Asset 047",
+    "file": "tool\\example_047.safetensors",
+    "base_model": "SD 1.5",
+    "category": "tool",
+    "triggers": [
+      "example trigger 47"
+    ],
+    "tags": [
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_047.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "996f764ac35b",
+    "name": "Example Asset 048",
+    "file": "example_048.safetensors",
+    "base_model": "SD 1.5",
+    "category": "root",
+    "triggers": [],
+    "tags": [
+      "landscape",
+      "portrait"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_048.jpeg",
+    "zzz_file": "example_048.safetensors"
+  },
+  {
+    "id": "24a461c523d4",
+    "name": "Example Asset 049",
+    "file": "character\\example_049.safetensors",
+    "base_model": "Flux.1 D",
+    "category": "character",
+    "triggers": [
+      "example trigger 49"
+    ],
+    "tags": [
+      "portrait",
+      "lineart"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "unknown",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_049.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "b0ee24cda5a9",
+    "name": "Example Asset 050",
+    "file": "style\\example_050.safetensors",
+    "base_model": "Flux.1 D",
+    "category": "style",
+    "triggers": [
+      "example trigger 50"
+    ],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_050.jpeg",
+    "zzz_file": "example_050.safetensors"
+  },
+  {
+    "id": "a457eb3ec555",
+    "name": "Example Asset 051",
+    "file": "example_051.safetensors",
+    "base_model": "Flux.1 D",
+    "category": "concept",
+    "triggers": [],
+    "tags": [
+      "watercolour",
+      "mecha"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_051.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "93f4cfb9a569",
+    "name": "Example Asset 052",
+    "file": "anime\\example_052.safetensors",
+    "base_model": "Flux.1 D",
+    "category": "anime",
+    "triggers": [
+      "example trigger 52"
+    ],
+    "tags": [
+      "mecha",
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_052.jpeg",
+    "zzz_file": "example_052.safetensors"
+  },
+  {
+    "id": "d66af2872fd9",
+    "name": "Example Asset 053",
+    "file": "clothing\\example_053.safetensors",
+    "base_model": "Flux.1 D",
+    "category": "clothing",
+    "triggers": [
+      "example trigger 53"
+    ],
+    "tags": [
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_053.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "828a2b30f0ae",
+    "name": "Example Asset 054",
+    "file": "example_054.safetensors",
+    "base_model": "Flux.1 D",
+    "category": "poses",
+    "triggers": [],
+    "tags": [
+      "landscape",
+      "portrait"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_054.jpeg",
+    "zzz_file": "example_054.safetensors"
+  },
+  {
+    "id": "27f1db2635ad",
+    "name": "Example Asset 055",
+    "file": "tool\\example_055.safetensors",
+    "base_model": "Flux.1 D",
+    "category": "tool",
+    "triggers": [
+      "example trigger 55"
+    ],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_055.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "486cb58e737d",
+    "name": "Example Asset 056",
+    "file": "root\\example_056.safetensors",
+    "base_model": "Flux.1 D",
+    "category": "root",
+    "triggers": [
+      "example trigger 56"
+    ],
+    "tags": [
+      "lineart",
+      "watercolour"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "unknown",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_056.jpeg",
+    "zzz_file": "example_056.safetensors"
+  },
+  {
+    "id": "15a7a3c9e306",
+    "name": "Example Asset 057",
+    "file": "example_057.safetensors",
+    "base_model": "Flux.2 Klein 9B",
+    "category": "character",
+    "triggers": [],
+    "tags": [
+      "watercolour",
+      "mecha"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_057.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "ce182883b1e4",
+    "name": "Example Asset 058",
+    "file": "style\\example_058.safetensors",
+    "base_model": "Flux.2 Klein 9B",
+    "category": "style",
+    "triggers": [
+      "example trigger 58"
+    ],
+    "tags": [
+      "mecha",
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_058.jpeg",
+    "zzz_file": "example_058.safetensors"
+  },
+  {
+    "id": "0d2003f132b0",
+    "name": "Example Asset 059",
+    "file": "concept\\example_059.safetensors",
+    "base_model": "Flux.2 Klein 9B",
+    "category": "concept",
+    "triggers": [
+      "example trigger 59"
+    ],
+    "tags": [
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_059.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "b2116f4ee7a0",
+    "name": "Example Asset 060",
+    "file": "example_060.safetensors",
+    "base_model": "Flux.2 Klein 9B",
+    "category": "anime",
+    "triggers": [],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_060.jpeg",
+    "zzz_file": "example_060.safetensors"
+  },
+  {
+    "id": "997b064129b1",
+    "name": "Example Asset 061",
+    "file": "clothing\\example_061.safetensors",
+    "base_model": "Flux.2 Klein 9B",
+    "category": "clothing",
+    "triggers": [
+      "example trigger 61"
+    ],
+    "tags": [
+      "portrait",
+      "lineart"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_061.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "e3b073fc435b",
+    "name": "Example Asset 062",
+    "file": "poses\\example_062.safetensors",
+    "base_model": "Flux.2 Klein 9B",
+    "category": "poses",
+    "triggers": [
+      "example trigger 62"
+    ],
+    "tags": [
+      "lineart",
+      "watercolour"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_062.jpeg",
+    "zzz_file": "example_062.safetensors"
+  },
+  {
+    "id": "d2ba2ce42435",
+    "name": "Example Asset 063",
+    "file": "example_063.safetensors",
+    "base_model": "Flux.2 Klein 9B",
+    "category": "tool",
+    "triggers": [],
+    "tags": [
+      "watercolour",
+      "mecha"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "unknown",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_063.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "e0c1fd76bdd2",
+    "name": "Example Asset 064",
+    "file": "root\\example_064.safetensors",
+    "base_model": "Flux.2 Klein 9B",
+    "category": "root",
+    "triggers": [
+      "example trigger 64"
+    ],
+    "tags": [
+      "mecha",
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_064.jpeg",
+    "zzz_file": "example_064.safetensors"
+  },
+  {
+    "id": "648582233609",
+    "name": "Example Asset 065",
+    "file": "character\\example_065.safetensors",
+    "base_model": "Wan Video 2.2 I2V-A14B",
+    "category": "character",
+    "triggers": [
+      "example trigger 65"
+    ],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_065.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "3525257c8acc",
+    "name": "Example Asset 066",
+    "file": "example_066.safetensors",
+    "base_model": "Wan Video 2.2 I2V-A14B",
+    "category": "style",
+    "triggers": [],
+    "tags": [
+      "landscape",
+      "portrait"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_066.jpeg",
+    "zzz_file": "example_066.safetensors"
+  },
+  {
+    "id": "1aac509390ab",
+    "name": "Example Asset 067",
+    "file": "concept\\example_067.safetensors",
+    "base_model": "Wan Video 2.2 I2V-A14B",
+    "category": "concept",
+    "triggers": [
+      "example trigger 67"
+    ],
+    "tags": [
+      "portrait",
+      "lineart"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_067.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "3386d328e27a",
+    "name": "Example Asset 068",
+    "file": "anime\\example_068.safetensors",
+    "base_model": "Wan Video 2.2 I2V-A14B",
+    "category": "anime",
+    "triggers": [
+      "example trigger 68"
+    ],
+    "tags": [
+      "lineart",
+      "watercolour"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_068.jpeg",
+    "zzz_file": "example_068.safetensors"
+  },
+  {
+    "id": "59751e30ad34",
+    "name": "Example Asset 069",
+    "file": "example_069.safetensors",
+    "base_model": "Wan Video 2.2 I2V-A14B",
+    "category": "clothing",
+    "triggers": [],
+    "tags": [
+      "watercolour",
+      "mecha"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_069.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "f2fd2c9369e2",
+    "name": "Example Asset 070",
+    "file": "poses\\example_070.safetensors",
+    "base_model": "Wan Video 2.2 I2V-A14B",
+    "category": "poses",
+    "triggers": [
+      "example trigger 70"
+    ],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_070.jpeg",
+    "zzz_file": "example_070.safetensors"
+  },
+  {
+    "id": "9c2d20d74de4",
+    "name": "Example Asset 071",
+    "file": "tool\\example_071.safetensors",
+    "base_model": "Wan Video 2.2 I2V-A14B",
+    "category": "tool",
+    "triggers": [
+      "example trigger 71"
+    ],
+    "tags": [
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_071.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "02afee9401f2",
+    "name": "Example Asset 072",
+    "file": "example_072.safetensors",
+    "base_model": "Wan Video 2.2 I2V-A14B",
+    "category": "root",
+    "triggers": [],
+    "tags": [
+      "landscape",
+      "portrait"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_072.jpeg",
+    "zzz_file": "example_072.safetensors"
+  },
+  {
+    "id": "ce9f598caf6b",
+    "name": "Example Asset 073",
+    "file": "character\\example_073.safetensors",
+    "base_model": "ZImageTurbo",
+    "category": "character",
+    "triggers": [
+      "example trigger 73"
+    ],
+    "tags": [
+      "portrait",
+      "lineart"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_073.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "ad21072c55e3",
+    "name": "Example Asset 074",
+    "file": "style\\example_074.safetensors",
+    "base_model": "ZImageTurbo",
+    "category": "style",
+    "triggers": [
+      "example trigger 74"
+    ],
+    "tags": [
+      "lineart",
+      "watercolour"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_074.jpeg",
+    "zzz_file": "example_074.safetensors"
+  },
+  {
+    "id": "93326bd90bea",
+    "name": "Example Asset 075",
+    "file": "example_075.safetensors",
+    "base_model": "ZImageTurbo",
+    "category": "concept",
+    "triggers": [],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_075.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "0987f0aaccc5",
+    "name": "Example Asset 076",
+    "file": "anime\\example_076.safetensors",
+    "base_model": "ZImageTurbo",
+    "category": "anime",
+    "triggers": [
+      "example trigger 76"
+    ],
+    "tags": [
+      "mecha",
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_076.jpeg",
+    "zzz_file": "example_076.safetensors"
+  },
+  {
+    "id": "a1d96c2a7811",
+    "name": "Example Asset 077",
+    "file": "clothing\\example_077.safetensors",
+    "base_model": "ZImageTurbo",
+    "category": "clothing",
+    "triggers": [
+      "example trigger 77"
+    ],
+    "tags": [
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "unknown",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_077.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "940476cc1e34",
+    "name": "Example Asset 078",
+    "file": "example_078.safetensors",
+    "base_model": "ZImageTurbo",
+    "category": "poses",
+    "triggers": [],
+    "tags": [
+      "landscape",
+      "portrait"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_078.jpeg",
+    "zzz_file": "example_078.safetensors"
+  },
+  {
+    "id": "ac81c785c4b3",
+    "name": "Example Asset 079",
+    "file": "tool\\example_079.safetensors",
+    "base_model": "ZImageTurbo",
+    "category": "tool",
+    "triggers": [
+      "example trigger 79"
+    ],
+    "tags": [
+      "portrait",
+      "lineart"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_079.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "2759dc88eece",
+    "name": "Example Asset 080",
+    "file": "root\\example_080.safetensors",
+    "base_model": "ZImageTurbo",
+    "category": "root",
+    "triggers": [
+      "example trigger 80"
+    ],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_080.jpeg",
+    "zzz_file": "example_080.safetensors"
+  },
+  {
+    "id": "b3681f77de4b",
+    "name": "Example Asset 081",
+    "file": "example_081.safetensors",
+    "base_model": "Other",
+    "category": "character",
+    "triggers": [],
+    "tags": [
+      "watercolour",
+      "mecha"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_081.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "91625bc71b66",
+    "name": "Example Asset 082",
+    "file": "style\\example_082.safetensors",
+    "base_model": "Other",
+    "category": "style",
+    "triggers": [
+      "example trigger 82"
+    ],
+    "tags": [
+      "mecha",
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_082.jpeg",
+    "zzz_file": "example_082.safetensors"
+  },
+  {
+    "id": "c80de746e704",
+    "name": "Example Asset 083",
+    "file": "concept\\example_083.safetensors",
+    "base_model": "Other",
+    "category": "concept",
+    "triggers": [
+      "example trigger 83"
+    ],
+    "tags": [
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_083.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "ea2836501812",
+    "name": "Example Asset 084",
+    "file": "example_084.safetensors",
+    "base_model": "Other",
+    "category": "anime",
+    "triggers": [],
+    "tags": [
+      "landscape",
+      "portrait"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "unknown",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_084.jpeg",
+    "zzz_file": "example_084.safetensors"
+  },
+  {
+    "id": "d747a1acc9de",
+    "name": "Example Asset 085",
+    "file": "clothing\\example_085.safetensors",
+    "base_model": "Other",
+    "category": "clothing",
+    "triggers": [
+      "example trigger 85"
+    ],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_085.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "f3af675ad8a8",
+    "name": "Example Asset 086",
+    "file": "poses\\example_086.safetensors",
+    "base_model": "Other",
+    "category": "poses",
+    "triggers": [
+      "example trigger 86"
+    ],
+    "tags": [
+      "lineart",
+      "watercolour"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_086.jpeg",
+    "zzz_file": "example_086.safetensors"
+  },
+  {
+    "id": "2558730d108c",
+    "name": "Example Asset 087",
+    "file": "example_087.safetensors",
+    "base_model": "Other",
+    "category": "tool",
+    "triggers": [],
+    "tags": [
+      "watercolour",
+      "mecha"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_087.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "39d3bf45955f",
+    "name": "Example Asset 088",
+    "file": "root\\example_088.safetensors",
+    "base_model": "Other",
+    "category": "root",
+    "triggers": [
+      "example trigger 88"
+    ],
+    "tags": [
+      "mecha",
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_088.jpeg",
+    "zzz_file": "example_088.safetensors"
+  },
+  {
+    "id": "f3b3cec9e6b8",
+    "name": "Example Asset 089",
+    "file": "character\\example_089.safetensors",
+    "base_model": "Unknown",
+    "category": "character",
+    "triggers": [
+      "example trigger 89"
+    ],
+    "tags": [
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_089.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "79b438896f50",
+    "name": "Example Asset 090",
+    "file": "example_090.safetensors",
+    "base_model": "Unknown",
+    "category": "style",
+    "triggers": [],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_090.jpeg",
+    "zzz_file": "example_090.safetensors"
+  },
+  {
+    "id": "a439bf49f0e9",
+    "name": "Example Asset 091",
+    "file": "concept\\example_091.safetensors",
+    "base_model": "Unknown",
+    "category": "concept",
+    "triggers": [
+      "example trigger 91"
+    ],
+    "tags": [
+      "portrait",
+      "lineart"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "unknown",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_091.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "14780379cb1d",
+    "name": "Example Asset 092",
+    "file": "anime\\example_092.safetensors",
+    "base_model": "Unknown",
+    "category": "anime",
+    "triggers": [
+      "example trigger 92"
+    ],
+    "tags": [
+      "lineart",
+      "watercolour"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_092.jpeg",
+    "zzz_file": "example_092.safetensors"
+  },
+  {
+    "id": "d0ce5023720f",
+    "name": "Example Asset 093",
+    "file": "example_093.safetensors",
+    "base_model": "Unknown",
+    "category": "clothing",
+    "triggers": [],
+    "tags": [
+      "watercolour",
+      "mecha"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_093.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "ad4508582845",
+    "name": "Example Asset 094",
+    "file": "poses\\example_094.safetensors",
+    "base_model": "Unknown",
+    "category": "poses",
+    "triggers": [
+      "example trigger 94"
+    ],
+    "tags": [
+      "mecha",
+      "chibi"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_094.jpeg",
+    "zzz_file": "example_094.safetensors"
+  },
+  {
+    "id": "0fac67bd0e2e",
+    "name": "Example Asset 095",
+    "file": "tool\\example_095.safetensors",
+    "base_model": "Unknown",
+    "category": "tool",
+    "triggers": [
+      "example trigger 95"
+    ],
+    "tags": [
+      "nsfw",
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "nsfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_095.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "27f7026c7e85",
+    "name": "Example Asset 096",
+    "file": "example_096.safetensors",
+    "base_model": "Unknown",
+    "category": "root",
+    "triggers": [],
+    "tags": [
+      "landscape",
+      "portrait"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_096.jpeg",
+    "zzz_file": "example_096.safetensors"
+  },
+  {
+    "id": "6903439aecea",
+    "name": "範例素材 - Example Asset (CJK)",
+    "file": "style\\example_097.safetensors",
+    "base_model": "Illustrious",
+    "category": "style",
+    "triggers": [
+      "example trigger 97"
+    ],
+    "tags": [
+      "landscape",
+      "portrait"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_097.jpeg",
+    "zzz_file": "example_097.safetensors"
+  },
+  {
+    "id": "c3ce6fdbfe45",
+    "name": "Collision Example (character)",
+    "file": "character\\shared_leaf_name.safetensors",
+    "base_model": "Illustrious",
+    "category": "character",
+    "triggers": [
+      "example trigger 98"
+    ],
+    "tags": [
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_098.jpeg",
+    "zzz_file": "shared_leaf_name.safetensors"
+  },
+  {
+    "id": "41ee315928a7",
+    "name": "Collision Example (concept)",
+    "file": "concept\\shared_leaf_name.safetensors",
+    "base_model": "Illustrious",
+    "category": "concept",
+    "triggers": [],
+    "tags": [
+      "landscape"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_099.jpeg",
+    "zzz_file": "shared_leaf_name.safetensors"
+  },
+  {
+    "id": "2e19240a6a40",
+    "name": "Second Collision Example (style)",
+    "file": "style\\other_shared_leaf.safetensors",
+    "base_model": "Anima",
+    "category": "style",
+    "triggers": [
+      "example trigger 100"
+    ],
+    "tags": [
+      "portrait"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": false,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_100.jpeg",
+    "zzz_file": null
+  },
+  {
+    "id": "b7212afe6d3c",
+    "name": "Second Collision Example (anime)",
+    "file": "anime\\other_shared_leaf.safetensors",
+    "base_model": "Anima",
+    "category": "anime",
+    "triggers": [
+      "example trigger 101"
+    ],
+    "tags": [
+      "portrait"
+    ],
+    "strength_default": 0.8,
+    "content_rating": "sfw",
+    "has_meta": true,
+    "preview": "/api/lm/previews?path=example%2Fpreviews%2Fexample_101.jpeg",
+    "zzz_file": null
+  }
+]

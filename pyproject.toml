@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "loramake"
+version = "0.0.0"
+description = "Z3Comfy Studio generative visual systems and evidence workspace"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.139,<1.0",
+  "httpx>=0.28,<1.0",
+  "huggingface-hub>=1.22,<2.0",
+  "numpy>=2.0",
+  "pillow>=10",
+  "uvicorn[standard]>=0.30",
+  "websockets>=16,<17",
+]
+
+[project.optional-dependencies]
+dev = [
+  "jsonschema>=4.18,<5",
+  "pytest>=8",
+  "pytest-timeout>=2.4,<3",
+  "ruff>=0.15",
+]
+semantic = [
+  "sentence-transformers>=3",
+]
+
+[tool.setuptools.packages.find]
+include = ["app*", "loramake*"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+src = ["app", "scripts", "tests", "loramake"]
+exclude = [
+  "nsfw",
+  ".worktrees",
+  "outputs",
+  "app-web",
+]
+
+[tool.ruff.lint]
+select = ["E9", "F"]
+ignore = [
+  "F401",  # existing unused imports are common in script/app glue; keep CI focused on runtime breakers
+  "F541",  # existing static f-strings are style noise, not behavior faults
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "scripts"]
+addopts = ["--strict-config", "--strict-markers"]
+timeout = 30
+faulthandler_timeout = 20
+xfail_strict = true
+norecursedirs = [
+  "nsfw",
+  "outputs",
+  "app-web",
+  ".worktrees",
+  ".git",
+  "__pycache__",
+]

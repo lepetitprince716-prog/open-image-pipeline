@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/nsfw_lora_inventory_v1.schema.json",
+  "title": "NSFW LoRA union inventory v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "generated_at",
+    "status",
+    "source",
+    "summary",
+    "delta",
+    "assets",
+    "supporting_assets"
+  ],
+  "properties": {
+    "schema_version": {"const": "nsfw-lora-inventory-v1"},
+    "generated_at": {"type": "string"},
+    "status": {"enum": ["complete", "partial"]},
+    "source": {"type": "object"},
+    "summary": {"type": "object"},
+    "delta": {"type": "object"},
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "asset_id",
+          "display_name",
+          "base_model",
+          "role",
+          "priority",
+          "content_rating",
+          "availability",
+          "canonical_names",
+          "triggers",
+          "tags",
+          "metadata_status",
+          "interaction_cards",
+          "gpu_status"
+        ],
+        "properties": {
+          "asset_id": {"type": "string"},
+          "display_name": {"type": "string"},
+          "base_model": {"type": "string"},
+          "role": {"enum": ["concept", "style", "pose", "character", "detail"]},
+          "priority": {"enum": ["P0", "P1", "P2"]},
+          "content_rating": {"const": "nsfw"},
+          "availability": {"enum": ["both", "z3_only", "zzz_only"]},
+          "canonical_names": {
+            "type": "object",
+            "required": ["z3", "zzz"],
+            "properties": {
+              "z3": {"type": "array", "items": {"type": "string"}},
+              "zzz": {"type": "array", "items": {"type": "string"}}
+            }
+          },
+          "triggers": {"type": "array", "items": {"type": "string"}},
+          "tags": {"type": "array", "items": {"type": "string"}},
+          "metadata_status": {"enum": ["complete", "partial", "missing"]},
+          "interaction_cards": {"type": "array"},
+          "gpu_status": {"enum": ["not_scoped", "unverified", "verified"]}
+        }
+      }
+    },
+    "supporting_assets": {"type": "array"}
+  }
+}

@@ -1,0 +1,45 @@
+# Motion probe candidates v1 — one prompt per line, '#' = comment.
+# Usage: video_probe.py --image seed.png --prompts scripts/motion_probe_prompts.txt
+# Same seed frame + same (content-derived) seed across all lines: the prompt is the
+# only variable. First session: run a subset (baseline + 4-5 gestures + 1 camera +
+# 1 zh mirror) rather than the whole file — ~2-4 min GPU per clip.
+# Distill the survivors into wildcards/motion.txt once adherence verdicts exist.
+#
+# Community priors baked in (VIDEO_LINE_PLAN.md §3.5 research, 2026-07-02):
+# - mechanically-specific active verbs beat passive ones; hand motion defaults to
+#   "slow" unless the mechanics are spelled out — hence the paired wave prompts below
+# - vertical 480x832 is motion-starved under the 4-step distill (lightx2v's own
+#   thread) — probe gesture prompts with --res 832x480 as the H4 arm
+# - the negative prompt is inert at cfg=1; only positive text steers
+
+# -- baseline (the verified recipe's home turf; every probe run includes this)
+gentle idle motion, hair swaying softly, slow blink
+
+# -- precise single gestures (the adherence axis proper)
+she raises her right hand
+she tilts her head to the left
+she slowly closes her eyes, then opens them
+she waves her hand at the viewer
+she lifts her right hand and waves at the viewer, wrist flexing softly
+she brushes her hair behind her ear with one hand
+she turns her head to look to the right
+she smiles slightly
+she crosses her arms
+
+# -- body / larger motion (drift risk expected to rise with amplitude)
+she takes one small step forward
+she bows slightly
+she turns around to face away
+
+# -- camera only (subject stays still — separates camera adherence from body adherence)
+camera slowly pushes in, she stays still
+camera pans slightly to the right, she stays still
+
+# -- physics
+wind blows her hair and the hem of her coat
+
+# -- zh mirrors (Wan is Alibaba-trained bilingual; test whether Chinese adheres better)
+她抬起右手
+她向左歪头
+她缓缓眨了眨眼
+镜头缓缓推近，人物保持不动

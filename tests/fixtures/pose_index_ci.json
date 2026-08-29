@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "poses": [
+    {
+      "slug": "cabaret_seated",
+      "file": "outputs/poses/library/cabaret_seated.png",
+      "dims": [768, 1344],
+      "tags": ["dance", "seated"],
+      "desc": "Cabaret seated reference",
+      "prompt_hint": "cabaret seated pose",
+      "pairing": {}
+    },
+    {
+      "slug": "high_kick",
+      "file": "outputs/poses/library/high_kick.png",
+      "dims": [768, 1344],
+      "tags": ["dynamic", "martial"],
+      "desc": "High kick reference",
+      "prompt_hint": "high kick, dynamic balance",
+      "pairing": {}
+    },
+    {
+      "slug": "maintenance_note_standing",
+      "file": "outputs/poses/library/maintenance_note_standing.png",
+      "dims": [768, 1344],
+      "tags": ["dance", "standing"],
+      "desc": "[PARTIAL — re-extract arms] maintenance-only note",
+      "prompt_hint": "warrior yoga pose, wide lunge, arms extended overhead",
+      "pairing": {}
+    }
+  ]
+}

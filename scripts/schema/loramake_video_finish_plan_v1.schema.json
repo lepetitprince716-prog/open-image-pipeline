@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/loramake_video_finish_plan_v1.schema.json",
+  "title": "loramake-video-finish-plan-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "project_id",
+    "finish_id",
+    "driving_model",
+    "execution_policy",
+    "source_manifest",
+    "target",
+    "readiness_verification",
+    "readiness",
+    "runnable",
+    "shots",
+    "report_path"
+  ],
+  "properties": {
+    "schema_version": {"const": "loramake-video-finish-plan-v1"},
+    "project_id": {"type": "string", "minLength": 1},
+    "finish_id": {"type": "string", "minLength": 1},
+    "driving_model": {"type": "string", "minLength": 1},
+    "execution_policy": {"const": "keeper_only_local_adapters"},
+    "source_manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "target": {"type": "object"},
+    "readiness_verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requested", "completed", "method"],
+      "properties": {
+        "requested": {"type": "boolean"},
+        "completed": {"type": "boolean"},
+        "method": {"const": "local-version-model-canary-v1"}
+      }
+    },
+    "readiness": {"type": "object"},
+    "runnable": {"type": "boolean"},
+    "shots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["shot_id", "source", "source_ffprobe", "source_duration_s", "duration_s", "target_frames", "stages"],
+        "properties": {
+          "shot_id": {"type": "string", "minLength": 1},
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "sha256", "bytes", "keeper", "review"],
+            "properties": {
+              "path": {"type": "string", "minLength": 1},
+              "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+              "bytes": {"type": "integer", "minimum": 1},
+              "keeper": {"const": true},
+              "review": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["path", "sha256", "schema"],
+                "properties": {
+                  "path": {"type": "string", "minLength": 1},
+                  "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+                  "schema": {"const": "loramake-video-review-v1"}
+                }
+              }
+            }
+          },
+          "source_ffprobe": {"type": "object"},
+          "source_duration_s": {"type": "number", "exclusiveMinimum": 0},
+          "duration_s": {"type": "number", "exclusiveMinimum": 0},
+          "target_frames": {"type": "integer", "minimum": 1},
+          "stages": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {"type": "object"}
+          }
+        }
+      }
+    },
+    "report_path": {"type": "string", "minLength": 1}
+  }
+}

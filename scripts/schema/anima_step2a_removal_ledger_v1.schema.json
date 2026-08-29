@@ -1,0 +1,271 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/anima_step2a_removal_ledger_v1.schema.json",
+  "title": "Anima Step 2a immutable removal ledger v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "ledger_id",
+    "source",
+    "coverage",
+    "previous_snapshot",
+    "entries"
+  ],
+  "properties": {
+    "schema": {
+      "const": "anima-step2a-removal-ledger-v1"
+    },
+    "ledger_id": {
+      "type": "string",
+      "pattern": "^anima-step2a-removal-[0-9a-f]{24}$"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "revision"
+      ],
+      "properties": {
+        "name": {
+          "const": "deepghs/danbooru2024-webp-4Mpixel"
+        },
+        "revision": {
+          "const": "60ca7e02a844bccbe6c8344d1a18b7ea280b787f"
+        }
+      }
+    },
+    "coverage": {
+      "$ref": "#/$defs/coverage"
+    },
+    "previous_snapshot": {
+      "$ref": "#/$defs/previousSnapshot"
+    },
+    "entries": {
+      "type": "array",
+      "maxItems": 10000000,
+      "items": {
+        "$ref": "#/$defs/entry"
+      }
+    }
+  },
+  "$defs": {
+    "md5": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{32}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^(?!0000)[0-9]{4}-(?:(?:01|03|05|07|08|10|12)-(?:0[1-9]|[12][0-9]|3[01])|(?:04|06|09|11)-(?:0[1-9]|[12][0-9]|30)|02-(?:0[1-9]|1[0-9]|2[0-8]))T(?:[01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]Z$"
+        },
+        {
+          "type": "string",
+          "pattern": "^(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29T(?:[01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]Z$"
+        }
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "as_of",
+        "authority",
+        "evidence",
+        "covered_population_sha256"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "delta_only",
+            "authoritative_complete_snapshot"
+          ]
+        },
+        "as_of": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "authority": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "$ref": "#/$defs/evidence"
+        },
+        "covered_population_sha256": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "delta_only"
+              }
+            },
+            "required": [
+              "mode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "covered_population_sha256": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "covered_population_sha256": {
+                "$ref": "#/$defs/sha256"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "previousSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "snapshot_id",
+        "sha256",
+        "entry_count"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "genesis",
+            "ledger"
+          ]
+        },
+        "snapshot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "entry_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "genesis"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "snapshot_id": {
+                "const": "anima-step2a-removal-genesis-20260718-v1"
+              },
+              "sha256": {
+                "const": "8a1269cfc40b77cb806d6ca10428133600a03b338a13b11477738ae441b6de47"
+              },
+              "entry_count": {
+                "const": 0
+              }
+            }
+          }
+        }
+      ]
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sequence",
+        "action",
+        "source",
+        "source_revision",
+        "image_id",
+        "md5",
+        "sha256",
+        "full_key_sha256",
+        "reason_code",
+        "effective_at",
+        "evidence_sha256"
+      ],
+      "properties": {
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "action": {
+          "const": "REMOVE"
+        },
+        "source": {
+          "const": "deepghs/danbooru2024-webp-4Mpixel"
+        },
+        "source_revision": {
+          "const": "60ca7e02a844bccbe6c8344d1a18b7ea280b787f"
+        },
+        "image_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "md5": {
+          "$ref": "#/$defs/md5"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "full_key_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "reason_code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "effective_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "evidence_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/loramake_video_finish_v1.schema.json",
+  "title": "loramake-video-finish-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "project_id",
+    "finish_id",
+    "driving_model",
+    "output_root",
+    "target",
+    "keepers",
+    "adapters"
+  ],
+  "properties": {
+    "schema_version": {"const": "loramake-video-finish-v1"},
+    "project_id": {"$ref": "#/$defs/id"},
+    "finish_id": {"$ref": "#/$defs/id"},
+    "driving_model": {"$ref": "#/$defs/id"},
+    "output_root": {"type": "string", "minLength": 1},
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "fps", "aspect_ratio", "rife_multiplier", "seedvr2_scale"],
+      "properties": {
+        "width": {"const": 1080},
+        "height": {"const": 1920},
+        "fps": {"const": 30},
+        "aspect_ratio": {"const": "9:16"},
+        "rife_multiplier": {"const": 2},
+        "seedvr2_scale": {"const": 2}
+      }
+    },
+    "keepers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/keeper"}
+    },
+    "adapters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rife": {"$ref": "#/$defs/rife_adapter"},
+        "seedvr2": {"$ref": "#/$defs/seedvr2_adapter"}
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "keeper": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["shot_id", "path", "sha256", "keeper", "review"],
+      "properties": {
+        "shot_id": {"$ref": "#/$defs/id"},
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "keeper": {"const": true},
+        "review": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "sha256"],
+          "properties": {
+            "path": {"type": "string", "minLength": 1},
+            "sha256": {"$ref": "#/$defs/sha256"}
+          }
+        }
+      }
+    },
+    "adapter_base": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["argv", "output_extension", "check_paths", "version_argv"],
+      "properties": {
+        "argv": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "output_extension": {"type": "string", "pattern": "^\\.[A-Za-z0-9]+$"},
+        "check_paths": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "version_argv": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "rife_adapter": {"$ref": "#/$defs/adapter_base"},
+    "seedvr2_adapter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["argv", "output_extension", "check_paths", "version_argv", "model_files"],
+      "properties": {
+        "argv": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "output_extension": {"type": "string", "pattern": "^\\.[A-Za-z0-9]+$"},
+        "check_paths": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "version_argv": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "model_files": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "sha256", "bytes"],
+            "properties": {
+              "path": {"type": "string", "minLength": 1},
+              "sha256": {"$ref": "#/$defs/sha256"},
+              "bytes": {"type": "integer", "minimum": 1}
+            }
+          }
+        }
+      }
+    }
+  }
+}

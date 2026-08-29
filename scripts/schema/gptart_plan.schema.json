@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/gptart_plan.schema.json",
+  "title": "GPTArt plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "subject", "user_goal", "protected_invariants", "concepts", "review_contract"],
+  "properties": {
+    "schema_version": {"const": "gptart-plan-v1"},
+    "run_id": {"type": "string", "pattern": "^(?!.*\\.\\.)[A-Za-z0-9][A-Za-z0-9._-]*$"},
+    "subject": {
+      "oneOf": [
+        {"type": "string", "pattern": ".*\\S.*"},
+        {"type": "object", "minProperties": 1}
+      ]
+    },
+    "user_goal": {"type": "string", "pattern": ".*\\S.*"},
+    "protected_invariants": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "review_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hard_gates", "art_axes"],
+      "properties": {
+        "hard_gates": {"const": ["anatomy", "identity", "intent_fidelity", "physical_logic"]},
+        "art_axes": {"const": ["visual_hierarchy", "composition_tension", "light_color_causality", "medium_coherence", "specificity", "narrative_presence", "composition_invention", "color_invention", "pose_invention", "risk_taken", "risk_resolved", "surprise", "memorability", "authorial_specificity"]}
+      }
+    },
+    "concepts": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "allOf": [
+        {"contains": {"type": "object", "required": ["role"], "properties": {"role": {"const": "anchor"}}}, "minContains": 1, "maxContains": 1},
+        {"contains": {"type": "object", "required": ["role"], "properties": {"role": {"const": "composition_rupture"}}}, "minContains": 1, "maxContains": 1},
+        {"contains": {"type": "object", "required": ["role"], "properties": {"role": {"const": "chromatic_rupture"}}}, "minContains": 1, "maxContains": 1},
+        {"contains": {"type": "object", "required": ["role"], "properties": {"role": {"const": "kinetic_rupture"}}}, "minContains": 1, "maxContains": 1}
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "allOf": [
+          {"if": {"properties": {"role": {"const": "composition_rupture"}}}, "then": {"properties": {"creative_rupture": {"properties": {"primary_axis": {"const": "composition"}}}}}},
+          {"if": {"properties": {"role": {"const": "chromatic_rupture"}}}, "then": {"properties": {"creative_rupture": {"properties": {"primary_axis": {"const": "color"}}}}}},
+          {"if": {"properties": {"role": {"const": "kinetic_rupture"}}}, "then": {"properties": {"creative_rupture": {"properties": {"primary_axis": {"const": "pose"}}}}}},
+          {
+            "if": {"required": ["direction_source"], "properties": {"direction_source": {"const": "freeform"}}},
+            "then": {"properties": {"direction_intent": {"required": ["provenance", "intent"]}}},
+            "else": {"properties": {"direction_intent": {"required": ["intent", "composition", "lighting", "color_mood"]}}}
+          }
+        ],
+        "required": ["concept_id", "role", "visual_thesis", "creative_rupture", "direction_source", "direction_intent", "argv", "preserve", "avoid", "candidate_count"],
+        "properties": {
+          "concept_id": {"type": "string", "pattern": "^(?!.*\\.\\.)[A-Za-z0-9][A-Za-z0-9._-]*$"},
+          "role": {"enum": ["anchor", "composition_rupture", "chromatic_rupture", "kinetic_rupture"]},
+          "visual_thesis": {"type": "string", "minLength": 1},
+          "creative_rupture": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["primary_axis", "device", "purpose"],
+            "properties": {
+              "primary_axis": {"enum": ["composition", "color", "pose"]},
+              "device": {"type": "string", "minLength": 1},
+              "purpose": {"type": "string", "minLength": 1}
+            }
+          },
+          "supporting_axes": {
+            "type": "object", "additionalProperties": false, "minProperties": 1,
+            "properties": {
+              "composition": {"type": "string", "minLength": 1},
+              "color": {"type": "string", "minLength": 1},
+              "pose": {"type": "string", "minLength": 1}
+            }
+          },
+          "protected_invariants": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "direction_source": {"type": "string", "minLength": 1},
+          "direction_intent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "provenance": {"type": "string"},
+              "intent": {"type": "string"},
+              "composition": {"type": "string"},
+              "lighting": {"type": "string"},
+              "color_mood": {"type": "string"}
+            }
+          },
+          "argv": {"type": "array", "items": {"type": "string"}, "minItems": 3},
+          "preserve": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "avoid": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "candidate_count": {"type": "integer", "minimum": 1}
+        }
+      }
+    }
+  }
+}

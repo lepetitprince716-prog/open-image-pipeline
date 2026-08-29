@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "generated_at": "1970-01-01T00:00:00Z",
+  "source_host": "http://192.0.2.10:8188",
+  "source_endpoints": [
+    "/object_info"
+  ],
+  "refresh_status": "exemplar",
+  "stale_after_hours": 24,
+  "counts": {
+    "checkpoints": 4,
+    "vae": 2,
+    "controlnet": 2,
+    "upscale_models": 1,
+    "clip_vision": 1,
+    "diffusion_models": 2,
+    "ipadapter": 1,
+    "loras": 101
+  },
+  "gaps": [],
+  "loras": {
+    "source": "lora_catalog/z3_index.json",
+    "count": 101
+  },
+  "assets": {
+    "checkpoints": [
+      "example_illustrious_base.safetensors",
+      "example_anima_base.safetensors",
+      "example_sdxl_base.safetensors",
+      "example_sd15_base.safetensors"
+    ],
+    "vae": [
+      "example_vae_a.safetensors",
+      "example_vae_b.safetensors"
+    ],
+    "controlnet": [
+      "example_openpose.safetensors",
+      "example_depth.safetensors"
+    ],
+    "upscale_models": [
+      "example_upscaler.pth"
+    ],
+    "clip_vision": [
+      "example_clip_vision.safetensors"
+    ],
+    "diffusion_models": [
+      "example_diffusion_a.safetensors",
+      "example_diffusion_b.safetensors"
+    ],
+    "ipadapter": [
+      "example_ipadapter.safetensors"
+    ]
+  }
+}

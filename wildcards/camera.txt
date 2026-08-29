@@ -1,0 +1,20 @@
+# shot framing / camera angle — pick ONE per image (one distance + at most one angle)
+close-up portrait
+extreme close-up, face focus
+upper body shot
+cowboy shot
+full body shot
+wide establishing shot
+from above
+from below
+bird's eye view
+worm's eye view
+dutch angle
+three-quarter view
+profile view
+over-the-shoulder shot
+foreshortening, dynamic angle
+fisheye perspective
+high-angle editorial shot, looking down at a steep angle
+extreme close-up, hands in focus
+medium close-up, head and shoulders

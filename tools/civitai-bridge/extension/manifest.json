@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Studio Civitai Bridge",
+  "version": "0.3.2",
+  "description": "Mark owned LoRAs on Civitai, download to Z3, save recipes and fill missing LoRAs. Talks to local Z3Comfy Studio.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Studio Civitai Bridge",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "permissions": ["storage"],
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "http://localhost/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://civitai.com/*",
+        "https://civitai.red/*",
+        "https://civitai.green/*",
+        "https://civarchive.com/*",
+        "https://civitaiarchive.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
