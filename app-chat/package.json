@@ -26,7 +26,7 @@
     "react-dom": "^19",
     "react-markdown": "^10",
     "tsx": "^4",
-    "zod": "^3"
+    "zod": "^4"
   },
   "devDependencies": {
     "@types/node": "^22",
