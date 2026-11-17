@@ -1,0 +1,1258 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/anima_step2a_intake_manifest_v1.schema.json",
+  "title": "Anima Step 2a draft input-semantics manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "contract_version",
+    "operation",
+    "status",
+    "training_ready",
+    "manifest_id",
+    "source_binding",
+    "parents",
+    "limits",
+    "selection",
+    "records",
+    "ledger",
+    "gate",
+    "activity"
+  ],
+  "properties": {
+    "schema": {
+      "const": "anima-step2a-intake-manifest-v1"
+    },
+    "contract_version": {
+      "const": "anima-step2a-input-policy-v2-draft"
+    },
+    "operation": {
+      "enum": [
+        "sample_plan",
+        "derive_provenance",
+        "ledger_join"
+      ]
+    },
+    "status": {
+      "const": "DRAFT_G1_HOLD"
+    },
+    "training_ready": {
+      "const": false
+    },
+    "manifest_id": {
+      "type": "string",
+      "pattern": "^anima-step2a-intake-[0-9a-f]{24}$"
+    },
+    "source_binding": {
+      "$ref": "#/$defs/sourceBinding"
+    },
+    "parents": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/parent"
+      }
+    },
+    "limits": {
+      "$ref": "#/$defs/limits"
+    },
+    "selection": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/selection"
+        }
+      ]
+    },
+    "records": {
+      "type": "array",
+      "maxItems": 100000,
+      "items": {
+        "$ref": "#/$defs/record"
+      }
+    },
+    "ledger": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/ledgerSummary"
+        }
+      ]
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "g1",
+        "reasons"
+      ],
+      "properties": {
+        "g1": {
+          "const": "HOLD"
+        },
+        "reasons": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "activity": {
+      "$ref": "#/$defs/activity"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "sample_plan"
+          }
+        },
+        "required": [
+          "operation"
+        ]
+      },
+      "then": {
+        "properties": {
+          "selection": {
+            "$ref": "#/$defs/selection"
+          },
+          "records": {
+            "type": "array",
+            "maxItems": 0
+          },
+          "ledger": {
+            "type": "null"
+          },
+          "parents": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 4
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "selection": {
+                  "type": "object",
+                  "properties": {
+                    "inventory_status": {
+                      "const": "COMPLETE"
+                    }
+                  },
+                  "required": [
+                    "inventory_status"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "parents": {
+                  "type": "array",
+                  "minItems": 4,
+                  "maxItems": 4,
+                  "prefixItems": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "role": {
+                          "const": "page_index_inventory"
+                        },
+                        "semantic_id": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "role": {
+                          "const": "page_index_probe"
+                        },
+                        "semantic_id": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "role": {
+                          "const": "raw_fixed_footer"
+                        },
+                        "semantic_id": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "role": {
+                          "const": "offset_index_evidence"
+                        },
+                        "semantic_id": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  ],
+                  "items": false
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "parents": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 1,
+                  "prefixItems": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "role": {
+                          "const": "page_index_inventory"
+                        },
+                        "semantic_id": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  ],
+                  "items": false
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "derive_provenance"
+          }
+        },
+        "required": [
+          "operation"
+        ]
+      },
+      "then": {
+        "properties": {
+          "selection": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/selection"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "selection_ready": {
+                    "const": true
+                  }
+                }
+              }
+            ]
+          },
+          "records": {
+            "type": "array",
+            "minItems": 1
+          },
+          "ledger": {
+            "type": "null"
+          },
+          "parents": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "prefixItems": [
+              {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "const": "selection_manifest"
+                  },
+                  "semantic_id": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "const": "bounded_projected_rows"
+                  },
+                  "semantic_id": {
+                    "type": "null"
+                  }
+                }
+              }
+            ],
+            "items": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "ledger_join"
+          }
+        },
+        "required": [
+          "operation"
+        ]
+      },
+      "then": {
+        "properties": {
+          "selection": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/selection"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "selection_ready": {
+                    "const": true
+                  }
+                }
+              }
+            ]
+          },
+          "records": {
+            "type": "array",
+            "minItems": 1
+          },
+          "ledger": {
+            "$ref": "#/$defs/ledgerSummary"
+          },
+          "parents": {
+            "type": "array",
+            "minItems": 5,
+            "maxItems": 5,
+            "prefixItems": [
+              {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "const": "derived_provenance_manifest"
+                  },
+                  "semantic_id": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "const": "removal_ledger"
+                  },
+                  "semantic_id": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "const": "ledger_coverage_evidence"
+                  },
+                  "semantic_id": {
+                    "type": "null"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "const": "trusted_removal_ledger_head"
+                  },
+                  "semantic_id": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "const": "previous_removal_snapshot"
+                  },
+                  "semantic_id": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            ],
+            "items": false
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "ledger": {
+                  "type": "object",
+                  "properties": {
+                    "coverage_mode": {
+                      "const": "delta_only"
+                    }
+                  },
+                  "required": [
+                    "coverage_mode"
+                  ]
+                }
+              },
+              "required": [
+                "ledger"
+              ]
+            },
+            "then": {
+              "properties": {
+                "records": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ledger_status": {
+                        "not": {
+                          "const": "NOT_OPTED_OUT"
+                        }
+                      }
+                    },
+                    "required": [
+                      "ledger_status"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "ledger": {
+                  "type": "object",
+                  "properties": {
+                    "coverage_mode": {
+                      "const": "authoritative_complete_snapshot"
+                    }
+                  },
+                  "required": [
+                    "coverage_mode"
+                  ]
+                }
+              },
+              "required": [
+                "ledger"
+              ]
+            },
+            "then": {
+              "properties": {
+                "records": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ledger_status": {
+                        "not": {
+                          "const": "HOLD_OPT_OUT_UNKNOWN"
+                        }
+                      }
+                    },
+                    "required": [
+                      "ledger_status"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "$defs": {
+    "md5": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{32}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^(?!0000)[0-9]{4}-(?:(?:01|03|05|07|08|10|12)-(?:0[1-9]|[12][0-9]|3[01])|(?:04|06|09|11)-(?:0[1-9]|[12][0-9]|30)|02-(?:0[1-9]|1[0-9]|2[0-8]))T(?:[01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]Z$"
+        },
+        {
+          "type": "string",
+          "pattern": "^(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29T(?:[01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]Z$"
+        }
+      ]
+    },
+    "nullableSha256": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/sha256"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "nullableText": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "sourceBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "source_revision",
+        "filename",
+        "size_bytes",
+        "footer_sha256",
+        "footer_plan",
+        "prior_policy_approval",
+        "removal_ledger_trust",
+        "input_policy_version",
+        "source_binding_sha256"
+      ],
+      "properties": {
+        "source": {
+          "const": "deepghs/danbooru2024-webp-4Mpixel"
+        },
+        "source_revision": {
+          "const": "60ca7e02a844bccbe6c8344d1a18b7ea280b787f"
+        },
+        "filename": {
+          "const": "metadata.parquet"
+        },
+        "size_bytes": {
+          "const": 6846458425
+        },
+        "footer_sha256": {
+          "const": "0c3d48949974d9e6870304290a2649a0d2b9f762d3453374ad6defb3b71fb276"
+        },
+        "footer_plan": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "const": "outputs/_analysis/anima_step2a_footer_plan_2026-07-18/footer_selected_column_plan_v1.json"
+            },
+            "sha256": {
+              "const": "067eeca1ffdbc08391e1911c16931991550b1605d6b7484b4082b9367a01e36a"
+            }
+          }
+        },
+        "prior_policy_approval": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "record_path",
+            "record_sha256",
+            "snapshot_path",
+            "snapshot_sha256",
+            "approved_filter_version",
+            "approves_v2_input_semantics"
+          ],
+          "properties": {
+            "record_path": {
+              "const": "docs/lora_training/anima_step2a/APPROVAL_RECORD_v1.json"
+            },
+            "record_sha256": {
+              "const": "388922c14c093093c4f10ea80cfde6789d40dc840af31321ac9154b38cf60cc2"
+            },
+            "snapshot_path": {
+              "const": "docs/lora_training/anima_step2a/COMPLIANCE_PROPOSAL_APPROVAL_SNAPSHOT_2026-07-18.md"
+            },
+            "snapshot_sha256": {
+              "const": "4c375d021f883755fe8ed05d4865eddf3983bebe7d67500a81565f49f2cfa018"
+            },
+            "approved_filter_version": {
+              "const": "anima-step2a-pilot-filter-v1"
+            },
+            "approves_v2_input_semantics": {
+              "const": false
+            }
+          }
+        },
+        "removal_ledger_trust": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "chain_id",
+            "genesis_path",
+            "genesis_sha256",
+            "head_path",
+            "head_sha256",
+            "head_id"
+          ],
+          "properties": {
+            "chain_id": {
+              "const": "anima-step2a-removal-chain-20260718-v1"
+            },
+            "genesis_path": {
+              "const": "docs/lora_training/anima_step2a/REMOVAL_LEDGER_GENESIS_v1.json"
+            },
+            "genesis_sha256": {
+              "const": "8a1269cfc40b77cb806d6ca10428133600a03b338a13b11477738ae441b6de47"
+            },
+            "head_path": {
+              "const": "docs/lora_training/anima_step2a/REMOVAL_LEDGER_HEAD_v1.json"
+            },
+            "head_sha256": {
+              "const": "484bb088e9bfee209f8ed6073fe854ed6dc551928abfa3a0d3d459df455fc088"
+            },
+            "head_id": {
+              "const": "anima-step2a-removal-head-20260718-v1"
+            }
+          }
+        },
+        "input_policy_version": {
+          "const": "anima-step2a-input-policy-v2-draft"
+        },
+        "source_binding_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "parent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "path",
+        "sha256",
+        "semantic_id"
+      ],
+      "properties": {
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "semantic_id": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pilot_record_cap",
+        "minimum_records",
+        "max_touched_rows",
+        "max_payload_bytes",
+        "max_payload_requests"
+      ],
+      "properties": {
+        "pilot_record_cap": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "minimum_records": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "max_touched_rows": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "max_payload_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1073741824
+        },
+        "max_payload_requests": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4096
+        }
+      }
+    },
+    "window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "row_group_index",
+        "anchor_page_ordinal",
+        "first_row_index",
+        "row_count",
+        "selection_key_sha256"
+      ],
+      "properties": {
+        "row_group_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "anchor_page_ordinal": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "first_row_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "row_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "selection_key_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "plannedRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "row_group_index",
+        "column",
+        "kind",
+        "page_ordinal",
+        "start",
+        "end",
+        "bytes"
+      ],
+      "properties": {
+        "row_group_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "column": {
+          "enum": [
+            "score",
+            "source",
+            "md5",
+            "tag_string",
+            "tag_string_general",
+            "rating",
+            "id"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "data_page",
+            "column_prefix_prerequisite"
+          ]
+        },
+        "page_ordinal": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "algorithm_version",
+        "selection_salt",
+        "inventory_status",
+        "anchor_column",
+        "candidate_count",
+        "eligible_candidate_count",
+        "selected_windows",
+        "selected_rows",
+        "touched_rows_upper_bound",
+        "planned_payload_requests",
+        "planned_payload_bytes",
+        "planned_ranges",
+        "selection_ready",
+        "execution_authorized",
+        "hold_reasons"
+      ],
+      "properties": {
+        "algorithm_version": {
+          "const": "sha256-page-bundle-rank-v1"
+        },
+        "selection_salt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inventory_status": {
+          "enum": [
+            "COMPLETE",
+            "OFFSET_INDEX_UNAVAILABLE",
+            "INCOMPLETE",
+            "UNKNOWN"
+          ]
+        },
+        "anchor_column": {
+          "const": "id"
+        },
+        "candidate_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "eligible_candidate_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "selected_windows": {
+          "type": "array",
+          "maxItems": 100000,
+          "items": {
+            "$ref": "#/$defs/window"
+          }
+        },
+        "selected_rows": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100000
+        },
+        "touched_rows_upper_bound": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100000
+        },
+        "planned_payload_requests": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4096
+        },
+        "planned_payload_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1073741824
+        },
+        "planned_ranges": {
+          "type": "array",
+          "maxItems": 4096,
+          "items": {
+            "$ref": "#/$defs/plannedRange"
+          }
+        },
+        "selection_ready": {
+          "type": "boolean"
+        },
+        "execution_authorized": {
+          "const": false
+        },
+        "hold_reasons": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "selection_ready": {
+                "const": true
+              }
+            },
+            "required": [
+              "selection_ready"
+            ]
+          },
+          "then": {
+            "properties": {
+              "inventory_status": {
+                "const": "COMPLETE"
+              },
+              "selected_windows": {
+                "type": "array",
+                "minItems": 1
+              },
+              "selected_rows": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "touched_rows_upper_bound": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "planned_payload_requests": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "planned_payload_bytes": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "planned_ranges": {
+                "type": "array",
+                "minItems": 1
+              },
+              "hold_reasons": {
+                "type": "array",
+                "maxItems": 0
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "selected_windows": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "selected_rows": {
+                "const": 0
+              },
+              "touched_rows_upper_bound": {
+                "const": 0
+              },
+              "planned_payload_requests": {
+                "const": 0
+              },
+              "planned_payload_bytes": {
+                "const": 0
+              },
+              "planned_ranges": {
+                "type": "array",
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      ]
+    },
+    "locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "row_group_index",
+        "row_index_in_group",
+        "anchor_page_ordinal",
+        "selection_key_sha256"
+      ],
+      "properties": {
+        "row_group_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "row_index_in_group": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "anchor_page_ordinal": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "selection_key_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "projectedMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tag_string",
+        "tag_string_general",
+        "rating",
+        "score",
+        "asset_license"
+      ],
+      "properties": {
+        "tag_string": {
+          "$ref": "#/$defs/nullableText"
+        },
+        "tag_string_general": {
+          "$ref": "#/$defs/nullableText"
+        },
+        "rating": {
+          "$ref": "#/$defs/nullableText"
+        },
+        "score": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "asset_license": {
+          "$ref": "#/$defs/nullableText"
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "source_binding_sha256",
+        "selection_manifest_sha256",
+        "input_row_sha256"
+      ],
+      "properties": {
+        "mode": {
+          "const": "derived-from-immutable-file-binding-v1"
+        },
+        "source_binding_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "selection_manifest_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "input_row_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_key",
+        "source",
+        "source_revision",
+        "native_source",
+        "native_source_revision",
+        "source_locator",
+        "image_id",
+        "md5",
+        "sha256",
+        "raw_row_sha256",
+        "projected_metadata",
+        "provenance",
+        "ledger_status"
+      ],
+      "properties": {
+        "record_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "const": "deepghs/danbooru2024-webp-4Mpixel"
+        },
+        "source_revision": {
+          "const": "60ca7e02a844bccbe6c8344d1a18b7ea280b787f"
+        },
+        "native_source": {
+          "$ref": "#/$defs/nullableText"
+        },
+        "native_source_revision": {
+          "oneOf": [
+            {
+              "const": "60ca7e02a844bccbe6c8344d1a18b7ea280b787f"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_locator": {
+          "$ref": "#/$defs/locator"
+        },
+        "image_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "md5": {
+          "$ref": "#/$defs/md5"
+        },
+        "sha256": {
+          "$ref": "#/$defs/nullableSha256"
+        },
+        "raw_row_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "projected_metadata": {
+          "$ref": "#/$defs/projectedMetadata"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "ledger_status": {
+          "enum": [
+            "HOLD_LEDGER_HASH_PENDING",
+            "HOLD_OPT_OUT_UNKNOWN",
+            "NOT_OPTED_OUT",
+            "REJECT_OPT_OUT"
+          ]
+        }
+      }
+    },
+    "ledgerSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ledger_id",
+        "ledger_sha256",
+        "coverage_mode",
+        "coverage_as_of",
+        "coverage_evidence_sha256",
+        "previous_snapshot_id",
+        "entry_count",
+        "matched_removals",
+        "hash_pending_records",
+        "unknown_opt_out_records"
+      ],
+      "properties": {
+        "ledger_id": {
+          "type": "string",
+          "pattern": "^anima-step2a-removal-[0-9a-f]{24}$"
+        },
+        "ledger_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "coverage_mode": {
+          "enum": [
+            "delta_only",
+            "authoritative_complete_snapshot"
+          ]
+        },
+        "coverage_as_of": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "coverage_evidence_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "previous_snapshot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "entry_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "matched_removals": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "hash_pending_records": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unknown_opt_out_records": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "activity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "network_requests_performed",
+        "metadata_range_requests_performed",
+        "metadata_range_bytes_received",
+        "column_payload_requests_performed",
+        "column_payload_bytes_received",
+        "image_files_downloaded",
+        "image_bytes_downloaded",
+        "training_runs_started"
+      ],
+      "properties": {
+        "network_requests_performed": {
+          "const": 0
+        },
+        "metadata_range_requests_performed": {
+          "const": 0
+        },
+        "metadata_range_bytes_received": {
+          "const": 0
+        },
+        "column_payload_requests_performed": {
+          "const": 0
+        },
+        "column_payload_bytes_received": {
+          "const": 0
+        },
+        "image_files_downloaded": {
+          "const": 0
+        },
+        "image_bytes_downloaded": {
+          "const": 0
+        },
+        "training_runs_started": {
+          "const": 0
+        }
+      }
+    }
+  }
+}

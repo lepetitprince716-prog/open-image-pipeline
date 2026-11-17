@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/gptart_packet.schema.json",
+  "title": "GPTArt packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "plan_sha256", "contact_sheet", "contact_sheet_sha256", "generation_results", "candidates"],
+  "properties": {
+    "schema_version": {"const": "gptart-packet-v1"},
+    "run_id": {"type": "string", "minLength": 1},
+    "plan_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "contact_sheet": {"type": "string", "minLength": 1},
+    "contact_sheet_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "generation_results": {
+      "type": "object",
+      "minProperties": 4,
+      "maxProperties": 4,
+      "additionalProperties": {"$ref": "#/$defs/generationResult"}
+    },
+    "candidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/candidate"}
+    }
+  },
+  "$defs": {
+    "generationResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["intent", "box", "rc", "new_files", "survivors", "dropped", "note", "contact_sheet"],
+      "properties": {
+        "intent": {"const": "artistic"},
+        "box": {"type": "string", "minLength": 1},
+        "rc": {"const": 0},
+        "new_files": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "survivors": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "dropped": {"type": "object"},
+        "note": {"type": ["string", "null"]},
+        "contact_sheet": {"type": ["string", "null"]},
+        "best": {}
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["index", "concept_id", "path", "sha256", "sidecar", "sidecar_sha256", "survivor", "generation_result", "qc", "sfw", "ccip", "per_arm_contact_sheet", "per_arm_contact_sheet_sha256"],
+      "properties": {
+        "index": {"type": "integer", "minimum": 0},
+        "concept_id": {"type": "string", "minLength": 1},
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "sidecar": {"type": ["string", "null"]},
+        "sidecar_sha256": {"type": ["string", "null"]},
+        "survivor": {"const": true},
+        "generation_result": {"type": "string", "minLength": 1},
+        "qc": {"enum": ["pass", "fail", "unverified", "not_applicable"]},
+        "sfw": {"enum": ["pass", "fail", "unverified", "not_applicable"]},
+        "ccip": {"enum": ["pass", "fail", "unverified", "not_applicable"]},
+        "per_arm_contact_sheet": {"type": "string", "minLength": 1},
+        "per_arm_contact_sheet_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  }
+}

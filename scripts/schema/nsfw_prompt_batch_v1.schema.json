@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/nsfw_prompt_batch_v1.schema.json",
+  "title": "DeepSeek NSFW LoRA prompt registry v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "generated_at",
+    "status",
+    "author_model",
+    "guide_sha256",
+    "pilot_sha256",
+    "gpu_submissions",
+    "summary",
+    "calls",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": {"const": "nsfw-prompt-registry-v1"},
+    "generated_at": {"type": "string"},
+    "status": {"enum": ["complete", "partial"]},
+    "author_model": {"const": "deepseek-v4-pro"},
+    "guide_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "pilot_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "gpu_submissions": {"const": 0},
+    "summary": {"type": "object"},
+    "calls": {"type": "array"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "asset_id",
+          "engine",
+          "positive",
+          "negative",
+          "triggers_used",
+          "intended_effect",
+          "card_stem",
+          "checkpoint",
+          "explicit_level",
+          "strengths",
+          "seed",
+          "status",
+          "validation_errors",
+          "repair_attempted",
+          "author_model",
+          "batch_id",
+          "input_sha256",
+          "output_sha256",
+          "prompt_sha256",
+          "created_at"
+        ],
+        "properties": {
+          "asset_id": {"type": "string"},
+          "engine": {"type": "string"},
+          "positive": {"type": "string"},
+          "negative": {"type": "string"},
+          "triggers_used": {"type": "array", "items": {"type": "string"}},
+          "intended_effect": {"type": "string"},
+          "status": {"enum": ["pass", "HOLD"]},
+          "validation_errors": {"type": "array", "items": {"type": "string"}},
+          "repair_attempted": {"type": "boolean"},
+          "author_model": {"const": "deepseek-v4-pro"}
+        }
+      }
+    }
+  }
+}

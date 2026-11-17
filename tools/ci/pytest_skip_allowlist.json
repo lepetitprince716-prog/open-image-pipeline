@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "skips": [
+    {
+      "node": "tests.test_anima_step2a_dataset::test_optional_parquet_fixture_when_pyarrow_is_available",
+      "message_contains": "could not import 'pyarrow'"
+    },
+    {
+      "node": "tests.test_app_m2::test_fingerprinted_next_asset_is_immutable",
+      "message_contains": "frontend export not built"
+    },
+    {
+      "node": "scripts.test_gen_router_artistic::test_pose_index_prompt_hints_are_clean_prompt_text",
+      "message_contains": "pose library index not on this machine"
+    },
+    {
+      "node": "scripts.test_retouch::test_denoise_cv2_path_changes_image",
+      "message_contains": "cv2 not installed"
+    },
+    {
+      "node": "tests.test_forge_live::test_enums_answer",
+      "message_contains": "live Forge smoke is opt-in"
+    },
+    {
+      "node": "tests.test_forge_live::test_txt2img_parameters_chunk_roundtrips",
+      "message_contains": "live Forge smoke is opt-in"
+    },
+    {
+      "node": "tests.test_t2i_gacha_nsfw::test_k3_batch1_live4_verdicts_kept",
+      "message_contains": "nsfw batch prompts are local-only"
+    },
+    {
+      "node": "tests.test_t2i_gacha_nsfw::test_k3_batch1_usable_records_pass_preflight",
+      "message_contains": "nsfw batch prompts are local-only"
+    },
+    {
+      "node": "tests.test_nai_styles_router::test_samples_are_absolute_files_inside_outputs_and_probes_lead",
+      "message_contains": "nai sample renders are local-only"
+    },
+    {
+      "node": "tests.test_gates::test_bridge_wd14_on_missing_file_is_unverified",
+      "message_contains": "imgutils venv not installed"
+    },
+    {
+      "node": "::tests.test_nsfw_compose_policy",
+      "message_contains": "collection skipped"
+    },
+    {
+      "node": "::tests.test_nsfw_directions",
+      "message_contains": "collection skipped"
+    },
+    {
+      "node": "tests.test_nsfw_prompt_author::test_approved_guide_excerpt_is_bounded",
+      "message_contains": "nsfw/NSFW_PROMPT_GUIDE.md is a local-only asset"
+    },
+    {
+      "node": "tests.test_nsfw_prompt_author::test_batch_request_defers_to_per_brief_word_band",
+      "message_contains": "nsfw/NSFW_PROMPT_GUIDE.md is a local-only asset"
+    },
+    {
+      "node": "tests.test_nsfw_prompt_author::test_failed_repair_marks_hold",
+      "message_contains": "nsfw/NSFW_PROMPT_GUIDE.md is a local-only asset"
+    },
+    {
+      "node": "tests.test_nsfw_prompt_author::test_repair_request_states_the_item_word_band",
+      "message_contains": "nsfw/NSFW_PROMPT_GUIDE.md is a local-only asset"
+    },
+    {
+      "node": "tests.test_nsfw_prompt_author::test_single_repair_closes_loop",
+      "message_contains": "nsfw/NSFW_PROMPT_GUIDE.md is a local-only asset"
+    },
+    {
+      "node": "tests.test_prompt_compose::test_nsfw_compose_plan_uses_renderer_not_raw_request",
+      "message_contains": "nsfw direction cards are local-only"
+    },
+    {
+      "node": "tests.test_prompt_compose::test_restored_direction_card_is_leaf_ids_not_il_bypass",
+      "message_contains": "direction cards missing"
+    },
+    {
+      "node": "tests.test_prompt_compose_contract::test_fill_nsfw_with_restored_content_files",
+      "message_contains": "nsfw direction cards are local-only"
+    },
+    {
+      "node": "tests.test_prompt_compose_contract::test_nsfw_fill_uses_documented_assist_ontology",
+      "message_contains": "nsfw assist prompt is local-only"
+    },
+    {
+      "node": "tests.test_prompt_compose_contract::test_parse_slot_proposal_keeps_nsfw_top_level_ontology",
+      "message_contains": "nsfw assist prompt is local-only"
+    },
+    {
+      "node": "tests.test_prompt_compose_contract::test_parse_slot_proposal_nested_slots_win_over_top_level_leaf_ids",
+      "message_contains": "nsfw assist prompt is local-only"
+    },
+    {
+      "node": "tests.test_prompt_compose_phase_de::test_direction_cards_carry_leaf_ids_and_hints",
+      "message_contains": "nsfw direction cards are local-only"
+    },
+    {
+      "node": "tests.test_novelai_mcp::test_the_real_server_accepts_every_signature",
+      "message_contains": "mcp SDK lives in the 'agent' extra"
+    },
+    {
+      "node": "tests.test_novelai_mcp::test_character_shape_reaches_the_model_as_named_fields",
+      "message_contains": "mcp SDK lives in the 'agent' extra"
+    },
+    {
+      "node": "tests.test_novelai_mcp::test_size_is_advertised_as_an_enum",
+      "message_contains": "mcp SDK lives in the 'agent' extra"
+    },
+    {
+      "node": "tests.test_novelai_mcp::test_prompt_is_the_only_required_argument",
+      "message_contains": "mcp SDK lives in the 'agent' extra"
+    }
+  ]
+}

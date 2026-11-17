@@ -1,0 +1,10 @@
+[package]
+name = "mcall"
+version = "0.1.0"
+edition = "2024"
+description = "Unified headless model-call dispatcher over native codex/grok/hermes CLI binaries"
+publish = false
+
+[profile.release]
+strip = true
+lto = "thin"

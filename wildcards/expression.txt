@@ -1,0 +1,37 @@
+# expression v3 — generic micro-expression + gaze + narrative pool (five-layer decoupling
+# N3: de-registered). Opt-in slot (gen.py artistic --expression vary). Inline metadata
+# after " # " is stripped by the engine (motion:/register: tags; N4 + pack filtering).
+# A. restrained micro-expressions [中]
+light smile, barely there, more in the eyes than the mouth # motion:static
+calm composed gaze # motion:static
+cool aloof expression # motion:static
+expressionless, quiet intensity behind the eyes # motion:static
+soft melancholy, held in check # motion:static
+restrained grief, face held deliberately still # motion:static
+faint knowing smile at one corner of the mouth # motion:static
+quiet wistful look # motion:static
+a flicker of tenderness quickly mastered # motion:static
+# B. gaze direction [高 — learned tags]
+looking at viewer, direct gaze, calm and unhurried # motion:static
+sideways glance, cool and appraising # motion:static
+looking away thoughtfully # motion:static
+downcast eyes, lashes lowered, inward attention # motion:static
+looking afar, thoughts elsewhere # motion:static
+looking up, eyes following the light # motion:static
+gaze following her own hands at work # motion:static
+eyes closed, serene, unhurried breath # motion:static
+half-closed eyes, guarded # motion:static
+# C. narrative beats [中]
+composed face, one hand tensed and betraying the calm # motion:static
+tired eyes above a professional calm # motion:static
+slight furrow of the brow, deep concentration # motion:static
+quiet exhale of relief, shoulders easing # motion:static
+watchful stillness, reading the room # motion:static
+lips just parted, the second before speaking # motion:static
+# D. bubbly & bright [恢复的通用条目，register 过滤按 pack 生效]
+wide bright smile, eyes crinkling # motion:static, register:bubbly-cute
+giggling, hand over her mouth # motion:static, register:bubbly-cute
+bouncing with excitement, sparkling eyes # motion:dynamic, register:bubbly-cute
+playful wink, one eyebrow raised # motion:static, register:bubbly-cute
+big theatrical gasp, hands on cheeks # motion:static, register:exaggerated
+melodramatic swoon, hand to forehead # motion:static, register:exaggerated

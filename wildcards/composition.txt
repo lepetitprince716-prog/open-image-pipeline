@@ -1,0 +1,35 @@
+# composition v2 — figure-vs-frame ONLY: where the figure sits in the frame and how the frame is
+# divided. NO environment objects (background/props belong to the other line); the deliberately
+# unspecified `blurry foreground` / `foreground silhouette framing` entries are the interface the
+# object/background line may fill with concrete entities. Orthogonal to camera.txt (camera = where
+# the camera is; composition = how the figure meets the frame). Known clashes with extreme camera
+# picks are listed in wildcards/README.md — the sweep line absorbs them via eye-picking.
+# A. placement [中 — symmetry is a learned tag]
+rule of thirds, figure placed off-center
+centered symmetrical composition, deliberate formal stillness
+figure low in the frame, vast empty upper field
+figure at the very edge of the frame, weighted empty space opposite
+# B. negative space & scale [高 — negative space is a learned tag]
+negative space, small figure in a wide empty field
+figure filling the frame edge to edge, compressed and close
+monumental emptiness, figure occupying a third of the frame height
+tight framing, deliberate claustrophobic crop
+# C. looking room / gaze space [中]
+wide looking room, gazing across the frame into open space
+back to viewer, facing into the empty side of the frame
+gaze leading out of frame, unbalanced open space behind
+# D. lines & diagonals [中 — vanishing point is a learned tag]
+strong diagonal composition, body forming a rising diagonal
+vanishing point perspective, figure standing at the convergence
+vertical composition, tall unbroken standing line
+zigzag composition, limbs breaking the frame into triangles
+# E. depth layering [高 — depth of field / blurry foreground are learned tags]
+blurry foreground, depth of field, figure sharp in the mid-ground
+shallow depth of field, melting bokeh field behind the figure
+foreground silhouette framing the figure, frame within a frame
+layered depth, dark foreground band, lit middle ground
+# F. figure-ground / silhouette readability [中]
+strong silhouette readability, dark figure against a bright field
+bright figure against a dark field, high figure-ground contrast
+clothing reading as one bright graphic shape against darkness
+partially out of frame, one shoulder cropped for tension

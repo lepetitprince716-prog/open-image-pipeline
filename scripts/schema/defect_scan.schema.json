@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/defect_scan.schema.json",
+  "title": "Unified defect-detection gate (mechanical stack + optional grok review)",
+  "type": "object",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {"properties": {"verdict": {"const": "error"}}, "required": ["verdict"]},
+      "then": {"properties": {"errors": {"$ref": "#/$defs/errorMap"}}},
+      "else": {"properties": {"errors": {"type": "null"}}}
+    }
+  ],
+  "required": ["schema", "image_path", "image_sha256", "created_at", "scan_version",
+               "axes", "flags", "verdict", "grok_review", "errors"],
+  "properties": {
+    "schema": {"const": "defect-scan-v2"},
+    "image_path": {"type": "string", "minLength": 1},
+    "image_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "created_at": {"type": "string", "minLength": 1},
+    "scan_version": {"type": "string", "minLength": 1},
+    "axes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hands", "feet", "eyes", "mouth", "global_anatomy", "slop"],
+      "properties": {
+        "hands": {
+          "type": "object", "additionalProperties": false,
+          "required": ["count", "regions", "wd14_tags"],
+          "properties": {
+            "count": {"type": "integer", "minimum": 0},
+            "regions": {"type": "array", "items": {"$ref": "#/$defs/region"}},
+            "wd14_tags": {"type": "array", "items": {"$ref": "#/$defs/tagHit"}}
+          }
+        },
+        "feet": {
+          "type": "object", "additionalProperties": false,
+          "required": ["detected_count", "visible", "regions", "wd14_tags"],
+          "properties": {
+            "detected_count": {"type": "integer", "minimum": 0},
+            "visible": {"type": "boolean"},
+            "regions": {"type": "array", "items": {"$ref": "#/$defs/region"}},
+            "wd14_tags": {"type": "array", "items": {"$ref": "#/$defs/tagHit"}}
+          }
+        },
+        "eyes": {
+          "type": "object", "additionalProperties": false,
+          "required": ["count", "face_count", "regions", "symmetry"],
+          "properties": {
+            "count": {"type": "integer", "minimum": 0},
+            "face_count": {"type": "integer", "minimum": 0},
+            "regions": {"type": "array", "items": {"$ref": "#/$defs/region"}},
+            "symmetry": {
+              "anyOf": [
+                {
+                  "type": "object", "additionalProperties": false,
+                  "required": ["area_ratio", "midpoint_offset"],
+                  "properties": {
+                    "area_ratio": {"type": ["number", "null"]},
+                    "midpoint_offset": {"type": ["number", "null"]}
+                  }
+                },
+                {"type": "null"}
+              ]
+            }
+          }
+        },
+        "mouth": {
+          "type": "object", "additionalProperties": false,
+          "required": ["region"],
+          "properties": {
+            "region": {"anyOf": [{"$ref": "#/$defs/region"}, {"type": "null"}]}
+          }
+        },
+        "global_anatomy": {
+          "type": "object", "additionalProperties": false,
+          "required": ["person_count", "completeness", "wd14_tags"],
+          "properties": {
+            "person_count": {"type": "integer", "minimum": 0},
+            "completeness": {
+              "anyOf": [
+                {
+                  "type": "object", "additionalProperties": false,
+                  "required": ["label", "score"],
+                  "properties": {
+                    "label": {"type": "string"},
+                    "score": {"type": "number"}
+                  }
+                },
+                {"type": "null"}
+              ]
+            },
+            "wd14_tags": {"type": "array", "items": {"$ref": "#/$defs/tagHit"}}
+          }
+        },
+        "slop": {
+          "type": "object", "additionalProperties": false,
+          "required": ["text_regions", "wd14_tags"],
+          "properties": {
+            "text_regions": {"type": "array", "items": {"$ref": "#/$defs/region"}},
+            "wd14_tags": {"type": "array", "items": {"$ref": "#/$defs/tagHit"}}
+          }
+        }
+      }
+    },
+    "flags": {"type": "array", "items": {"$ref": "#/$defs/flag"}},
+    "verdict": {"enum": ["clean", "suspect", "major_defect", "error"]},
+    "grok_review": {"anyOf": [{"type": "object"}, {"type": "null"}]},
+    "errors": {"anyOf": [{"$ref": "#/$defs/errorMap"}, {"type": "null"}]}
+  },
+  "$defs": {
+    "errorMap": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"type": "string"}
+    },
+    "region": {
+      "type": "object", "additionalProperties": false,
+      "required": ["bbox", "label", "confidence", "source"],
+      "properties": {
+        "bbox": {"type": "array", "items": {"type": "integer"}, "minItems": 4, "maxItems": 4},
+        "label": {"type": "string"},
+        "confidence": {"type": "number"},
+        "source": {"enum": ["detector", "heuristic"]}
+      }
+    },
+    "tagHit": {
+      "type": "object", "additionalProperties": false,
+      "required": ["tag", "confidence"],
+      "properties": {
+        "tag": {"type": "string"},
+        "confidence": {"type": "number"}
+      }
+    },
+    "flag": {
+      "type": "object", "additionalProperties": false,
+      "required": ["axis", "flag", "severity", "detail", "region"],
+      "properties": {
+        "axis": {"enum": ["hands", "feet", "eyes", "mouth", "global_anatomy", "slop"]},
+        "flag": {"type": "string", "minLength": 1},
+        "severity": {"enum": ["major", "suspect", "info"]},
+        "detail": {"type": "string"},
+        "region": {"anyOf": [{"$ref": "#/$defs/region"}, {"type": "null"}]}
+      }
+    }
+  }
+}

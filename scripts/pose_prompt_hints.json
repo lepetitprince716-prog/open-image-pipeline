@@ -1,0 +1,29 @@
+{
+  "schema": "loramake.pose-prompt-hints/v1",
+  "hints": {
+    "arabesque_butterfly": "ballet arabesque en pointe, torso leaning forward, both arms reaching forward, back leg extended straight behind",
+    "arabesque_pointe": "ballet pose en pointe, one arm raised overhead, other arm bent near the shoulder, free leg extended at hip height",
+    "archer_draw": "archer draw stance, bow arm extended forward, draw hand pulled back near the face",
+    "cabaret_seated": "seated on steps, one knee raised, both arms bent with hands near the head",
+    "cabaret_seated_cb": "seated upper-body pose, both arms bent with hands near the head",
+    "casual_stand": "relaxed standing pose, one hand touching the hair, other arm hanging at the side, feet close together",
+    "casual_stand_cb": "relaxed upper-body pose, one hand touching the hair, other arm hanging at the side",
+    "crow_balance": "crow balance, both hands planted, elbows bent, knees resting on the upper arms",
+    "dancer_floor_reach": "side-seated floor pose, one hand planted, opposite arm reaching upward, one knee raised and other leg folded",
+    "dancer_floor_reach_sq": "side-seated floor pose, one hand planted, opposite arm reaching upward, one knee raised and other leg folded",
+    "flamenco_arms": "standing dance pose, both arms raised in an asymmetric high V, one knee slightly bent",
+    "flamenco_shawl": "standing side view, one arm extended forward at shoulder height, other arm extended lower, one leg stepped back",
+    "floor_yoga": "low side-support yoga pose, one arm reaching overhead, one leg extended and the other leg bent",
+    "floor_yoga_sq": "low side-support yoga pose, one arm reaching overhead, one leg extended and the other leg bent",
+    "high_kick": "martial high kick, balancing on one straight leg, kicking leg raised high, one arm overhead",
+    "leap_costume": "dance pose en pointe, one arm overhead, other arm extended sideways, back leg bent and lifted",
+    "prone_backbend": "prone bow pose, chest lifted, knees bent, both hands reaching back toward the feet",
+    "prone_backbend_sq": "prone bow pose, chest lifted, knees bent, both hands reaching back toward the feet",
+    "seated_cane": "seated with legs spread wide and bent, both arms lowered outward at waist height",
+    "seated_meditation": "cross-legged meditation pose, upright torso, hands lowered toward the knees",
+    "skater_spiral": "forward skating spiral, torso pitched forward, back leg extended straight at hip height, arms extended for balance",
+    "skater_stance": "wide low skating stance, one knee bent, arms extended down and outward for balance",
+    "warrior_yoga_v2": "warrior yoga pose, wide lunge, arms extended overhead",
+    "wushu_lunge": "deep bow stance lunge, front knee bent, rear leg straight, both arms extended in opposite directions"
+  }
+}

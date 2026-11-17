@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "loramake.prompt-ir/v1",
+  "title": "Prompt IR v1",
+  "description": "Tag-first intermediate representation. SFW-safe fields only. NSFW bands/leaves live on the optional nsfw object (nsfw.prompt-ir/v1).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "tags"],
+  "properties": {
+    "schema": { "const": "loramake.prompt-ir/v1" },
+    "id": { "type": ["string", "null"] },
+    "rating": {
+      "type": ["string", "null"],
+      "enum": ["general", "sensitive", "questionable", "explicit", null]
+    },
+    "prompt_domain": {
+      "type": ["string", "null"],
+      "enum": [
+        "sdxl_illustrious",
+        "sdxl_other",
+        "anima_mixed",
+        "anima_nl",
+        "flux_nl",
+        "qwen21_nl",
+        null
+      ]
+    },
+    "pack_id": { "type": ["string", "null"] },
+    "style_id": { "type": ["string", "null"] },
+    "triggers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "neg_guards": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "nl_spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["text", "facet"],
+        "properties": {
+          "text": { "type": "string" },
+          "facet": { "type": "string" },
+          "from_ids": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "source": { "type": "string" }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/ir_tag" }
+    },
+    "dropped_tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "rewrites": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "kind"],
+        "properties": {
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "kind": { "type": "string" }
+        }
+      }
+    },
+    "nsfw": {
+      "type": "object",
+      "description": "Optional NSFW overlay. Shape is nsfw.prompt-ir/v1."
+    }
+  },
+  "$defs": {
+    "ir_tag": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "facet", "source"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "surface": { "type": "string" },
+        "facet": {
+          "type": "string",
+          "enum": [
+            "count",
+            "identity",
+            "body",
+            "hair",
+            "eyes",
+            "face",
+            "outfit",
+            "exposure",
+            "action",
+            "behavior",
+            "fetish",
+            "pose",
+            "scene",
+            "camera",
+            "light",
+            "style",
+            "artist",
+            "other"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "user",
+            "author",
+            "pack",
+            "leaf",
+            "band",
+            "overlay",
+            "implication",
+            "costume",
+            "style",
+            "trigger"
+          ]
+        },
+        "category": { "type": ["integer", "null"] }
+      }
+    }
+  }
+}

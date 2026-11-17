@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "id": "lan_ip",
+      "pattern": "(?<![0-9vV])(?<![0-9]\\.)(?:10\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|172\\.(?:1[6-9]|2\\d|3[01])\\.\\d{1,3}\\.\\d{1,3}|192\\.168\\.\\d{1,3}\\.\\d{1,3}|100\\.(?:6[4-9]|[7-9]\\d|1[01]\\d|12[0-7])\\.\\d{1,3}\\.\\d{1,3}|169\\.254\\.\\d{1,3}\\.\\d{1,3})(?![0-9])(?!\\.[0-9])",
+      "why": "private, CGNAT or link-local IPv4 address; it points at a home or fleet network"
+    },
+    {
+      "id": "lan_ip",
+      "pattern": "(?<![0-9A-Za-z:])(?:f[cd][0-9a-f]{2}|fe80):(?::|[0-9a-f]{1,4}:)",
+      "flags": "i",
+      "why": "IPv6 unique-local or link-local address; it points at a local network"
+    },
+    {
+      "id": "ipv4_address",
+      "pattern": "(?<![0-9vV])(?<![0-9]\\.)(?!(?:10|192\\.168|169\\.254|172\\.(?:1[6-9]|2\\d|3[01])|100\\.(?:6[4-9]|[7-9]\\d|1[01]\\d|12[0-7]))\\.)(?:25[0-5]|2[0-4]\\d|1\\d\\d|0?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|0?\\d?\\d)){3}(?![0-9])(?!\\.[0-9])",
+      "why": "IPv4 address; use a documentation range (192.0.2.x, 198.51.100.x, 203.0.113.x) or a placeholder"
+    },
+    {
+      "id": "home_path",
+      "pattern": "/(?:Users|home)/(?!(?i:you|user|me|example|runner|shared)(?![A-Za-z0-9._-]))[A-Za-z0-9_][A-Za-z0-9._-]*",
+      "why": "home directory path exposes an account name; use ~/ or a placeholder user"
+    },
+    {
+      "id": "home_path",
+      "pattern": "(?<![^\\s\"'`(\\[{<>=:,;|/*])~(?!(?i:you|user|me|example|runner|shared)(?![A-Za-z0-9._-]))[A-Za-z_][A-Za-z0-9._-]{2,}/",
+      "why": "named home directory exposes an account name; bare ~/ is fine"
+    },
+    {
+      "id": "windows_user_path",
+      "pattern": "[A-Za-z]:\\\\{1,4}Users\\\\{1,4}(?!(?:Public|Default|you|user)(?![A-Za-z0-9._-]))[A-Za-z0-9_]",
+      "flags": "i",
+      "why": "Windows profile path exposes an account name; use a placeholder user"
+    },
+    {
+      "id": "email",
+      "pattern": "(?<![A-Za-z0-9._%+-])[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\\.[A-Za-z0-9-]+)*\\.[A-Za-z]{2,}",
+      "why": "email address; only noreply and example addresses may appear"
+    },
+    {
+      "id": "credential_shape",
+      "pattern": "(?<![A-Za-z0-9_])(?:gh[pousr]_[A-Za-z0-9]{36,}|github_pat_[A-Za-z0-9_]{22,})",
+      "why": "GitHub token shape"
+    },
+    {
+      "id": "credential_shape",
+      "pattern": "(?<![A-Za-z0-9_-])sk-an[t]-[A-Za-z0-9_-]{10,}",
+      "why": "Anthropic API key shape"
+    },
+    {
+      "id": "credential_shape",
+      "pattern": "(?<![A-Za-z0-9_-])sk-(?=[A-Za-z0-9_-]*[0-9])[A-Za-z0-9_-]{32,}",
+      "why": "OpenAI-style API key shape"
+    },
+    {
+      "id": "credential_shape",
+      "pattern": "(?<![A-Za-z0-9_])hf_[A-Za-z0-9]{30,}",
+      "why": "Hugging Face token shape"
+    },
+    {
+      "id": "credential_shape",
+      "pattern": "(?<![A-Za-z0-9])(?:AKIA|ASIA)[A-Z0-9]{16}",
+      "why": "AWS access key id shape"
+    },
+    {
+      "id": "credential_shape",
+      "pattern": "(?<![A-Za-z0-9])xox[abprs]-[A-Za-z0-9-]{10,}",
+      "why": "Slack token shape"
+    },
+    {
+      "id": "credential_shape",
+      "pattern": "(?<![A-Za-z0-9_-])AIza[A-Za-z0-9_-]{35}",
+      "why": "Google API key shape"
+    },
+    {
+      "id": "credential_shape",
+      "pattern": "-----BEGIN (?:[A-Z0-9]+ )*PRIVATE KEY(?: BLOCK)?-----",
+      "why": "private key header"
+    },
+    {
+      "id": "credential_shape",
+      "pattern": "(?<![A-Za-z0-9_-])eyJ[A-Za-z0-9_-]{8,}\\.eyJ[A-Za-z0-9_-]{8,}\\.[A-Za-z0-9_-]*",
+      "why": "JSON Web Token shape"
+    },
+    {
+      "id": "credential_shape",
+      "pattern": "(?i:api[_-]?key|secret|token|password|passwd|authorization)[A-Za-z0-9_-]{0,16}(?:[\"']?\\s{0,3}[=:]\\s{0,3}[\"']?|\\s{0,3}[\"'])(?=[A-Za-z0-9_+/=.-]*[0-9])[A-Za-z0-9_+/=.-]{24,}",
+      "why": "secret-like name assigned a long token-like value"
+    },
+    {
+      "id": "credential_shape",
+      "pattern": "(?i:bearer)\\s+(?=[A-Za-z0-9_+/=.-]*[0-9])[A-Za-z0-9_+/=.-]{24,}",
+      "why": "bearer credential: a long token-like value follows the word"
+    },
+    {
+      "id": "mac_address",
+      "pattern": "(?<![0-9A-Fa-f])[0-9A-Fa-f]{2}([:-])[0-9A-Fa-f]{2}(?:\\1[0-9A-Fa-f]{2}){4}(?![0-9A-Fa-f])",
+      "why": "MAC address identifies a device"
+    },
+    {
+      "id": "tunnel_host",
+      "pattern": "(?<![A-Za-z0-9-])[A-Za-z0-9-]+\\.(?:ts\\.net|trycloudflare\\.com|cfargotunnel\\.com|ngrok(?:-free)?\\.(?:app|io|dev))(?![A-Za-z0-9-])",
+      "flags": "i",
+      "why": "tunnel hostname exposes a private endpoint"
+    },
+    {
+      "id": "lan_hostname",
+      "pattern": "(?<![A-Za-z0-9._-])(?:[A-Za-z0-9-]+\\.)+(?:local|lan|internal|home\\.arpa)(?![A-Za-z0-9-])(?!\\.[A-Za-z])",
+      "why": "local-network hostname exposes a machine name"
+    }
+  ],
+  "allow_literals": [
+    "127.0.0.1",
+    "0.0.0.0",
+    "[address]",
+    "100.64.0.0/10",
+    "100.64.0.254",
+    "https://loramake.local/schema/",
+    "args.local",
+    "cr.local_match"
+  ],
+  "allow_patterns": [
+    "(?i:(?<![A-Za-z0-9._%+-])noreply@[A-Za-z0-9-]+(?:\\.[A-Za-z0-9-]+)*\\.[A-Za-z]{2,})",
+    "(?i:(?<![A-Za-z0-9._%+-])[A-Za-z0-9._%+-]+@users\\.noreply\\.github\\.com(?![A-Za-z0-9-]|\\.[A-Za-z0-9]))",
+    "(?i:(?<![A-Za-z0-9._%+-])[A-Za-z0-9._%+-]+@example\\.(?:com|org|net)(?![A-Za-z0-9-]|\\.[A-Za-z0-9]))",
+    "(?i:(?<![A-Za-z0-9._%+-])git@github\\.com(?![A-Za-z0-9-]|\\.[A-Za-z0-9]))",
+    "(?<![0-9])(?<![0-9]\\.)(?:192\\.0\\.2|198\\.51\\.100|203\\.0\\.113)\\.[0-9]{1,3}(?![0-9])"
+  ],
+  "allowed_emails": [
+    "^\\d+\\+[A-Za-z0-9-]+@users\\.noreply\\.github\\.com$",
+    "^[A-Za-z0-9-]+@users\\.noreply\\.github\\.com$",
+    "^noreply@anthropic\\.com$",
+    "^noreply@x\\.ai$",
+    "^noreply@github\\.com$",
+    "^noreply@deepseek\\.com$",
+    "^noreply@cursor\\.com$"
+  ],
+  "allowed_binary_suffixes": [
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".gif",
+    ".webp",
+    ".ico"
+  ],
+  "note": "Privacy rules for this repository's CI. Copied from the agent-oversight public rules (tools/privacy_rules.json, 2026-11-17) with five allowed literals for values that are not private: the RFC 6598 shared address space constant and a synthetic host inside it used by tests, the fictional schema id host, and two Python attribute accesses that look like a .local hostname. The Anthropic key pattern spells its prefix as sk-an[t]- (same match) so the rules file itself does not look like a key to a substring scanner."
+}

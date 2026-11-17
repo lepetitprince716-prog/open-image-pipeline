@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/gptart_review.schema.json",
+  "title": "GPTArt review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "status", "reviewer_path", "reviewer_actor", "packet_path", "packet_sha256", "contact_sheet_read_verified", "full_resolution_indices", "candidates", "batch", "top3", "no_recommendation", "created_at"],
+  "properties": {
+    "schema_version": {"const": "gptart-review-v1"},
+    "status": {"enum": ["template", "complete"]},
+    "reviewer_path": {"const": "gptart"},
+    "reviewer_actor": {"const": "codex-vision"},
+    "packet_path": {"type": "string", "minLength": 1},
+    "packet_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "contact_sheet_read_verified": {"type": "boolean"},
+    "full_resolution_indices": {"type": "array", "items": {"type": "integer", "minimum": 0}, "uniqueItems": true},
+    "candidates": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/reviewCandidate"}},
+    "batch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["concept_difference", "batch_homogeneity", "effective_rupture_axis", "experiment_to_continue"],
+      "properties": {
+        "concept_difference": {"type": "string"},
+        "batch_homogeneity": {"type": "string"},
+        "effective_rupture_axis": {"type": "string"},
+        "experiment_to_continue": {"type": "string"}
+      }
+    },
+    "top3": {"type": "array", "maxItems": 3, "items": {"$ref": "#/$defs/top3"}},
+    "no_recommendation": {"type": "string"},
+    "created_at": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "reviewCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["index", "hard_gates", "art_axes", "intentional_distortion", "distortion_supports_thesis", "slop_flags", "decisive_observation", "largest_risk", "recommended_delta", "preserve_next_round"],
+      "properties": {
+        "index": {"type": "integer", "minimum": 0},
+        "hard_gates": {
+          "type": "object", "additionalProperties": false,
+          "required": ["anatomy", "identity", "intent_fidelity", "physical_logic"],
+          "properties": {
+            "anatomy": {"enum": ["pass", "fail", "uncertain"]},
+            "identity": {"enum": ["pass", "fail", "uncertain"]},
+            "intent_fidelity": {"enum": ["pass", "fail", "uncertain"]},
+            "physical_logic": {"enum": ["pass", "fail", "uncertain"]}
+          }
+        },
+        "art_axes": {
+          "type": "object", "additionalProperties": false,
+          "required": ["visual_hierarchy", "composition_tension", "light_color_causality", "medium_coherence", "specificity", "narrative_presence", "composition_invention", "color_invention", "pose_invention", "risk_taken", "risk_resolved", "surprise", "memorability", "authorial_specificity"],
+          "properties": {
+            "visual_hierarchy": {"enum": ["strong", "adequate", "weak", "uncertain"]},
+            "composition_tension": {"enum": ["strong", "adequate", "weak", "uncertain"]},
+            "light_color_causality": {"enum": ["strong", "adequate", "weak", "uncertain"]},
+            "medium_coherence": {"enum": ["strong", "adequate", "weak", "uncertain"]},
+            "specificity": {"enum": ["strong", "adequate", "weak", "uncertain"]},
+            "narrative_presence": {"enum": ["strong", "adequate", "weak", "uncertain"]},
+            "composition_invention": {"enum": ["strong", "adequate", "weak", "uncertain"]},
+            "color_invention": {"enum": ["strong", "adequate", "weak", "uncertain"]},
+            "pose_invention": {"enum": ["strong", "adequate", "weak", "uncertain"]},
+            "risk_taken": {"enum": ["strong", "adequate", "weak", "uncertain"]},
+            "risk_resolved": {"enum": ["strong", "adequate", "weak", "uncertain"]},
+            "surprise": {"enum": ["strong", "adequate", "weak", "uncertain"]},
+            "memorability": {"enum": ["strong", "adequate", "weak", "uncertain"]},
+            "authorial_specificity": {"enum": ["strong", "adequate", "weak", "uncertain"]}
+          }
+        },
+        "intentional_distortion": {"enum": ["yes", "no", "uncertain"]},
+        "distortion_supports_thesis": {"enum": ["yes", "no", "uncertain"]},
+        "slop_flags": {"type": "array", "items": {"enum": ["digit_anatomy_error", "default_centered_portrait", "plastic_skin", "decorative_noise", "meaningless_glow", "random_accessories", "fake_text", "overprocessed_hdr", "conflicting_styles", "background_fill", "prompt_literal_collage", "batch_repetition"]}, "uniqueItems": true},
+        "decisive_observation": {"type": "string"},
+        "largest_risk": {"type": "string"},
+        "recommended_delta": {"type": "string"},
+        "preserve_next_round": {"type": "string"}
+      }
+    },
+    "top3": {
+      "type": "object", "additionalProperties": false,
+      "required": ["position", "index", "why", "risk", "next_delta"],
+      "properties": {
+        "position": {"enum": ["complete", "breakthrough", "frontier"]},
+        "index": {"type": "integer", "minimum": 0},
+        "why": {"type": "string"},
+        "risk": {"type": "string"},
+        "next_delta": {"type": "string"}
+      }
+    }
+  }
+}

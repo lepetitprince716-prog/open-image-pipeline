@@ -1,0 +1,10 @@
+#!/bin/sh
+# Unified loramake MCP server / CLI. Every agent's MCP config points here.
+#   scripts/loramake-mcp                 serve over stdio
+#   scripts/loramake-mcp tools           list tools
+#   scripts/loramake-mcp call <tool> '{json}'
+# Runs inside the project venv with the `agent` extra (mcp SDK). Agents spawn this with a
+# minimal PATH, so uv is resolved to an absolute path.
+REPO="$(cd "$(dirname "$0")/.." && pwd)"
+UV="${UV:-$(command -v uv 2>/dev/null || echo "$HOME/.local/bin/uv")}"
+exec "$UV" run --quiet --project "$REPO" --extra agent --inexact python "$REPO/scripts/loramake_mcp.py" "$@"

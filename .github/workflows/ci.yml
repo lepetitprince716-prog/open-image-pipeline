@@ -1,0 +1,61 @@
+name: Public CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  privacy:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0 # the privacy scan reads the whole history
+          persist-credentials: false
+      - name: Privacy scan of the tree and the whole history
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          scanner=tools/privacy/privacy_scan.py
+          rules=tools/privacy/privacy_rules.json
+          if [ -n "$BASE_REF" ]; then
+            # On a pull request the scanner and its rules come from the base branch,
+            # so a change cannot loosen the rules it is judged by. This file runs as
+            # the pull request has it: read a change to it before merging.
+            git show "origin/$BASE_REF:tools/privacy/privacy_scan.py" > "$RUNNER_TEMP/privacy_scan.py"
+            git show "origin/$BASE_REF:tools/privacy/privacy_rules.json" > "$RUNNER_TEMP/privacy_rules.json"
+            scanner="$RUNNER_TEMP/privacy_scan.py"
+            rules="$RUNNER_TEMP/privacy_rules.json"
+          fi
+          python3 -B "$scanner" --rules "$rules" --tracked --history --no-private
+
+  test:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
+        with:
+          version: "0.12.1"
+      - name: Install dependencies
+        run: uv sync --extra dev --python 3.11
+      - name: Lint
+        run: uv run --extra dev ruff check app loramake scripts tests tools/ci
+      - name: Test
+        run: uv run --extra dev python -m pytest tests -q -ra

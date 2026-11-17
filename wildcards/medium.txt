@@ -1,0 +1,11 @@
+# rendering medium / paint technique — pick ONE per image (stacking these muddies the output)
+traditional media
+watercolor \(medium\)
+oil painting
+impasto
+cel shading
+flat color
+gouache
+ink wash painting
+soft pastel
+digital painting, visible brushstrokes

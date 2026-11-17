@@ -1,0 +1,94 @@
+{
+  "schema": "loramake-video-probe-matrix-v1",
+  "description": "B4 portrait baseline with H1, H3 and H4 controlled comparison arms.",
+  "arms": [
+    {
+      "id": "b4_idle",
+      "prompt": "The character remains standing in place with gentle idle breathing, a tiny natural sway of hair and coat, and no deliberate gesture. The camera is completely locked.",
+      "expected": {
+        "subject_motion": "idle breathing and slight secondary motion only",
+        "camera_motion": "locked",
+        "hypothesis": "baseline"
+      }
+    },
+    {
+      "id": "b4_right_hand_raise",
+      "prompt": "The character deliberately raises her right hand from her side to shoulder height, then holds it still. Her left hand remains down. The camera is completely locked.",
+      "expected": {
+        "subject_motion": "right hand raises to shoulder height",
+        "camera_motion": "locked",
+        "laterality": "screen-valid anatomical right hand",
+        "hypothesis": "baseline"
+      }
+    },
+    {
+      "id": "b4_head_tilt",
+      "prompt": "The character slowly tilts her head slightly toward her left shoulder, then holds the final pose. Her torso remains still. The camera is completely locked.",
+      "expected": {
+        "subject_motion": "single slow head tilt toward anatomical left",
+        "camera_motion": "locked",
+        "hypothesis": "baseline"
+      }
+    },
+    {
+      "id": "b4_blink",
+      "prompt": "The character performs one slow complete blink: both eyes close and then reopen. Her head and body remain still. The camera is completely locked.",
+      "expected": {
+        "subject_motion": "one complete blink",
+        "camera_motion": "locked",
+        "hypothesis": "baseline"
+      }
+    },
+    {
+      "id": "b4_wave",
+      "prompt": "The character lifts her right hand to shoulder height and performs one small side-to-side wave, then holds. Her left arm remains still. The camera is completely locked.",
+      "expected": {
+        "subject_motion": "one small right-hand wave",
+        "camera_motion": "locked",
+        "laterality": "screen-valid anatomical right hand",
+        "hypothesis": "baseline"
+      }
+    },
+    {
+      "id": "b4_camera_push_in",
+      "prompt": "The character remains perfectly still while the camera makes one slow, smooth push-in toward her face. No pan, tilt, orbit, or zoom-out.",
+      "expected": {
+        "subject_motion": "still",
+        "camera_motion": "single slow push-in",
+        "hypothesis": "baseline"
+      }
+    },
+    {
+      "id": "b4_h3_zh_right_hand",
+      "prompt": "角色明确抬起她的右手，从身体侧面抬到肩膀高度后保持不动；左手始终放下。镜头完全固定。",
+      "expected": {
+        "subject_motion": "右手抬到肩膀高度",
+        "camera_motion": "固定",
+        "laterality": "角色自身右手",
+        "hypothesis": "H3 Chinese laterality wording"
+      }
+    },
+    {
+      "id": "b4_h1_wave_no_subtle",
+      "prompt": "The character lifts her right hand to shoulder height and performs one small side-to-side wave, then holds. Her left arm remains still. The camera is completely locked.",
+      "pos_suffix": "flat 2D anime, cel shading, clean lineart",
+      "expected": {
+        "subject_motion": "one small right-hand wave",
+        "camera_motion": "locked",
+        "laterality": "screen-valid anatomical right hand",
+        "hypothesis": "H1 remove limited animation and subtle motion suffix"
+      }
+    },
+    {
+      "id": "b4_h4_right_hand_horizontal",
+      "prompt": "The character deliberately raises her right hand from her side to shoulder height, then holds it still. Her left hand remains down. The camera is completely locked.",
+      "res": "832x480",
+      "expected": {
+        "subject_motion": "right hand raises to shoulder height",
+        "camera_motion": "locked",
+        "laterality": "screen-valid anatomical right hand",
+        "hypothesis": "H4 horizontal resolution comparison"
+      }
+    }
+  ]
+}

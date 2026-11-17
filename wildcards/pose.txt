@@ -1,0 +1,57 @@
+# pose v3 — generic text-pose pool (five-layer decoupling N3: de-registered).
+# When the pose MUST lock, use the pose-library skeletons via --pose-ref / --control openpose
+# instead; text poses serve the no-ControlNet sweep line and the N4 combo engine.
+# Inline metadata after " # " is stripped by the engine: motion:<class> (static/seated/
+# reclining/dance/dynamic — N4 compatibility input) and register:<tag> (assembler filters
+# per the active character pack's register.exclude).
+# A. dynamic line & weight [中 — contrapposto is a learned tag]
+standing contrapposto, weight settled on one hip, S-curve through the spine # id:standing_contrapposto_weight_settled_on_,motion:static
+leaning against a wall, arms crossed # id:leaning_against_a_wall_arms_crossed,motion:static
+leaning forward over a table, weight on both hands # id:leaning_forward_over_a_table_weight_on_b,motion:static
+body forming a rising diagonal, mid-motion reach # id:body_forming_a_rising_diagonal_mid_motio,motion:dynamic
+crouching, looking up # id:crouching_looking_up,motion:dynamic
+reaching toward the viewer, foreshortening # id:reaching_toward_the_viewer_foreshortenin,motion:dynamic
+skipping forward, arms swinging # id:skipping_forward_arms_swinging,motion:dance, register:bubbly-cute
+twirling in place, skirt flaring # id:twirling_in_place_skirt_flaring,motion:dance, register:bubbly-cute
+hopping from one foot to the other, playful energy # id:hopping_from_one_foot_to_the_other_playf,motion:dance, register:bubbly-cute
+doing a little victory jump, fists pumped # id:doing_a_little_victory_jump_fists_pumped,motion:dynamic, register:bubbly-cute
+striking an exaggerated superhero stance # id:striking_an_exaggerated_superhero_stance,motion:dynamic, register:exaggerated
+over-the-top model pose, hand on hip, chin high # id:over_the_top_model_pose_hand_on_hip_chin,motion:static, register:exaggerated
+# B. seated & grounded [高 — sitting/kneeling are learned tags]
+sitting, one knee up # id:sitting_one_knee_up,motion:seated
+sitting on the floor, leaning back on hands # id:sitting_on_the_floor_leaning_back_on_han,motion:seated
+sitting with legs crossed, back straight, composed # id:sitting_with_legs_crossed_back_straight_,motion:seated
+seated on the edge of a chair, elbows on knees, leaning forward # id:seated_on_the_edge_of_a_chair_elbows_on_,motion:seated
+kneeling, hands resting on lap # id:kneeling_hands_resting_on_lap,motion:seated
+seiza, kneeling upright and formal # id:seiza_kneeling_upright_and_formal,motion:seated
+lying down, viewed from above # id:lying_down_viewed_from_above,motion:reclining
+curled up in a ball, hugging knees, head down # id:curled_up_in_a_ball_hugging_knees_head_d,motion:reclining, register:cutesy
+sitting cross-legged with a bounce, knees bobbing # id:sitting_cross_legged_with_a_bounce_knees,motion:seated, register:bubbly-cute
+# C. hand storytelling [中 — quiet gestures]
+resting her chin on the back of one hand, elbow propped # id:resting_her_chin_on_the_back_of_one_hand,motion:seated
+fingertips to lips in thought # id:fingertips_to_lips_in_thought,motion:static
+adjusting a glove at the wrist, eyes lowered to the task # id:adjusting_a_glove_at_the_wrist_eyes_lowe,motion:static
+hands clasped behind back, standing straight # id:hands_clasped_behind_back_standing_strai,motion:static
+holding a small cup with both hands # id:holding_a_small_cup_with_both_hands,motion:seated
+adjusting her coat collar with one hand # id:adjusting_her_coat_collar_with_one_hand,motion:static
+hand brushing hair aside, head tilted # id:hand_brushing_hair_aside_head_tilted,motion:static
+hands in pockets, relaxed slouch # id:hands_in_pockets_relaxed_slouch,motion:static
+looking down at her own open palm # id:looking_down_at_her_own_open_palm,motion:static
+making a heart with her fingers, bright grin # id:making_a_heart_with_her_fingers_bright_g,motion:static, register:bubbly-cute
+waving energetically with both arms # id:waving_energetically_with_both_arms,motion:dynamic, register:bubbly-cute
+blowing a kiss, fingers to lips # id:blowing_a_kiss_fingers_to_lips,motion:static, register:cutesy
+# D. orientation & turn [高 — looking back / from behind are learned tags]
+back to viewer, looking over one shoulder # id:back_to_viewer_looking_over_one_shoulder,motion:static
+mid-turn, hair swaying # id:mid_turn_hair_swaying,motion:dynamic
+standing in profile, gaze ahead # id:standing_in_profile_gaze_ahead,motion:static
+three-quarter stance, face turned toward the light # id:three_quarter_stance_face_turned_toward_,motion:static
+# E. motion
+walking, mid-stride # id:walking_mid_stride,motion:dynamic
+walking away, glancing back # id:walking_away_glancing_back,motion:dynamic
+stretching, arms raised # id:stretching_arms_raised,motion:dynamic
+on tiptoe, reaching up high # id:on_tiptoe_reaching_up_high,motion:dynamic
+jumping, arms thrown up in joy # id:jumping_arms_thrown_up_in_joy,motion:dance, register:bubbly-cute
+cartwheeling, limbs extended # id:cartwheeling_limbs_extended,motion:dance, register:exaggerated
+# F. stillness & composure
+perfectly vertical stillness, shoulders level, hands quiet at her sides # id:perfectly_vertical_stillness_shoulders_l,motion:static
+arms behind back, leaning forward # id:arms_behind_back_leaning_forward,motion:static

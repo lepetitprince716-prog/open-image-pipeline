@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/video_review.schema.json",
+  "title": "Loramake video review event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "record_id",
+    "project_id",
+    "direction",
+    "clip",
+    "scene_id",
+    "shot_id",
+    "timecode",
+    "reviewer",
+    "verdicts",
+    "summary",
+    "created_at"
+  ],
+  "properties": {
+    "schema": {"const": "loramake-video-review-v1"},
+    "record_id": {"$ref": "#/$defs/identifier"},
+    "project_id": {"$ref": "#/$defs/identifier"},
+    "direction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "clip": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "bytes"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "bytes": {"type": "integer", "minimum": 1}
+      }
+    },
+    "scene_id": {"$ref": "#/$defs/identifier"},
+    "shot_id": {"$ref": "#/$defs/identifier"},
+    "timecode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "frame", "relative_frame"],
+      "properties": {
+        "value": {"type": "string", "pattern": "^[0-9]{2,}:[0-5][0-9]:[0-5][0-9]\\.[0-9]{3}$"},
+        "frame": {"type": "integer", "minimum": 0},
+        "relative_frame": {"type": "integer", "minimum": 0}
+      }
+    },
+    "reviewer": {"type": "string", "minLength": 1},
+    "verdicts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "motion",
+        "camera",
+        "beat",
+        "identity",
+        "continuity",
+        "flicker",
+        "line_boiling",
+        "palette"
+      ],
+      "properties": {
+        "motion": {"$ref": "#/$defs/verdict"},
+        "camera": {"$ref": "#/$defs/verdict"},
+        "beat": {"$ref": "#/$defs/verdict"},
+        "identity": {"$ref": "#/$defs/verdict"},
+        "continuity": {"$ref": "#/$defs/verdict"},
+        "flicker": {"$ref": "#/$defs/verdict"},
+        "line_boiling": {"$ref": "#/$defs/verdict"},
+        "palette": {"$ref": "#/$defs/verdict"}
+      }
+    },
+    "summary": {"type": "string"},
+    "created_at": {"type": "string", "format": "date-time", "minLength": 1}
+  },
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[a-z0-9](?:[a-z0-9_-]{0,62}[a-z0-9])?$"
+    },
+    "verdict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["verdict", "note"],
+      "properties": {
+        "verdict": {
+          "enum": ["pass", "partial", "fail", "uncertain", "not_applicable"]
+        },
+        "note": {"type": "string"}
+      }
+    }
+  }
+}

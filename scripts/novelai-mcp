@@ -1,0 +1,10 @@
+#!/bin/sh
+# NovelAI MCP server / CLI. Point any MCP client here; needs NAI_ACCESS_TOKEN.
+#   scripts/novelai-mcp                  serve over stdio
+#   scripts/novelai-mcp tools            list tools
+#   scripts/novelai-mcp call <tool> '{json}'
+# Runs inside the project venv with the `agent` extra (mcp SDK). Agents spawn this with a
+# minimal PATH, so uv is resolved to an absolute path.
+REPO="$(cd "$(dirname "$0")/.." && pwd)"
+UV="${UV:-$(command -v uv 2>/dev/null || echo "$HOME/.local/bin/uv")}"
+exec "$UV" run --quiet --project "$REPO" --extra agent --inexact python "$REPO/scripts/novelai_mcp.py" "$@"

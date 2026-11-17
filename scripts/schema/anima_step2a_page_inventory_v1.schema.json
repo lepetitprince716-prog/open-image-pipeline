@@ -1,0 +1,430 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loramake.local/schema/anima_step2a_page_inventory_v1.schema.json",
+  "title": "Anima Step 2a bounded Parquet page inventory v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "status",
+    "source",
+    "footer_plan_sha256",
+    "footer_sha256",
+    "page_index_probe",
+    "offset_index_evidence",
+    "anchor_column",
+    "projected_columns",
+    "row_groups",
+    "activity"
+  ],
+  "properties": {
+    "schema": {
+      "const": "anima-step2a-page-inventory-v1"
+    },
+    "status": {
+      "enum": [
+        "COMPLETE",
+        "OFFSET_INDEX_UNAVAILABLE",
+        "INCOMPLETE",
+        "UNKNOWN"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "revision",
+        "filename",
+        "size_bytes"
+      ],
+      "properties": {
+        "name": {
+          "const": "deepghs/danbooru2024-webp-4Mpixel"
+        },
+        "revision": {
+          "const": "60ca7e02a844bccbe6c8344d1a18b7ea280b787f"
+        },
+        "filename": {
+          "const": "metadata.parquet"
+        },
+        "size_bytes": {
+          "const": 6846458425
+        }
+      }
+    },
+    "footer_plan_sha256": {
+      "const": "067eeca1ffdbc08391e1911c16931991550b1605d6b7484b4082b9367a01e36a"
+    },
+    "footer_sha256": {
+      "const": "0c3d48949974d9e6870304290a2649a0d2b9f762d3453374ad6defb3b71fb276"
+    },
+    "page_index_probe": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/pageIndexProbe"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "offset_index_evidence": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/offsetIndexEvidence"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "anchor_column": {
+      "const": "id"
+    },
+    "projected_columns": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "prefixItems": [
+        {
+          "const": "score"
+        },
+        {
+          "const": "source"
+        },
+        {
+          "const": "md5"
+        },
+        {
+          "const": "tag_string"
+        },
+        {
+          "const": "tag_string_general"
+        },
+        {
+          "const": "rating"
+        },
+        {
+          "const": "id"
+        }
+      ],
+      "items": false
+    },
+    "row_groups": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "$ref": "#/$defs/rowGroup"
+      }
+    },
+    "activity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "metadata_range_requests_performed",
+        "metadata_range_bytes_received",
+        "column_payload_requests_performed",
+        "column_payload_bytes_received",
+        "image_files_downloaded",
+        "training_runs_started"
+      ],
+      "properties": {
+        "metadata_range_requests_performed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 128
+        },
+        "metadata_range_bytes_received": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 33554432
+        },
+        "column_payload_requests_performed": {
+          "const": 0
+        },
+        "column_payload_bytes_received": {
+          "const": 0
+        },
+        "image_files_downloaded": {
+          "const": 0
+        },
+        "training_runs_started": {
+          "const": 0
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "COMPLETE"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "page_index_probe": {
+            "$ref": "#/$defs/pageIndexProbe"
+          },
+          "offset_index_evidence": {
+            "$ref": "#/$defs/offsetIndexEvidence"
+          },
+          "row_groups": {
+            "type": "array",
+            "minItems": 8,
+            "maxItems": 8
+          },
+          "activity": {
+            "type": "object",
+            "properties": {
+              "metadata_range_requests_performed": {
+                "const": 59
+              },
+              "metadata_range_bytes_received": {
+                "type": "integer",
+                "minimum": 139534
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "page_index_probe": {
+            "type": "null"
+          },
+          "offset_index_evidence": {
+            "type": "null"
+          },
+          "row_groups": {
+            "type": "array",
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "pageIndexProbe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "probe_id"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "probe_id": {
+          "type": "string",
+          "pattern": "^anima-step2a-page-index-probe-[0-9a-f]{24}$"
+        }
+      }
+    },
+    "offsetIndexEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes",
+        "serialization"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16777216
+        },
+        "serialization": {
+          "const": "Apache Thrift TCompactProtocol OffsetIndex concatenation"
+        }
+      }
+    },
+    "range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "start",
+        "end"
+      ],
+      "properties": {
+        "kind": {
+          "const": "column_prefix_prerequisite"
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "page": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "page_ordinal",
+        "first_row_index",
+        "row_count",
+        "offset",
+        "compressed_page_size"
+      ],
+      "properties": {
+        "page_ordinal": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "first_row_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "row_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "compressed_page_size": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "offsetIndex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "offset",
+        "length",
+        "evidence_offset",
+        "sha256"
+      ],
+      "properties": {
+        "offset": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "length": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16777216
+        },
+        "evidence_offset": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 16777215
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "column": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "chunk_start",
+        "chunk_end",
+        "offset_index",
+        "prerequisite_ranges",
+        "pages"
+      ],
+      "properties": {
+        "path": {
+          "enum": [
+            "score",
+            "source",
+            "md5",
+            "tag_string",
+            "tag_string_general",
+            "rating",
+            "id"
+          ]
+        },
+        "chunk_start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "chunk_end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "offset_index": {
+          "$ref": "#/$defs/offsetIndex"
+        },
+        "prerequisite_ranges": {
+          "type": "array",
+          "maxItems": 1,
+          "items": {
+            "$ref": "#/$defs/range"
+          }
+        },
+        "pages": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1000000,
+          "items": {
+            "$ref": "#/$defs/page"
+          }
+        }
+      }
+    },
+    "rowGroup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "row_group_index",
+        "row_count",
+        "columns"
+      ],
+      "properties": {
+        "row_group_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "row_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "columns": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "items": {
+            "$ref": "#/$defs/column"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+# outfit v1 — pure-random thin pool for the artistic line when no outfit card is
+# selected (N4 combo engine samples the deck; this pool is the wildcard fallback).
+# Character-neutral by construction: no hair/eye colors, no body-shape language.
+black gothic techwear set
+white lab coat over a black combat inner suit
+cropped utility shirt with harness straps and tailored shorts
+camisole dress with a corset bodice
+layered tech-goth coat dress
+jirai-kei coord, ribbon blouse and pleated skirt
+gothic lolita dress with a layered petticoat skirt
+military-style long coat
+oversized knit sweater and long skirt
+school uniform, blazer and pleated skirt
+elegant long evening gown
+one-piece swimsuit
